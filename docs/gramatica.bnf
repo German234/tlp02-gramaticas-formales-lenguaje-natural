@@ -1,0 +1,143 @@
+<programa> ::= <preambulo> <funciones> <principal>
+
+<preambulo> ::= '#include' '<' 'iostream' '>' 'using' 'namespace' 'std' ';'
+
+<funciones> ::= <funcion> <funciones> | ε
+
+<funcion> ::= <tipo_retorno> ID '(' <parametros_opcionales> ')' <bloque>
+
+<principal> ::= 'int' 'main' '(' ')' <bloque>
+
+<tipo_retorno> ::= <tipo> | 'void'
+
+<tipo> ::= 'int' | 'float' | 'bool'
+
+<parametros_opcionales> ::= <parametros> | ε
+
+<parametros> ::= <parametro> <resto_parametros>
+
+<resto_parametros> ::= ',' <parametro> <resto_parametros> | ε
+
+<parametro> ::= <tipo> ID
+
+<bloque> ::= '{' <sentencias> '}'
+
+<sentencias> ::= <sentencia> <sentencias> | ε
+
+<sentencia> ::= <condicional>
+              | <ciclo_while>
+              | <ciclo_for>
+              | <ciclo_do>
+              | <seleccion_switch>
+              | <bloque>
+              | <sentencia_simple>
+
+<sentencia_simple> ::= <declaracion>
+                     | <sentencia_id>
+                     | <retorno>
+                     | <ruptura>
+
+<declaracion> ::= <tipo> ID <inicializacion> ';'
+
+<inicializacion> ::= '=' <expresion> | ε
+
+<sentencia_id> ::= ID <continuacion_id> ';'
+
+<continuacion_id> ::= '=' <expresion>
+                    | '(' <argumentos_opcionales> ')'
+                    | '++'
+                    | '--'
+
+# Dangling else (igual que C++): esta regla es AMBIGUA para
+#   if (a) if (b) x = 1; else x = 2;
+# porque 'else' está en FIRST(<else_opcional>) y también en FOLLOW(<else_opcional>).
+# Regla de desambiguación: el 'else' se asocia al 'if' más cercano sin 'else'.
+# El parser la aplica consumiendo el 'else' en cuanto lo ve ("else codicioso").
+<condicional> ::= 'if' '(' <expresion> ')' <sentencia> <else_opcional>
+
+<else_opcional> ::= 'else' <sentencia> | ε
+
+<ciclo_while> ::= 'while' '(' <expresion> ')' <sentencia>
+
+<ciclo_for> ::= 'for' '(' <inicio_for> ';' <condicion_for> ';' <actualizacion_for> ')' <sentencia>
+
+<inicio_for> ::= <tipo> ID <inicializacion>
+               | ID '=' <expresion>
+               | ε
+
+<condicion_for> ::= <expresion> | ε
+
+<actualizacion_for> ::= ID <continuacion_actualizacion> | ε
+
+<continuacion_actualizacion> ::= '=' <expresion> | '++' | '--'
+
+<ciclo_do> ::= 'do' <sentencia> 'while' '(' <expresion> ')' ';'
+
+<seleccion_switch> ::= 'switch' '(' <expresion> ')' '{' <casos> '}'
+
+<casos> ::= <etiqueta> <sentencias> <casos> | ε
+
+<etiqueta> ::= 'case' <constante_case> ':' | 'default' ':'
+
+<constante_case> ::= NUM | '-' NUM
+
+<ruptura> ::= 'break' ';'
+
+<retorno> ::= 'return' <valor_retorno> ';'
+
+<valor_retorno> ::= <expresion> | ε
+
+<expresion> ::= <logico_or>
+
+<logico_or> ::= <logico_and> <resto_or>
+
+<resto_or> ::= '||' <logico_and> <resto_or> | ε
+
+<logico_and> ::= <igualdad> <resto_and>
+
+<resto_and> ::= '&&' <igualdad> <resto_and> | ε
+
+<igualdad> ::= <relacional> <resto_igualdad>
+
+<resto_igualdad> ::= '==' <relacional> <resto_igualdad>
+                  | '!=' <relacional> <resto_igualdad>
+                  | ε
+
+<relacional> ::= <aditivo> <resto_relacional>
+
+<resto_relacional> ::= '<' <aditivo> <resto_relacional>
+                    | '>' <aditivo> <resto_relacional>
+                    | '<=' <aditivo> <resto_relacional>
+                    | '>=' <aditivo> <resto_relacional>
+                    | ε
+
+<aditivo> ::= <multiplicativo> <resto_aditivo>
+
+<resto_aditivo> ::= '+' <multiplicativo> <resto_aditivo>
+                 | '-' <multiplicativo> <resto_aditivo>
+                 | ε
+
+<multiplicativo> ::= <unario> <resto_multiplicativo>
+
+<resto_multiplicativo> ::= '*' <unario> <resto_multiplicativo>
+                       | '/' <unario> <resto_multiplicativo>
+                       | '%' <unario> <resto_multiplicativo>
+                       | ε
+
+<unario> ::= '!' <unario>
+           | '-' <unario>
+           | <primario>
+
+<primario> ::= ID <llamada_opcional>
+            | NUM
+            | 'true'
+            | 'false'
+            | '(' <expresion> ')'
+
+<llamada_opcional> ::= '(' <argumentos_opcionales> ')' | ε
+
+<argumentos_opcionales> ::= <argumentos> | ε
+
+<argumentos> ::= <expresion> <resto_argumentos>
+
+<resto_argumentos> ::= ',' <expresion> <resto_argumentos> | ε

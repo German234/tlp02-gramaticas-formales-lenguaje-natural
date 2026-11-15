@@ -1,0 +1,30 @@
+# Entornos virtuales de Python
+.venv/
+venv/
+env/
+
+# Archivos compilados y caché de Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Configuración local de editores
+.vscode/
+.idea/
+
+# Archivos del sistema operativo / OneDrive
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Videos y grabaciones (se entregan como enlace, no en el repositorio)
+*.mp4
+*.mov
+*.mkv
+
+# Documentos PDF (enunciado del proyecto)
+*.pdf
+
+# Archivos temporales
+*.log
+*.tmp
