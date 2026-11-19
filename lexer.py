@@ -86,9 +86,10 @@ if __name__ == "__main__":
     sys.stdout.reconfigure(encoding="utf-8")
     ruta = Path(sys.argv[1]) if len(sys.argv) > 1 else Path(__file__).parent / "ejemplos" / "ejemplo.cpp"
     try:
-        print(f"{'LÍN:COL':<8} {'TIPO':<10} LEXEMA")
-        for t in tokenizar(ruta.read_text(encoding="utf-8")):
-            print(f"{t.linea:>3}:{t.columna:<4} {t.tipo:<10} {t.valor!r}")
+        tokens = list(tokenizar(ruta.read_text(encoding="utf-8")))
     except ErrorLexico as e:
         print("Error léxico:", e)
         sys.exit(1)
+    print(f"{'LÍN:COL':<8} {'TIPO':<10} LEXEMA")
+    for t in tokens:
+        print(f"{t.linea:>3}:{t.columna:<4} {t.tipo:<10} {t.valor!r}")

@@ -49,7 +49,8 @@ class TablaSimbolos:
 
     def declarar(self, nombre, tipo, linea) -> bool:
         """Devuelve False si el nombre ya existe en el ámbito ACTUAL."""
-        if nombre in self.ambitos[-1]:
+        if nombre in self.ambitos[-1]: 
+            """ -1 es porque es el ultimo ambito de la pila"""
             return False
         self.ambitos[-1][nombre] = tipo
         self.historial.append((nombre, tipo, len(self.ambitos) - 1, linea))
@@ -71,7 +72,7 @@ def compatible(destino, origen) -> bool:
 class AnalizadorSemantico:
     def __init__(self, codigo):
         self.tokens = tokenizar(codigo)
-        self.pos = 0
+        self.pos = 0 # posición del token actual
         self.tabla = TablaSimbolos()
         self.funciones = {}        # nombre -> (tipo_retorno, [tipos de parámetros])
         self.tipo_retorno = None   # tipo de la función que se está analizando

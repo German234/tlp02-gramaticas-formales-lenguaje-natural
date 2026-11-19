@@ -6,7 +6,7 @@ Este proyecto implementa un analizador léxico (lexer) y un analizador semántic
 |---|---|---|
 | Análisis léxico | `lexer.py` | Lenguaje regular (tipo 3) |
 | Análisis sintáctico | `parser.py` | Lenguaje libre de contexto (tipo 2) |
-| Análisis semántico | `semantico.py` | Reglas sensibles al contexto (tipo 1) |
+| Análisis semántico | `semantico.py` | Verificaciones sensibles al contexto (relacionadas con el tipo 1)|
 
 ## Requisitos
 
