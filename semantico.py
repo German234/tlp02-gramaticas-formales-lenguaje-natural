@@ -49,8 +49,7 @@ class TablaSimbolos:
 
     def declarar(self, nombre, tipo, linea) -> bool:
         """Devuelve False si el nombre ya existe en el ámbito ACTUAL."""
-        if nombre in self.ambitos[-1]: 
-            """ -1 es porque es el ultimo ambito de la pila"""
+        if nombre in self.ambitos[-1]:   # -1 = último ámbito de la pila (el actual)
             return False
         self.ambitos[-1][nombre] = tipo
         self.historial.append((nombre, tipo, len(self.ambitos) - 1, linea))
