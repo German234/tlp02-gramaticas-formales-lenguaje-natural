@@ -15,6 +15,20 @@ python pruebas.py
 | Errores semánticos | 15 |
 | **Total** | **25** |
 
+> **Casos del video.** Los casos L01–L03 y S01–S04 de la carpeta [`pruebas/`](../pruebas/) son programas aparte, preparados para la demostración (comandos y salidas en el [README](../README.md#casos-de-la-demostración)). Equivalen a estos casos de la batería:
+>
+> | Video | Batería | Regla |
+> |---|---|---|
+> | L01 | V1 | Programa válido |
+> | L02 | L2 | Número mal formado |
+> | L03 | L1 | Carácter no válido |
+> | S01 | V1–V3 | Declaraciones, tipos y ámbitos |
+> | S02 | S1 | Variable no declarada |
+> | S03 | S2 | Redeclaración |
+> | S04 | S3 | Tipos incompatibles en una asignación |
+>
+> Los números de línea y columna no coinciden porque los programas son distintos.
+
 ## Cómo funcionan
 
 Cada caso es una tupla `(esperado, título, código)`:

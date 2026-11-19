@@ -20,7 +20,17 @@ cpp_parser/
 ├── lexer.py            # Analizador léxico: código fuente -> lista de tokens
 ├── parser.py           # Analizador sintáctico: tokens -> árbol sintáctico
 ├── semantico.py        # Analizador semántico: tabla de símbolos, tipos y ámbitos
-├── pruebas.py          # Casos de prueba (válidos y con errores)
+├── pruebas.py          # Batería automática de 25 casos (válidos y con errores)
+├── pruebas/            # Casos de la demostración del video, un archivo por caso
+│   ├── lexer/
+│   │   ├── valido.cpp             # L01: programa válido
+│   │   ├── numero_invalido.cpp    # L02: número mal formado '12abc'
+│   │   └── caracter_invalido.cpp  # L03: carácter no válido '@'
+│   └── semantico/
+│       ├── valido.cpp             # S01: declaraciones, tipos y ámbitos
+│       ├── no_declarada.cpp       # S02: variable no declarada
+│       ├── redeclaracion.cpp      # S03: redeclaración en el mismo ámbito
+│       └── tipo_incompatible.cpp  # S04: bool asignado a int
 ├── ejemplos/
 │   ├── ejemplo.cpp          # Programa válido que usa todo el subconjunto
 │   ├── error_lexico.cpp     # Programa con un error léxico (para la demo)
@@ -120,10 +130,10 @@ LÍN:COL  TIPO       LEXEMA
   9:10   (          '('
 ```
 
-Si encuentra un error, muestra su línea y columna y termina con código 1:
+Si encuentra un error, muestra solo el mensaje con su línea y columna (sin la tabla de tokens) y termina con código 1:
 
 ```
-Error léxico: Línea 3, columna 13: número mal formado '12abc'
+Error léxico: Línea 2, columna 16: número mal formado '12abc'
 ```
 
 ### 2. Parser: ver el árbol sintáctico
@@ -182,6 +192,25 @@ historial = analizar_codigo("int main() { int x = 1; return 0; }")
 ```
 
 ## Cómo ejecutar las pruebas
+
+Hay dos formas de probar el proyecto:
+
+- **Casos de la demostración** (carpeta `pruebas/`): un archivo `.cpp` por caso, para ejecutarlos uno a uno y ver la salida completa. Son los que se muestran en el video.
+- **Batería automática** (`pruebas.py`): 25 casos que se ejecutan de una sola vez.
+
+### Casos de la demostración
+
+| ID | Comando | Resultado esperado |
+|---|---|---|
+| L01 | `python lexer.py pruebas/lexer/valido.cpp` | Tabla de tokens con línea, columna, tipo y lexema, hasta `EOF` |
+| L02 | `python lexer.py pruebas/lexer/numero_invalido.cpp` | `Error léxico: Línea 2, columna 16: número mal formado '12abc'` |
+| L03 | `python lexer.py pruebas/lexer/caracter_invalido.cpp` | `Error léxico: Línea 2, columna 19: carácter no válido '@'` |
+| S01 | `python semantico.py pruebas/semantico/valido.cpp` | Análisis correcto y tabla de símbolos: `edad` (int, 1), `promedio` (float, 1), `aprobado` (bool, 2) |
+| S02 | `python semantico.py pruebas/semantico/no_declarada.cpp` | `Error semántico: Línea 2, columna 5: la variable 'edad' no ha sido declarada` |
+| S03 | `python semantico.py pruebas/semantico/redeclaracion.cpp` | `Error semántico: Línea 3, columna 9: la variable 'edad' ya fue declarada en este ámbito` |
+| S04 | `python semantico.py pruebas/semantico/tipo_incompatible.cpp` | `Error semántico: Línea 2, columna 9: no se puede asignar bool a 'edad' de tipo int` |
+
+### Batería automática
 
 ```bash
 python pruebas.py
