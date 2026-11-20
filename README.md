@@ -8,6 +8,17 @@ Este proyecto implementa un analizador léxico (lexer) y un analizador semántic
 | Análisis sintáctico | `parser.py` | Lenguaje libre de contexto (tipo 2) |
 | Análisis semántico | `semantico.py` | Verificaciones sensibles al contexto (relacionadas con el tipo 1)|
 
+## Integrantes
+
+**Grupo:** Los Miguel Ones
+
+| Carné | Nombre |
+|---|---|
+| 00083522 | Nieto Rivas, Kelvin Armando |
+| 00095322 | Martínez Ávila, María Auxiliadora |
+| 00059122 | Santos Hernández, German David |
+| 00100520 | Serrano Córdova, Alejandra Vanessa |
+
 ## Requisitos
 
 - Python 3.9 o superior.
