@@ -2,8 +2,8 @@
  "sistema": "parser",
  "info": {
   "descripcion": "CFG + parser descendente recursivo + concordancia",
-  "segundos": 0.04,
-  "ms_por_oracion": 0.5
+  "segundos": 0.01,
+  "ms_por_oracion": 0.1
  },
  "predicciones": [
   {
