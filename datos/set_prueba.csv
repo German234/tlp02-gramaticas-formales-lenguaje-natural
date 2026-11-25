@@ -1,0 +1,77 @@
+﻿id,nivel,oracion,gramatical,resultado_esperado,fenomeno,upos,adjunciones
+N1-01,1,El perro come .,si,ok,SV intransitivo/transitivo sin objeto,DET NOUN VERB PUNCT,
+N1-02,1,María compra una manzana .,si,ok,SVO,PROPN VERB DET NOUN PUNCT,
+N1-03,1,Los niños corren .,si,ok,SV plural,DET NOUN VERB PUNCT,
+N1-04,1,Yo escribiré una carta .,si,ok,"SVO, pronombre, futuro",PRON VERB DET NOUN PUNCT,
+N1-05,1,La casa es grande .,si,ok,Copulativa con adjetivo,DET NOUN AUX ADJ PUNCT,
+N1-06,1,Ana canta .,si,ok,SV con nombre propio,PROPN VERB PUNCT,
+N1-07,1,Nosotros estudiamos .,si,ok,"Pronombre plural, tiempo ambiguo",PRON VERB PUNCT,
+N1-08,1,El gato mira el árbol .,si,ok,SVO,DET NOUN VERB DET NOUN PUNCT,
+N1-09,1,Tú vives aquí .,si,ok,"2.ª persona, adverbio",PRON VERB ADV PUNCT,
+N1-10,1,Las niñas bailaron .,si,ok,Pretérito plural,DET NOUN VERB PUNCT,
+N1-11,1,Pedro es inteligente .,si,ok,"Copulativa, adjetivo de género común",PROPN AUX ADJ PUNCT,
+N1-12,1,Mi profesora trabaja .,si,ok,Determinante posesivo,DET NOUN VERB PUNCT,
+N1-13,1,Ellos abrirán la ventana .,si,ok,"SVO, futuro",PRON VERB DET NOUN PUNCT,
+N1-14,1,Luis está cansado .,si,ok,Copulativa con estar,PROPN AUX ADJ PUNCT,
+N1-15,1,Un hombre caminó .,si,ok,Pretérito singular,DET NOUN VERB PUNCT,
+N1-16,1,Usted cocina el pan .,si,ok,"Pronombre usted, SVO",PRON VERB DET NOUN PUNCT,
+N1-17,1,Los perro come .,no,semantico,C1: DET-N en número,DET NOUN VERB PUNCT,
+N1-18,1,El niños corre .,no,semantico,C1: DET-N en número,DET NOUN VERB PUNCT,
+N1-19,1,María es alto .,no,semantico,C3: atributo en género,PROPN AUX ADJ PUNCT,
+N1-20,1,Yo come una manzana .,no,semantico,C2: persona,PRON VERB DET NOUN PUNCT,
+N1-21,1,Perro el come .,no,sintactico,Orden de palabras,NOUN DET VERB PUNCT,
+N1-22,1,Las flores es bonitas .,no,semantico,C2: número,DET NOUN AUX ADJ PUNCT,
+N2-23,2,La pequeña niña come una manzana roja .,si,ok,Adjetivos antes y después,DET ADJ NOUN VERB DET NOUN ADJ PUNCT,
+N2-24,2,Mis profesores no trabajaron ayer .,si,ok,Negación y adverbio,DET NOUN ADV VERB ADV PUNCT,
+N2-25,2,Juan mira al hombre con el telescopio .,si,ok,Adjunción ambigua (dos lecturas válidas),PROPN VERB ADP NOUN ADP DET NOUN PUNCT,
+N2-26,2,Ana estará muy cansada hoy .,si,ok,"Intensificador, futuro de estar",PROPN AUX ADV ADJ ADV PUNCT,
+N2-27,2,Comimos el pan de Ana muy rápidamente .,si,ok,"Sujeto omitido, SP nominal, adverbio intensificado",VERB DET NOUN ADP PROPN ADV ADV PUNCT,de(3)->pan(2)
+N2-28,2,El perro muy grande corre muy lentamente .,si,ok,Conflicto INT (LL(2)),DET NOUN ADV ADJ VERB ADV ADV PUNCT,
+N2-29,2,Ana come el pan con la cuchara .,si,ok,SP instrumental (adjunción al verbo),PROPN VERB DET NOUN ADP DET NOUN PUNCT,con(4)->come(1)
+N2-30,2,Pedro escribió una carta en la mesa .,si,ok,SP de lugar (adjunción al verbo),PROPN VERB DET NOUN ADP DET NOUN PUNCT,en(4)->escribió(1)
+N2-31,2,Los niños del parque cantaron bien .,si,ok,Contracción en el sujeto,DET NOUN ADP NOUN VERB ADV PUNCT,del(2)->niños(1)
+N2-32,2,La niña abrió la ventana de la casa .,si,ok,SP nominal en el objeto,DET NOUN VERB DET NOUN ADP DET NOUN PUNCT,de(5)->ventana(4)
+N2-33,2,Mi gato blanco corre en el jardín .,si,ok,SP circunstancial sin objeto,DET NOUN ADJ VERB ADP DET NOUN PUNCT,en(4)->corre(3)
+N2-34,2,Las estudiantes inteligentes estudiaron en la escuela .,si,ok,"Género común, SP circunstancial",DET NOUN ADJ VERB ADP DET NOUN PUNCT,en(4)->estudiaron(3)
+N2-35,2,El viejo profesor no es feliz .,si,ok,"Adjetivo antepuesto, negación con copulativo",DET ADJ NOUN ADV AUX ADJ PUNCT,
+N2-36,2,Sofía cocinó el pan para Luis .,si,ok,SP beneficiario (adjunción al verbo),PROPN VERB DET NOUN ADP PROPN PUNCT,para(4)->cocinó(1)
+N2-37,2,Ellas vivirán en una ciudad muy grande .,si,ok,SP con adjetivo intensificado,PRON VERB ADP DET NOUN ADV ADJ PUNCT,en(2)->vivirán(1)
+N2-38,2,La casa del profesor está en el parque .,si,ok,"Contracción, atributo SP",DET NOUN ADP NOUN AUX ADP DET NOUN PUNCT,del(2)->casa(1); en(5)->está(4)
+N2-39,2,Siempre caminamos al parque temprano .,si,ok,"Adverbio inicial, sujeto omitido",ADV VERB ADP NOUN ADV PUNCT,al(2)->caminamos(1)
+N2-40,2,El hombre alto miró la flor roja con el telescopio .,si,ok,SP instrumental tras objeto modificado,DET NOUN ADJ VERB DET NOUN ADJ ADP DET NOUN PUNCT,con(7)->miró(3)
+N2-41,2,Juan es un profesor bastante inteligente .,si,ok,Atributo SN con intensificador,PROPN AUX DET NOUN ADV ADJ PUNCT,
+N2-42,2,Los gatos pequeños no beben rápidamente .,si,ok,"Negación, adverbio de modo",DET NOUN ADJ ADV VERB ADV PUNCT,
+N2-43,2,Yo cantaré en la casa de María .,si,ok,Dos SP encadenados,PRON VERB ADP DET NOUN ADP PROPN PUNCT,en(2)->cantaré(1); de(5)->casa(4)
+N2-44,2,Nosotras estuvimos en el jardín ayer .,si,ok,"Pretérito de estar, atributo SP",PRON AUX ADP DET NOUN ADV PUNCT,en(2)->estuvimos(1)
+N2-45,2,Tú escribiste una carta muy bonita .,si,ok,"2.ª persona, intensificador",PRON VERB DET NOUN ADV ADJ PUNCT,
+N2-46,2,Ana camina al escuela .,no,semantico,C4: al + femenino,PROPN VERB ADP NOUN PUNCT,
+N2-47,2,Pedro camina el parque .,no,semantico,C5: intransitivo con objeto,PROPN VERB DET NOUN PUNCT,
+N2-48,2,Ana vive en las ciudad .,no,semantico,C1 dentro de un SP,PROPN VERB ADP DET NOUN PUNCT,
+N2-49,2,El gato blanca corre rápidamente .,no,semantico,C1: ADJ-N en género,DET NOUN ADJ VERB ADV PUNCT,
+N2-50,2,La estudiante alto canta bien .,no,semantico,C1: género común definido por DET,DET NOUN ADJ VERB ADV PUNCT,
+N2-51,2,Los niños de la profesora corre .,no,semantico,C2 a distancia con atractor singular,DET NOUN ADP DET NOUN VERB PUNCT,
+N3-52,3,Juan y María comen manzanas .,si,sintactico,"Coordinación de sujetos, sustantivo sin determinante",PROPN CCONJ PROPN VERB NOUN PUNCT,
+N3-53,3,El perro que miró Ana corre .,si,sintactico,Cláusula relativa,DET NOUN PRON VERB PROPN VERB PUNCT,
+N3-54,3,¿ Come Juan una manzana ?,si,sintactico,"Interrogativa, orden VSO",PUNCT VERB PROPN DET NOUN PUNCT,
+N3-55,3,Juan la mira .,si,sintactico,Pronombre clítico,PROPN PRON VERB PUNCT,
+N3-56,3,La carta fue escrita por Ana .,si,sintactico,Voz pasiva,DET NOUN AUX VERB ADP PROPN PUNCT,por(4)->escrita(3)
+N3-57,3,Ana ha comido el pan .,si,sintactico,Tiempo compuesto,PROPN AUX VERB DET NOUN PUNCT,
+N3-58,3,Luis estudia porque el profesor es inteligente .,si,sintactico,Subordinada causal,PROPN VERB SCONJ DET NOUN AUX ADJ PUNCT,
+N3-59,3,"Cuando Ana canta , los niños bailan .",si,sintactico,Subordinada temporal antepuesta,SCONJ PROPN VERB PUNCT DET NOUN VERB PUNCT,
+N3-60,3,Los niños comen manzanas .,si,sintactico,Objeto sin determinante,DET NOUN VERB NOUN PUNCT,
+N3-61,3,Ana le escribió una carta a Pedro .,si,sintactico,Doble objeto con clítico,PROPN PRON VERB DET NOUN ADP PROPN PUNCT,a(5)->escribió(2)
+N3-62,3,Juan o Pedro cocinará el pan .,si,sintactico,Disyunción de sujetos,PROPN CCONJ PROPN VERB DET NOUN PUNCT,
+N3-63,3,Ana mira al gato pero el gato no mira a Ana .,si,sintactico,Coordinación de oraciones,PROPN VERB ADP NOUN CCONJ DET NOUN ADV VERB ADP PROPN PUNCT,
+N3-64,3,Los perros que el niño miró corren .,si,sintactico,Relativa de objeto: concordancia a través de la cláusula,DET NOUN PRON DET NOUN VERB VERB PUNCT,
+N3-65,3,María es más alta que Ana .,si,sintactico,Comparativa,PROPN AUX ADV ADJ SCONJ PROPN PUNCT,
+N3-66,3,Se come bien en la casa de Ana .,si,sintactico,Impersonal con se,PRON VERB ADV ADP DET NOUN ADP PROPN PUNCT,en(3)->come(1); de(6)->casa(5)
+N3-67,3,Comió Juan el pan .,si,sintactico,Orden VSO declarativo,VERB PROPN DET NOUN PUNCT,
+N3-68,3,¿ Dónde vive Ana ?,si,sintactico,Interrogativa parcial,PUNCT ADV VERB PROPN PUNCT,
+N3-69,3,La niña cansada y feliz canta .,si,sintactico,Coordinación de adjetivos,DET NOUN ADJ CCONJ ADJ VERB PUNCT,
+N3-70,3,Ana corre rápido .,si,sintactico,Adjetivo usado como adverbio,PROPN VERB ADV PUNCT,
+N3-71,3,A Ana la miran los niños .,si,sintactico,Objeto antepuesto con clítico,ADP PROPN PRON VERB DET NOUN PUNCT,
+N3-72,3,Los perros que miró Ana corre .,no,sintactico,Relativa + C2 a distancia,DET NOUN PRON VERB PROPN VERB PUNCT,
+N3-73,3,Juan y María come manzanas .,no,sintactico,Sujeto coordinado con verbo singular,PROPN CCONJ PROPN VERB NOUN PUNCT,
+N3-74,3,La carta fueron escrita por Ana .,no,sintactico,Pasiva con auxiliar mal conjugado,DET NOUN AUX VERB ADP PROPN PUNCT,
+N3-75,3,El perro que corre rápidamente come la manzanas .,no,sintactico,Relativa + C1 en el objeto,DET NOUN PRON VERB ADV VERB DET NOUN PUNCT,
+N3-76,3,Ana le escribió una carta a los niño .,no,sintactico,Doble objeto + C1,PROPN PRON VERB DET NOUN ADP DET NOUN PUNCT,
