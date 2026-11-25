@@ -1,0 +1,223 @@
+# =============================================================================
+#  Gramática libre de contexto para un subconjunto controlado del español
+#  Proyecto TLP02-2026 — Fase 2
+#
+#  Versión ejecutable (FIRST, FOLLOW y conflictos LL(1)): gramatica_es.py
+#  Vocabulario y rasgos de cada palabra:                  lexico_es.py
+# =============================================================================
+#
+#  TERMINALES: categorías que entrega el lexer (cada token lleva además sus
+#  rasgos de género, número, persona, tiempo y transitividad).
+#
+#    DET    determinante              el, la, unos, estas, mi
+#    N      sustantivo común          perro, manzanas, ciudad
+#    NPROP  nombre propio             Juan, María
+#    PRON   pronombre personal        yo, tú, ella, nosotros, ustedes
+#    ADJ    adjetivo                  rojo, pequeñas, grande
+#    INT    intensificador            muy, bastante
+#    ADV    adverbio                  ayer, siempre, rápidamente
+#    NEG    negación                  no
+#    V      verbo léxico              come, caminaron, escribirá
+#    VCOP   verbo copulativo          es, fue, estará  (ser / estar)
+#    PREP   preposición               a, de, en, con, para ...
+#    CONTR  contracción               al, del
+#    PUNTO  fin de oración            .
+#
+#  Tiempos verbales cubiertos: presente, pretérito y futuro del indicativo.
+#  Personas cubiertas: 1.ª, 2.ª y 3.ª del singular; 1.ª y 3.ª del plural.
+# =============================================================================
+
+<oracion> ::= <sujeto_opcional> <predicado> PUNTO
+
+# El sujeto puede omitirse ("Comimos pan."): el español es pro-drop.
+<sujeto_opcional> ::= <sujeto> | ε
+
+<sujeto> ::= <sn> | PRON
+
+# ----------------------------- Sintagma nominal ------------------------------
+
+<sn> ::= DET <nominal> | NPROP
+
+# Adjetivos antes y después del sustantivo ("la pequeña casa roja") y
+# frases preposicionales que modifican al sustantivo ("el perro de Ana").
+<nominal> ::= <adjetivos> N <adjetivos> <sps_nominales>
+
+<adjetivos> ::= <sadj> <adjetivos> | ε
+
+<sadj> ::= <intensificador> ADJ                 # "rojo", "muy rojo"
+
+<intensificador> ::= INT | ε
+
+<sps_nominales> ::= <sp> <sps_nominales> | ε
+
+# --------------------------- Sintagma preposicional --------------------------
+
+# "al" / "del" ya incluyen el artículo, por eso van seguidos de <nominal>.
+<sp> ::= PREP <sn> | CONTR <nominal>
+
+# ------------------------------ Predicado ------------------------------------
+
+<predicado> ::= <adverbios> <negacion> <sv>     # "ayer no comió ..."
+
+<adverbios> ::= <sadv> <adverbios> | ε
+
+<sadv> ::= <intensificador> ADV                 # "rápidamente", "muy bien"
+
+<negacion> ::= NEG | ε
+
+# Dos tipos de predicado: verbal (con objeto directo opcional) y nominal
+# (verbo copulativo + atributo).
+<sv> ::= V <objeto_opcional> <circunstanciales>
+       | VCOP <atributo> <circunstanciales>
+
+<objeto_opcional> ::= <sn> | ε
+
+<atributo> ::= <sadj>                           # "es muy alta"
+             | <sn>                             # "es un profesor"
+             | <sp>                             # "está en la casa"
+
+<circunstanciales> ::= <circunstancial> <circunstanciales> | ε
+
+<circunstancial> ::= <sp> | <sadv>              # "en el parque", "ayer"
+
+
+# =============================================================================
+#  ANÁLISIS LL(1)
+#
+#  19 no terminales, 34 producciones, 13 terminales.
+#  `python gramatica_es.py` reporta exactamente 3 conflictos LL(1), de dos
+#  tipos distintos:
+#
+#  1) <sps_nominales> con PREP y con CONTR  —  AMBIGÜEDAD REAL
+#     (adjunción de la frase preposicional)
+#
+#       Juan mira al hombre con el telescopio .
+#
+#     "con el telescopio" puede modificar a "hombre" (el hombre que tiene el
+#     telescopio) o a "mira" (Juan usa el telescopio para mirar). PREP está
+#     en FIRST(<sp>) y también en FOLLOW(<sps_nominales>), porque después del
+#     objeto pueden venir complementos circunstanciales.
+#
+#     Las dos lecturas son gramaticales: la cadena tiene DOS árboles de
+#     derivación distintos, así que la gramática es ambigua. Ninguna CFG que
+#     genere ambas lecturas puede decidir cuál es la correcta, porque la
+#     respuesta depende del significado y del conocimiento del mundo, no de
+#     la sintaxis.
+#
+#     Resolución en el parser: igual que con el dangling else de la Fase 1, se
+#     aplica una regla "codiciosa": la frase preposicional se une al
+#     sustantivo más cercano (adjunción baja). Es una decisión de diseño que
+#     falla en "Juan come la sopa con la cuchara", donde la lectura natural
+#     es la adjunción al verbo. Esa diferencia se medirá contra spaCy y el LLM.
+#
+#  2) <adjetivos> con INT  —  NO es ambigüedad: falta de anticipación
+#
+#       El perro muy rápidamente corre .
+#
+#     Después de "perro", el token INT ("muy") puede iniciar otro adjetivo
+#     ("muy grande") o el adverbio del predicado ("muy rápidamente"). Con un
+#     solo token de anticipación no se puede decidir. Con dos sí: si el
+#     siguiente es ADJ, el INT pertenece al adjetivo; si es ADV, al adverbio.
+#     Cada cadena tiene un solo árbol, así que la gramática es LL(2) en este
+#     punto. El parser lo resuelve mirando un token más adelante (ver(1)).
+#
+#  3) Limitación relacionada: la "a" personal
+#
+#       Juan mira al hombre .        ("al hombre" es OBJETO DIRECTO)
+#       Juan camina al parque .      ("al parque" es COMPLEMENTO de lugar)
+#
+#     Las dos cadenas tienen las mismas categorías (NPROP V CONTR N PUNTO).
+#     Lo que distingue el objeto del complemento es que "hombre" es un ser
+#     animado y "parque" no: un rasgo semántico, no sintáctico. Por eso el
+#     parser etiqueta ambos casos como <circunstancial>. Es otro punto en el
+#     que la CFG necesita información que no está en la categoría.
+#
+#  Nota sobre el árbol: el parser no dibuja los nodos ε y muestra las listas
+#  (<adjetivos>, <sps_nominales>, <adverbios>, <circunstanciales>) como hijos
+#  directos de su padre, sin la cadena recursivo-derecha. <objeto_opcional>
+#  aparece como <objeto> cuando no es ε.
+#
+#  Fuera de esos dos puntos la gramática es LL(1): un parser descendente
+#  recursivo la recorre sin retroceso.
+# =============================================================================
+
+
+# =============================================================================
+#  CONCORDANCIA: lo que la CFG de arriba NO verifica
+#
+#  La gramática acepta "*Los perro roja come." porque solo mira categorías.
+#  La concordancia la verifica el analizador semántico con los rasgos de
+#  cada token, igual que la Fase 1 verificaba los tipos con la tabla de
+#  símbolos:
+#
+#    C1  Dentro del SN: DET, ADJ y N concuerdan en género y número.
+#        "la casa roja"       vs.  *"la casa rojo", *"las casa"
+#    C2  Sujeto y verbo concuerdan en persona y número.
+#        "los niños corren"   vs.  *"los niños corre", *"yo come"
+#    C3  Sujeto y atributo concuerdan en género y número (verbos copulativos).
+#        La relación cruza el verbo: es concordancia a distancia.
+#        "María es alta"      vs.  *"María es alto"
+#    C4  "al" y "del" van con un sustantivo masculino singular.
+#        "al parque"          vs.  *"al casa"
+#    C5  Un verbo intransitivo no lleva objeto directo.
+#        "Ana camina en el parque"  vs.  *"Ana camina el parque"
+#
+#  Se usa el rasgo '*' para formas comunes ("grande", "estudiante", "mi"):
+#  concuerdan con cualquier género.
+#
+#  ¿Podría la CFG verificar la concordancia sola?
+#  Sí, para C1 a C5: cada rasgo tiene un número FINITO de valores, así que se
+#  puede multiplicar cada no terminal por sus combinaciones de rasgos. Así
+#  quedaría el SN:
+#
+#    <sn_ms> ::= DET_ms <nominal_ms>          <sn_fs> ::= DET_fs <nominal_fs>
+#    <sn_mp> ::= DET_mp <nominal_mp>          <sn_fp> ::= DET_fp <nominal_fp>
+#    <nominal_ms> ::= <adjetivos_ms> N_ms <adjetivos_ms> <sps_nominales>
+#    <adjetivos_ms> ::= <sadj_ms> <adjetivos_ms> | ε
+#    <sadj_ms> ::= <intensificador> ADJ_ms
+#    ... y lo mismo para fs, mp y fp.
+#
+#  Ese fragmento ya pasa de 6 a 24 producciones. En la oración, el sujeto
+#  tiene que "recordar" persona y número para el verbo (C2) y además género
+#  para el atributo (C3). Eso son 5 combinaciones de persona y número, por 2
+#  géneros, más los casos comunes: <sujeto>, <predicado>, <sv> y <atributo>
+#  se multiplican por 10 o más. El lenguaje sigue siendo libre de contexto,
+#  pero la gramática explota combinatoriamente y deja de ser mantenible.
+#
+#  El límite teórico real aparece con dependencias NO acotadas o CRUZADAS.
+#  Ejemplos:
+#    - concordancia a través de una cláusula relativa de profundidad
+#      arbitraria ("los perros que el niño que ... vio corren");
+#    - patrones del tipo a^n b^n c^n.
+#  Esos casos están fuera de este subconjunto y forman parte del nivel 3
+#  del set de prueba.
+# =============================================================================
+
+
+# =============================================================================
+#  EJEMPLOS POR NIVEL (referencia para el set de prueba)
+#
+#  Nivel 1 — simples (debe aceptarlas):
+#    El perro come .
+#    María compra una manzana .
+#    Los niños corrieron .
+#    Yo escribiré una carta .
+#    La casa es grande .
+#
+#  Nivel 2 — con modificadores y variaciones (debe aceptarlas):
+#    La pequeña niña come una manzana roja en el jardín .
+#    Mis profesores no trabajaron ayer .
+#    Juan mira al hombre con el telescopio .          (ambigua: adjunción)
+#    Ana estará muy cansada hoy .
+#    Comimos el pan de Ana rápidamente .               (sujeto omitido)
+#
+#  Nivel 3 — fenómenos que exceden la gramática (debe rechazarlas):
+#    Juan y María comen manzanas .                     (coordinación)
+#    El perro que vio Ana corre .                      (cláusula relativa)
+#    ¿Come Juan una manzana ?                          (interrogativa, orden VSO)
+#    Juan la mira .                                    (pronombre clítico)
+#    La carta fue escrita por Ana .                    (voz pasiva)
+#
+#  Agramaticales por concordancia (la CFG las acepta; el semántico las rechaza):
+#    Los perro come .            La casa es rojo .            Ana camina el parque .
+# =============================================================================
