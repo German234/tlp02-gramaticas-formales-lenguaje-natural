@@ -307,7 +307,7 @@ pip install -r requirements.txt
 python -m spacy download es_core_news_md
 ```
 
-La primera ejecución de HuggingFace descarga dos modelos (~1 GB en total).
+La primera ejecución de HuggingFace descarga dos modelos (~1 GB en total): BETO y un BERT en español ajustado para etiquetado POS. Los modelos de PlanTL-GOB-ES y BSC-LT ya no están disponibles en HuggingFace.
 
 | Archivo | Contenido |
 |---|---|
@@ -353,7 +353,7 @@ Salida en `resultados/`:
 Cómo decide cada sistema si **acepta** una oración:
 - **Parser propio:** la acepta si pasa el lexer, el parser y la verificación de concordancia.
 - **spaCy:** no juzga gramaticalidad por sí solo. Se revisa la concordancia (det/amod con su sustantivo, sujeto con verbo y sujeto con atributo) sobre su árbol de dependencias y sus rasgos morfológicos. Si no encuentra choques, la acepta.
-- **HuggingFace:** calcula la pseudo-log-verosimilitud de la oración con RoBERTa-BNE: qué tan "natural" le parece al modelo. El umbral se elige con validación cruzada dejando uno fuera.
+- **HuggingFace:** calcula la pseudo-log-verosimilitud de la oración con BETO (`dccuchile/bert-base-spanish-wwm-cased`): qué tan "natural" le parece al modelo. El umbral se elige con validación cruzada dejando uno fuera.
 
 **Cubre:** oraciones SVO y copulativas (ser/estar), sujeto omitido, adjetivos antes y después del sustantivo con intensificador (*muy*, *bastante*), adverbios, negación, frases preposicionales, contracciones *al*/*del*, y tres tiempos verbales (presente, pretérito y futuro).
 
