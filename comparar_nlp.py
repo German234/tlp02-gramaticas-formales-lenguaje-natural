@@ -7,9 +7,9 @@ Sistemas:
              oración se revisa la concordancia sobre SU análisis (ver
              concordancia_ud): spaCy no juzga gramaticalidad por sí solo.
     hf       HuggingFace Transformers, dos modelos:
-               - etiquetado UPOS:  PlanTL-GOB-ES/roberta-base-bne-capitel-pos
-               - aceptabilidad:    pseudo-log-verosimilitud (PLL) de un modelo
-                 de lenguaje enmascarado (PlanTL-GOB-ES/roberta-base-bne). Se
+               - etiquetado UPOS (RoBERTa-BNE ajustado con CAPITEL-POS)
+               - aceptabilidad: pseudo-log-verosimilitud (PLL) de un modelo
+                 de lenguaje enmascarado (RoBERTa-BNE o BETO). Se
                  enmascara cada subpalabra, se mide qué tan probable la
                  considera el modelo y se promedia. El umbral entre "acepta" y
                  "rechaza" se elige con validación cruzada dejando uno fuera
@@ -27,6 +27,7 @@ Uso:
     python comparar_nlp.py                       # los tres sistemas
     python comparar_nlp.py parser spacy          # solo algunos
     python comparar_nlp.py spacy --modelo-spacy es_core_news_lg
+    python comparar_nlp.py hf --modelo-lm dccuchile/bert-base-spanish-wwm-cased
 """
 import argparse
 import json
@@ -229,8 +230,36 @@ def correr_spacy(datos, modelo):
 # =============================================================================
 #  3. HuggingFace Transformers
 # =============================================================================
-MODELO_POS = "PlanTL-GOB-ES/roberta-base-bne-capitel-pos"
-MODELO_LM = "PlanTL-GOB-ES/roberta-base-bne"
+# Los modelos originales de PlanTL-GOB-ES fueron retirados de HuggingFace.
+# Se prueban estos en orden y se usa el primero que se pueda descargar.
+# Se pueden forzar otros con --modelo-pos y --modelo-lm.
+MODELOS_POS = [
+    "BSC-LT/roberta-base-bne-capitel-pos",
+    "PlanTL-GOB-ES/roberta-base-bne-capitel-pos",
+    "mrm8488/bert-spanish-cased-finetuned-pos-16-tags",
+]
+MODELOS_LM = [
+    "BSC-LT/roberta-base-bne",
+    "PlanTL-GOB-ES/roberta-base-bne",
+    "dccuchile/bert-base-spanish-wwm-cased",      # BETO
+]
+
+
+def cargar_primero(candidatos, clase_modelo, **opciones_tokenizador):
+    """Carga el primer modelo de `candidatos` que esté disponible."""
+    from transformers import AutoTokenizer
+
+    errores = []
+    for nombre_modelo in candidatos:
+        try:
+            tok = AutoTokenizer.from_pretrained(nombre_modelo, **opciones_tokenizador)
+            modelo = clase_modelo.from_pretrained(nombre_modelo).eval()
+            print(f"    modelo: {nombre_modelo}")
+            return nombre_modelo, tok, modelo
+        except Exception as e:      # repositorio inexistente, sin red, etc.
+            errores.append(f"{nombre_modelo}: {str(e).splitlines()[0]}")
+            print(f"    no disponible: {nombre_modelo}")
+    raise OSError("ningún modelo disponible:\n      " + "\n      ".join(errores))
 
 
 def normalizar_etiqueta(etiqueta, desconocidas):
@@ -242,12 +271,14 @@ def normalizar_etiqueta(etiqueta, desconocidas):
     return e
 
 
-def etiquetar_hf(datos):
+def etiquetar_hf(datos, candidatos):
     import torch
-    from transformers import AutoModelForTokenClassification, AutoTokenizer
+    from transformers import AutoModelForTokenClassification
 
-    tok = AutoTokenizer.from_pretrained(MODELO_POS, add_prefix_space=True)
-    modelo = AutoModelForTokenClassification.from_pretrained(MODELO_POS).eval()
+    # add_prefix_space lo necesitan los tokenizadores tipo RoBERTa cuando las
+    # palabras llegan ya separadas; BERT lo ignora.
+    nombre_modelo, tok, modelo = cargar_primero(candidatos, AutoModelForTokenClassification,
+                                                add_prefix_space=True)
     desconocidas = set()
     resultado = []
     for d in datos:
@@ -262,16 +293,15 @@ def etiquetar_hf(datos):
                 etiquetas[w] = normalizar_etiqueta(modelo.config.id2label[ids[pos]],
                                                    desconocidas)
         resultado.append(etiquetas)
-    return resultado, sorted(desconocidas)
+    return nombre_modelo, resultado, sorted(desconocidas)
 
 
-def pll_hf(datos):
+def pll_hf(datos, candidatos):
     """Pseudo-log-verosimilitud promedio por subpalabra de cada oración."""
     import torch
-    from transformers import AutoModelForMaskedLM, AutoTokenizer
+    from transformers import AutoModelForMaskedLM
 
-    tok = AutoTokenizer.from_pretrained(MODELO_LM)
-    modelo = AutoModelForMaskedLM.from_pretrained(MODELO_LM).eval()
+    nombre_modelo, tok, modelo = cargar_primero(candidatos, AutoModelForMaskedLM)
     puntajes = []
     for d in datos:
         ids = tok(d["oracion"], return_tensors="pt")["input_ids"][0]
@@ -283,7 +313,7 @@ def pll_hf(datos):
             logp = torch.log_softmax(modelo(input_ids=lote).logits, dim=-1)
         total = sum(logp[fila, pos, ids[pos]].item() for fila, pos in enumerate(posiciones))
         puntajes.append(total / len(posiciones))
-    return puntajes
+    return nombre_modelo, puntajes
 
 
 def umbral_optimo(puntajes, etiquetas):
@@ -305,15 +335,15 @@ def umbral_dejando_uno_fuera(puntajes, etiquetas):
             for i in range(len(puntajes))]
 
 
-def correr_hf(datos):
+def correr_hf(datos, modelos_pos, modelos_lm):
     import transformers
 
     print("  etiquetado UPOS ...")
-    etiquetas_upos, desconocidas = etiquetar_hf(datos)
+    modelo_pos, etiquetas_upos, desconocidas = etiquetar_hf(datos, modelos_pos)
     if desconocidas:
         print(f"  AVISO: etiquetas que no son UPOS: {desconocidas}")
     print("  pseudo-log-verosimilitud ...")
-    puntajes = pll_hf(datos)
+    modelo_lm, puntajes = pll_hf(datos, modelos_lm)
     gold = [d["gramatical"] for d in datos]
     umbrales = umbral_dejando_uno_fuera(puntajes, gold)
 
@@ -321,11 +351,11 @@ def correr_hf(datos):
         "id": d["id"], "acepta": p >= u, "upos": up, "adjunciones": None,
         "detalle": f"PLL={p:.3f} (umbral {u:.3f})", "pll": p,
     } for d, p, u, up in zip(datos, puntajes, umbrales, etiquetas_upos)]
-    return predicciones, {"modelo_pos": MODELO_POS, "modelo_lm": MODELO_LM,
+    return predicciones, {"modelo_pos": modelo_pos, "modelo_lm": modelo_lm,
                           "transformers": transformers.__version__,
                           "umbral_global": umbral_optimo(puntajes, gold),
                           "etiquetas_no_upos": desconocidas,
-                          "descripcion": "RoBERTa-BNE: POS + aceptabilidad por PLL"}
+                          "descripcion": "Transformers: POS + aceptabilidad por PLL"}
 
 
 # =============================================================================
@@ -336,6 +366,8 @@ def main():
     validos = ["parser", "spacy", "hf"]
     ap.add_argument("sistemas", nargs="*", help="parser, spacy y/o hf (por defecto, los tres)")
     ap.add_argument("--modelo-spacy", default="es_core_news_md")
+    ap.add_argument("--modelo-pos", help="modelo de HuggingFace para el etiquetado UPOS")
+    ap.add_argument("--modelo-lm", help="modelo de HuggingFace enmascarado para la PLL")
     args = ap.parse_args()
     args.sistemas = args.sistemas or validos
     invalidos = [s for s in args.sistemas if s not in validos]
@@ -353,7 +385,10 @@ def main():
             elif sistema == "spacy":
                 pred, info = correr_spacy(datos, args.modelo_spacy)
             else:
-                pred, info = correr_hf(datos)
+                pred, info = correr_hf(
+                    datos,
+                    [args.modelo_pos] if args.modelo_pos else MODELOS_POS,
+                    [args.modelo_lm] if args.modelo_lm else MODELOS_LM)
         except ImportError as e:
             print(f"  No se pudo ejecutar ({e}). Revise la instalación en el encabezado.")
             continue

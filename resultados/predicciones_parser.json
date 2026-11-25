@@ -1,0 +1,1137 @@
+{
+ "sistema": "parser",
+ "info": {
+  "descripcion": "CFG + parser descendente recursivo + concordancia",
+  "segundos": 0.04,
+  "ms_por_oracion": 0.5
+ },
+ "predicciones": [
+  {
+   "id": "N1-01",
+   "acepta": true,
+   "upos": [
+    "DET",
+    "NOUN",
+    "VERB",
+    "PUNCT"
+   ],
+   "adjunciones": {},
+   "detalle": "aceptada"
+  },
+  {
+   "id": "N1-02",
+   "acepta": true,
+   "upos": [
+    "PROPN",
+    "VERB",
+    "DET",
+    "NOUN",
+    "PUNCT"
+   ],
+   "adjunciones": {},
+   "detalle": "aceptada"
+  },
+  {
+   "id": "N1-03",
+   "acepta": true,
+   "upos": [
+    "DET",
+    "NOUN",
+    "VERB",
+    "PUNCT"
+   ],
+   "adjunciones": {},
+   "detalle": "aceptada"
+  },
+  {
+   "id": "N1-04",
+   "acepta": true,
+   "upos": [
+    "PRON",
+    "VERB",
+    "DET",
+    "NOUN",
+    "PUNCT"
+   ],
+   "adjunciones": {},
+   "detalle": "aceptada"
+  },
+  {
+   "id": "N1-05",
+   "acepta": true,
+   "upos": [
+    "DET",
+    "NOUN",
+    "AUX",
+    "ADJ",
+    "PUNCT"
+   ],
+   "adjunciones": {},
+   "detalle": "aceptada"
+  },
+  {
+   "id": "N1-06",
+   "acepta": true,
+   "upos": [
+    "PROPN",
+    "VERB",
+    "PUNCT"
+   ],
+   "adjunciones": {},
+   "detalle": "aceptada"
+  },
+  {
+   "id": "N1-07",
+   "acepta": true,
+   "upos": [
+    "PRON",
+    "VERB",
+    "PUNCT"
+   ],
+   "adjunciones": {},
+   "detalle": "aceptada"
+  },
+  {
+   "id": "N1-08",
+   "acepta": true,
+   "upos": [
+    "DET",
+    "NOUN",
+    "VERB",
+    "DET",
+    "NOUN",
+    "PUNCT"
+   ],
+   "adjunciones": {},
+   "detalle": "aceptada"
+  },
+  {
+   "id": "N1-09",
+   "acepta": true,
+   "upos": [
+    "PRON",
+    "VERB",
+    "ADV",
+    "PUNCT"
+   ],
+   "adjunciones": {},
+   "detalle": "aceptada"
+  },
+  {
+   "id": "N1-10",
+   "acepta": true,
+   "upos": [
+    "DET",
+    "NOUN",
+    "VERB",
+    "PUNCT"
+   ],
+   "adjunciones": {},
+   "detalle": "aceptada"
+  },
+  {
+   "id": "N1-11",
+   "acepta": true,
+   "upos": [
+    "PROPN",
+    "AUX",
+    "ADJ",
+    "PUNCT"
+   ],
+   "adjunciones": {},
+   "detalle": "aceptada"
+  },
+  {
+   "id": "N1-12",
+   "acepta": true,
+   "upos": [
+    "DET",
+    "NOUN",
+    "VERB",
+    "PUNCT"
+   ],
+   "adjunciones": {},
+   "detalle": "aceptada"
+  },
+  {
+   "id": "N1-13",
+   "acepta": true,
+   "upos": [
+    "PRON",
+    "VERB",
+    "DET",
+    "NOUN",
+    "PUNCT"
+   ],
+   "adjunciones": {},
+   "detalle": "aceptada"
+  },
+  {
+   "id": "N1-14",
+   "acepta": true,
+   "upos": [
+    "PROPN",
+    "AUX",
+    "ADJ",
+    "PUNCT"
+   ],
+   "adjunciones": {},
+   "detalle": "aceptada"
+  },
+  {
+   "id": "N1-15",
+   "acepta": true,
+   "upos": [
+    "DET",
+    "NOUN",
+    "VERB",
+    "PUNCT"
+   ],
+   "adjunciones": {},
+   "detalle": "aceptada"
+  },
+  {
+   "id": "N1-16",
+   "acepta": true,
+   "upos": [
+    "PRON",
+    "VERB",
+    "DET",
+    "NOUN",
+    "PUNCT"
+   ],
+   "adjunciones": {},
+   "detalle": "aceptada"
+  },
+  {
+   "id": "N1-17",
+   "acepta": false,
+   "upos": [
+    "DET",
+    "NOUN",
+    "VERB",
+    "PUNCT"
+   ],
+   "adjunciones": {},
+   "detalle": "Error semántico: Línea 1, columna 1: el determinante 'Los' (masculino plural) no concuerda en número con 'perro' (masculino singular) [C1]"
+  },
+  {
+   "id": "N1-18",
+   "acepta": false,
+   "upos": [
+    "DET",
+    "NOUN",
+    "VERB",
+    "PUNCT"
+   ],
+   "adjunciones": {},
+   "detalle": "Error semántico: Línea 1, columna 1: el determinante 'El' (masculino singular) no concuerda en número con 'niños' (masculino plural) [C1]"
+  },
+  {
+   "id": "N1-19",
+   "acepta": false,
+   "upos": [
+    "PROPN",
+    "AUX",
+    "ADJ",
+    "PUNCT"
+   ],
+   "adjunciones": {},
+   "detalle": "Error semántico: Línea 1, columna 10: el atributo 'alto' (masculino singular) no concuerda en género con el sujeto 'María' (femenino singular) [C3]"
+  },
+  {
+   "id": "N1-20",
+   "acepta": false,
+   "upos": [
+    "PRON",
+    "VERB",
+    "DET",
+    "NOUN",
+    "PUNCT"
+   ],
+   "adjunciones": {},
+   "detalle": "Error semántico: Línea 1, columna 4: el verbo 'come' (3.ª persona singular) no concuerda con el sujeto 'Yo' (1.ª persona singular) [C2]"
+  },
+  {
+   "id": "N1-21",
+   "acepta": false,
+   "upos": [
+    "NOUN",
+    "DET",
+    "VERB",
+    "PUNCT"
+   ],
+   "adjunciones": {},
+   "detalle": "Error sintáctico: Línea 1, columna 1: se esperaba un verbo, se encontró 'Perro' (N)"
+  },
+  {
+   "id": "N1-22",
+   "acepta": false,
+   "upos": [
+    "DET",
+    "NOUN",
+    "AUX",
+    "ADJ",
+    "PUNCT"
+   ],
+   "adjunciones": {},
+   "detalle": "Error semántico: Línea 1, columna 12: el verbo 'es' (3.ª persona singular) no concuerda con el sujeto 'Las flores' (3.ª persona plural) [C2]"
+  },
+  {
+   "id": "N2-23",
+   "acepta": true,
+   "upos": [
+    "DET",
+    "ADJ",
+    "NOUN",
+    "VERB",
+    "DET",
+    "NOUN",
+    "ADJ",
+    "PUNCT"
+   ],
+   "adjunciones": {},
+   "detalle": "aceptada"
+  },
+  {
+   "id": "N2-24",
+   "acepta": true,
+   "upos": [
+    "DET",
+    "NOUN",
+    "ADV",
+    "VERB",
+    "ADV",
+    "PUNCT"
+   ],
+   "adjunciones": {},
+   "detalle": "aceptada"
+  },
+  {
+   "id": "N2-25",
+   "acepta": true,
+   "upos": [
+    "PROPN",
+    "VERB",
+    "ADP",
+    "NOUN",
+    "ADP",
+    "DET",
+    "NOUN",
+    "PUNCT"
+   ],
+   "adjunciones": {
+    "2": 1,
+    "4": 3
+   },
+   "detalle": "aceptada"
+  },
+  {
+   "id": "N2-26",
+   "acepta": true,
+   "upos": [
+    "PROPN",
+    "AUX",
+    "ADV",
+    "ADJ",
+    "ADV",
+    "PUNCT"
+   ],
+   "adjunciones": {},
+   "detalle": "aceptada"
+  },
+  {
+   "id": "N2-27",
+   "acepta": true,
+   "upos": [
+    "VERB",
+    "DET",
+    "NOUN",
+    "ADP",
+    "PROPN",
+    "ADV",
+    "ADV",
+    "PUNCT"
+   ],
+   "adjunciones": {
+    "3": 2
+   },
+   "detalle": "aceptada"
+  },
+  {
+   "id": "N2-28",
+   "acepta": true,
+   "upos": [
+    "DET",
+    "NOUN",
+    "ADV",
+    "ADJ",
+    "VERB",
+    "ADV",
+    "ADV",
+    "PUNCT"
+   ],
+   "adjunciones": {},
+   "detalle": "aceptada"
+  },
+  {
+   "id": "N2-29",
+   "acepta": true,
+   "upos": [
+    "PROPN",
+    "VERB",
+    "DET",
+    "NOUN",
+    "ADP",
+    "DET",
+    "NOUN",
+    "PUNCT"
+   ],
+   "adjunciones": {
+    "4": 3
+   },
+   "detalle": "aceptada"
+  },
+  {
+   "id": "N2-30",
+   "acepta": true,
+   "upos": [
+    "PROPN",
+    "VERB",
+    "DET",
+    "NOUN",
+    "ADP",
+    "DET",
+    "NOUN",
+    "PUNCT"
+   ],
+   "adjunciones": {
+    "4": 3
+   },
+   "detalle": "aceptada"
+  },
+  {
+   "id": "N2-31",
+   "acepta": true,
+   "upos": [
+    "DET",
+    "NOUN",
+    "ADP",
+    "NOUN",
+    "VERB",
+    "ADV",
+    "PUNCT"
+   ],
+   "adjunciones": {
+    "2": 1
+   },
+   "detalle": "aceptada"
+  },
+  {
+   "id": "N2-32",
+   "acepta": true,
+   "upos": [
+    "DET",
+    "NOUN",
+    "VERB",
+    "DET",
+    "NOUN",
+    "ADP",
+    "DET",
+    "NOUN",
+    "PUNCT"
+   ],
+   "adjunciones": {
+    "5": 4
+   },
+   "detalle": "aceptada"
+  },
+  {
+   "id": "N2-33",
+   "acepta": true,
+   "upos": [
+    "DET",
+    "NOUN",
+    "ADJ",
+    "VERB",
+    "ADP",
+    "DET",
+    "NOUN",
+    "PUNCT"
+   ],
+   "adjunciones": {
+    "4": 3
+   },
+   "detalle": "aceptada"
+  },
+  {
+   "id": "N2-34",
+   "acepta": true,
+   "upos": [
+    "DET",
+    "NOUN",
+    "ADJ",
+    "VERB",
+    "ADP",
+    "DET",
+    "NOUN",
+    "PUNCT"
+   ],
+   "adjunciones": {
+    "4": 3
+   },
+   "detalle": "aceptada"
+  },
+  {
+   "id": "N2-35",
+   "acepta": true,
+   "upos": [
+    "DET",
+    "ADJ",
+    "NOUN",
+    "ADV",
+    "AUX",
+    "ADJ",
+    "PUNCT"
+   ],
+   "adjunciones": {},
+   "detalle": "aceptada"
+  },
+  {
+   "id": "N2-36",
+   "acepta": true,
+   "upos": [
+    "PROPN",
+    "VERB",
+    "DET",
+    "NOUN",
+    "ADP",
+    "PROPN",
+    "PUNCT"
+   ],
+   "adjunciones": {
+    "4": 3
+   },
+   "detalle": "aceptada"
+  },
+  {
+   "id": "N2-37",
+   "acepta": true,
+   "upos": [
+    "PRON",
+    "VERB",
+    "ADP",
+    "DET",
+    "NOUN",
+    "ADV",
+    "ADJ",
+    "PUNCT"
+   ],
+   "adjunciones": {
+    "2": 1
+   },
+   "detalle": "aceptada"
+  },
+  {
+   "id": "N2-38",
+   "acepta": true,
+   "upos": [
+    "DET",
+    "NOUN",
+    "ADP",
+    "NOUN",
+    "AUX",
+    "ADP",
+    "DET",
+    "NOUN",
+    "PUNCT"
+   ],
+   "adjunciones": {
+    "2": 1,
+    "5": 4
+   },
+   "detalle": "aceptada"
+  },
+  {
+   "id": "N2-39",
+   "acepta": true,
+   "upos": [
+    "ADV",
+    "VERB",
+    "ADP",
+    "NOUN",
+    "ADV",
+    "PUNCT"
+   ],
+   "adjunciones": {
+    "2": 1
+   },
+   "detalle": "aceptada"
+  },
+  {
+   "id": "N2-40",
+   "acepta": true,
+   "upos": [
+    "DET",
+    "NOUN",
+    "ADJ",
+    "VERB",
+    "DET",
+    "NOUN",
+    "ADJ",
+    "ADP",
+    "DET",
+    "NOUN",
+    "PUNCT"
+   ],
+   "adjunciones": {
+    "7": 5
+   },
+   "detalle": "aceptada"
+  },
+  {
+   "id": "N2-41",
+   "acepta": true,
+   "upos": [
+    "PROPN",
+    "AUX",
+    "DET",
+    "NOUN",
+    "ADV",
+    "ADJ",
+    "PUNCT"
+   ],
+   "adjunciones": {},
+   "detalle": "aceptada"
+  },
+  {
+   "id": "N2-42",
+   "acepta": true,
+   "upos": [
+    "DET",
+    "NOUN",
+    "ADJ",
+    "ADV",
+    "VERB",
+    "ADV",
+    "PUNCT"
+   ],
+   "adjunciones": {},
+   "detalle": "aceptada"
+  },
+  {
+   "id": "N2-43",
+   "acepta": true,
+   "upos": [
+    "PRON",
+    "VERB",
+    "ADP",
+    "DET",
+    "NOUN",
+    "ADP",
+    "PROPN",
+    "PUNCT"
+   ],
+   "adjunciones": {
+    "2": 1,
+    "5": 4
+   },
+   "detalle": "aceptada"
+  },
+  {
+   "id": "N2-44",
+   "acepta": true,
+   "upos": [
+    "PRON",
+    "AUX",
+    "ADP",
+    "DET",
+    "NOUN",
+    "ADV",
+    "PUNCT"
+   ],
+   "adjunciones": {
+    "2": 1
+   },
+   "detalle": "aceptada"
+  },
+  {
+   "id": "N2-45",
+   "acepta": true,
+   "upos": [
+    "PRON",
+    "VERB",
+    "DET",
+    "NOUN",
+    "ADV",
+    "ADJ",
+    "PUNCT"
+   ],
+   "adjunciones": {},
+   "detalle": "aceptada"
+  },
+  {
+   "id": "N2-46",
+   "acepta": false,
+   "upos": [
+    "PROPN",
+    "VERB",
+    "ADP",
+    "NOUN",
+    "PUNCT"
+   ],
+   "adjunciones": {
+    "2": 1
+   },
+   "detalle": "Error semántico: Línea 1, columna 12: 'al' solo va con un sustantivo masculino singular, pero 'escuela' es femenino singular [C4]"
+  },
+  {
+   "id": "N2-47",
+   "acepta": false,
+   "upos": [
+    "PROPN",
+    "VERB",
+    "DET",
+    "NOUN",
+    "PUNCT"
+   ],
+   "adjunciones": {},
+   "detalle": "Error semántico: Línea 1, columna 14: 'caminar' es intransitivo y no puede llevar objeto directo ('el parque') [C5]"
+  },
+  {
+   "id": "N2-48",
+   "acepta": false,
+   "upos": [
+    "PROPN",
+    "VERB",
+    "ADP",
+    "DET",
+    "NOUN",
+    "PUNCT"
+   ],
+   "adjunciones": {
+    "2": 1
+   },
+   "detalle": "Error semántico: Línea 1, columna 13: el determinante 'las' (femenino plural) no concuerda en número con 'ciudad' (femenino singular) [C1]"
+  },
+  {
+   "id": "N2-49",
+   "acepta": false,
+   "upos": [
+    "DET",
+    "NOUN",
+    "ADJ",
+    "VERB",
+    "ADV",
+    "PUNCT"
+   ],
+   "adjunciones": {},
+   "detalle": "Error semántico: Línea 1, columna 9: el adjetivo 'blanca' (femenino singular) no concuerda en género con 'gato' (masculino singular) [C1]"
+  },
+  {
+   "id": "N2-50",
+   "acepta": false,
+   "upos": [
+    "DET",
+    "NOUN",
+    "ADJ",
+    "VERB",
+    "ADV",
+    "PUNCT"
+   ],
+   "adjunciones": {},
+   "detalle": "Error semántico: Línea 1, columna 15: el adjetivo 'alto' (masculino singular) no concuerda en género con 'estudiante' (femenino singular) [C1]"
+  },
+  {
+   "id": "N2-51",
+   "acepta": false,
+   "upos": [
+    "DET",
+    "NOUN",
+    "ADP",
+    "DET",
+    "NOUN",
+    "VERB",
+    "PUNCT"
+   ],
+   "adjunciones": {
+    "2": 1
+   },
+   "detalle": "Error semántico: Línea 1, columna 27: el verbo 'corre' (3.ª persona singular) no concuerda con el sujeto 'Los niños de la profesora' (3.ª persona plural) [C2]"
+  },
+  {
+   "id": "N3-52",
+   "acepta": false,
+   "upos": [
+    "PROPN",
+    "CCONJ",
+    "PROPN",
+    "VERB",
+    "NOUN",
+    "PUNCT"
+   ],
+   "adjunciones": {},
+   "detalle": "Error sintáctico: Línea 1, columna 6: se esperaba un verbo, se encontró 'y' (CONJ)"
+  },
+  {
+   "id": "N3-53",
+   "acepta": false,
+   "upos": [
+    "DET",
+    "NOUN",
+    "SCONJ",
+    "VERB",
+    "PROPN",
+    "VERB",
+    "PUNCT"
+   ],
+   "adjunciones": {},
+   "detalle": "Error sintáctico: Línea 1, columna 10: se esperaba un verbo, se encontró 'que' (SUB)"
+  },
+  {
+   "id": "N3-54",
+   "acepta": false,
+   "upos": [
+    "PUNCT",
+    "VERB",
+    "PROPN",
+    "DET",
+    "NOUN",
+    "PUNCT"
+   ],
+   "adjunciones": {},
+   "detalle": "Error sintáctico: Línea 1, columna 1: se esperaba un verbo, se encontró '¿' (SIGNO)"
+  },
+  {
+   "id": "N3-55",
+   "acepta": false,
+   "upos": [
+    "PROPN",
+    "DET",
+    "VERB",
+    "PUNCT"
+   ],
+   "adjunciones": {},
+   "detalle": "Error sintáctico: Línea 1, columna 6: se esperaba un verbo, se encontró 'la' (DET)"
+  },
+  {
+   "id": "N3-56",
+   "acepta": false,
+   "upos": [
+    "DET",
+    "NOUN",
+    "AUX",
+    "VERB",
+    "ADP",
+    "PROPN",
+    "PUNCT"
+   ],
+   "adjunciones": {},
+   "detalle": "Error sintáctico: Línea 1, columna 14: se esperaba un adjetivo, un sintagma nominal o preposicional, se encontró 'escrita' (PART)"
+  },
+  {
+   "id": "N3-57",
+   "acepta": false,
+   "upos": [
+    "PROPN",
+    "AUX",
+    "VERB",
+    "DET",
+    "NOUN",
+    "PUNCT"
+   ],
+   "adjunciones": {},
+   "detalle": "Error sintáctico: Línea 1, columna 5: se esperaba un verbo, se encontró 'ha' (AUX)"
+  },
+  {
+   "id": "N3-58",
+   "acepta": false,
+   "upos": [
+    "PROPN",
+    "VERB",
+    "SCONJ",
+    "DET",
+    "NOUN",
+    "AUX",
+    "ADJ",
+    "PUNCT"
+   ],
+   "adjunciones": {},
+   "detalle": "Error sintáctico: Línea 1, columna 14: se esperaba PUNTO, se encontró 'porque' (SUB)"
+  },
+  {
+   "id": "N3-59",
+   "acepta": false,
+   "upos": [
+    "SCONJ",
+    "PROPN",
+    "VERB",
+    "PUNCT",
+    "DET",
+    "NOUN",
+    "VERB",
+    "PUNCT"
+   ],
+   "adjunciones": {},
+   "detalle": "Error sintáctico: Línea 1, columna 1: se esperaba un verbo, se encontró 'Cuando' (SUB)"
+  },
+  {
+   "id": "N3-60",
+   "acepta": false,
+   "upos": [
+    "DET",
+    "NOUN",
+    "VERB",
+    "NOUN",
+    "PUNCT"
+   ],
+   "adjunciones": {},
+   "detalle": "Error sintáctico: Línea 1, columna 17: se esperaba PUNTO, se encontró 'manzanas' (N)"
+  },
+  {
+   "id": "N3-61",
+   "acepta": false,
+   "upos": [
+    "PROPN",
+    "PRON",
+    "VERB",
+    "DET",
+    "NOUN",
+    "ADP",
+    "PROPN",
+    "PUNCT"
+   ],
+   "adjunciones": {},
+   "detalle": "Error sintáctico: Línea 1, columna 5: se esperaba un verbo, se encontró 'le' (CLIT)"
+  },
+  {
+   "id": "N3-62",
+   "acepta": false,
+   "upos": [
+    "PROPN",
+    "CCONJ",
+    "PROPN",
+    "VERB",
+    "DET",
+    "NOUN",
+    "PUNCT"
+   ],
+   "adjunciones": {},
+   "detalle": "Error sintáctico: Línea 1, columna 6: se esperaba un verbo, se encontró 'o' (CONJ)"
+  },
+  {
+   "id": "N3-63",
+   "acepta": false,
+   "upos": [
+    "PROPN",
+    "VERB",
+    "ADP",
+    "NOUN",
+    "CCONJ",
+    "DET",
+    "NOUN",
+    "ADV",
+    "VERB",
+    "ADP",
+    "PROPN",
+    "PUNCT"
+   ],
+   "adjunciones": {},
+   "detalle": "Error sintáctico: Línea 1, columna 18: se esperaba PUNTO, se encontró 'pero' (CONJ)"
+  },
+  {
+   "id": "N3-64",
+   "acepta": false,
+   "upos": [
+    "DET",
+    "NOUN",
+    "SCONJ",
+    "DET",
+    "NOUN",
+    "VERB",
+    "VERB",
+    "PUNCT"
+   ],
+   "adjunciones": {},
+   "detalle": "Error sintáctico: Línea 1, columna 12: se esperaba un verbo, se encontró 'que' (SUB)"
+  },
+  {
+   "id": "N3-65",
+   "acepta": false,
+   "upos": [
+    "PROPN",
+    "AUX",
+    "ADV",
+    "ADJ",
+    "SCONJ",
+    "PROPN",
+    "PUNCT"
+   ],
+   "adjunciones": {},
+   "detalle": "Error sintáctico: Línea 1, columna 10: se esperaba un adjetivo, un sintagma nominal o preposicional, se encontró 'más' (COMP)"
+  },
+  {
+   "id": "N3-66",
+   "acepta": false,
+   "upos": [
+    "PRON",
+    "VERB",
+    "ADV",
+    "ADP",
+    "DET",
+    "NOUN",
+    "ADP",
+    "PROPN",
+    "PUNCT"
+   ],
+   "adjunciones": {},
+   "detalle": "Error sintáctico: Línea 1, columna 1: se esperaba un verbo, se encontró 'Se' (CLIT)"
+  },
+  {
+   "id": "N3-67",
+   "acepta": false,
+   "upos": [
+    "VERB",
+    "PROPN",
+    "DET",
+    "NOUN",
+    "PUNCT"
+   ],
+   "adjunciones": {},
+   "detalle": "Error sintáctico: Línea 1, columna 12: se esperaba PUNTO, se encontró 'el' (DET)"
+  },
+  {
+   "id": "N3-68",
+   "acepta": false,
+   "upos": [
+    "PUNCT",
+    "PRON",
+    "VERB",
+    "PROPN",
+    "PUNCT"
+   ],
+   "adjunciones": {},
+   "detalle": "Error sintáctico: Línea 1, columna 1: se esperaba un verbo, se encontró '¿' (SIGNO)"
+  },
+  {
+   "id": "N3-69",
+   "acepta": false,
+   "upos": [
+    "DET",
+    "NOUN",
+    "ADJ",
+    "CCONJ",
+    "ADJ",
+    "VERB",
+    "PUNCT"
+   ],
+   "adjunciones": {},
+   "detalle": "Error sintáctico: Línea 1, columna 17: se esperaba un verbo, se encontró 'y' (CONJ)"
+  },
+  {
+   "id": "N3-70",
+   "acepta": false,
+   "upos": [
+    "PROPN",
+    "VERB",
+    "ADJ",
+    "PUNCT"
+   ],
+   "adjunciones": {},
+   "detalle": "Error sintáctico: Línea 1, columna 11: se esperaba PUNTO, se encontró 'rápido' (ADJ)"
+  },
+  {
+   "id": "N3-71",
+   "acepta": false,
+   "upos": [
+    "ADP",
+    "PROPN",
+    "DET",
+    "VERB",
+    "DET",
+    "NOUN",
+    "PUNCT"
+   ],
+   "adjunciones": {},
+   "detalle": "Error sintáctico: Línea 1, columna 1: se esperaba un verbo, se encontró 'A' (PREP)"
+  },
+  {
+   "id": "N3-72",
+   "acepta": false,
+   "upos": [
+    "DET",
+    "NOUN",
+    "SCONJ",
+    "VERB",
+    "PROPN",
+    "VERB",
+    "PUNCT"
+   ],
+   "adjunciones": {},
+   "detalle": "Error sintáctico: Línea 1, columna 12: se esperaba un verbo, se encontró 'que' (SUB)"
+  },
+  {
+   "id": "N3-73",
+   "acepta": false,
+   "upos": [
+    "PROPN",
+    "CCONJ",
+    "PROPN",
+    "VERB",
+    "NOUN",
+    "PUNCT"
+   ],
+   "adjunciones": {},
+   "detalle": "Error sintáctico: Línea 1, columna 6: se esperaba un verbo, se encontró 'y' (CONJ)"
+  },
+  {
+   "id": "N3-74",
+   "acepta": false,
+   "upos": [
+    "DET",
+    "NOUN",
+    "AUX",
+    "VERB",
+    "ADP",
+    "PROPN",
+    "PUNCT"
+   ],
+   "adjunciones": {},
+   "detalle": "Error sintáctico: Línea 1, columna 17: se esperaba un adjetivo, un sintagma nominal o preposicional, se encontró 'escrita' (PART)"
+  },
+  {
+   "id": "N3-75",
+   "acepta": false,
+   "upos": [
+    "DET",
+    "NOUN",
+    "SCONJ",
+    "VERB",
+    "ADV",
+    "VERB",
+    "DET",
+    "NOUN",
+    "PUNCT"
+   ],
+   "adjunciones": {},
+   "detalle": "Error sintáctico: Línea 1, columna 10: se esperaba un verbo, se encontró 'que' (SUB)"
+  },
+  {
+   "id": "N3-76",
+   "acepta": false,
+   "upos": [
+    "PROPN",
+    "PRON",
+    "VERB",
+    "DET",
+    "NOUN",
+    "ADP",
+    "DET",
+    "NOUN",
+    "PUNCT"
+   ],
+   "adjunciones": {},
+   "detalle": "Error sintáctico: Línea 1, columna 5: se esperaba un verbo, se encontró 'le' (CLIT)"
+  }
+ ]
+}

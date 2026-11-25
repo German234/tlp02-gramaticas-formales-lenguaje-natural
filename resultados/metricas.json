@@ -1,0 +1,367 @@
+{
+ "parser": {
+  "aceptacion": {
+   "VP": 39,
+   "FP": 0,
+   "VN": 17,
+   "FN": 20,
+   "sin_respuesta": 0,
+   "precision": 1.0,
+   "recall": 0.6610169491525424,
+   "rechazo_correcto": 1.0,
+   "exactitud": 0.7368421052631579
+  },
+  "por_nivel": {
+   "1": {
+    "VP": 16,
+    "FP": 0,
+    "VN": 6,
+    "FN": 0,
+    "sin_respuesta": 0,
+    "precision": 1.0,
+    "recall": 1.0,
+    "rechazo_correcto": 1.0,
+    "exactitud": 1.0
+   },
+   "2": {
+    "VP": 23,
+    "FP": 0,
+    "VN": 6,
+    "FN": 0,
+    "sin_respuesta": 0,
+    "precision": 1.0,
+    "recall": 1.0,
+    "rechazo_correcto": 1.0,
+    "exactitud": 1.0
+   },
+   "3": {
+    "VP": 0,
+    "FP": 0,
+    "VN": 5,
+    "FN": 20,
+    "sin_respuesta": 0,
+    "precision": NaN,
+    "recall": 0.0,
+    "rechazo_correcto": 1.0,
+    "exactitud": 0.2
+   }
+  },
+  "etiquetado": {
+   "aciertos": 472,
+   "total": 480,
+   "errores": 8,
+   "exactitud": 0.9833333333333333,
+   "confusiones": [
+    {
+     "referencia": "PRON",
+     "sistema": "SCONJ",
+     "palabra": "que",
+     "veces": 4
+    },
+    {
+     "referencia": "PRON",
+     "sistema": "DET",
+     "palabra": "la",
+     "veces": 2
+    },
+    {
+     "referencia": "ADV",
+     "sistema": "PRON",
+     "palabra": "dónde",
+     "veces": 1
+    },
+    {
+     "referencia": "ADV",
+     "sistema": "ADJ",
+     "palabra": "rápido",
+     "veces": 1
+    }
+   ]
+  },
+  "adjuncion": {
+   "correctas": 12,
+   "total": 20,
+   "respondidas": 16,
+   "exactitud": 0.6,
+   "a_sustantivo": 0.8333333333333334,
+   "a_verbo": 0.5
+  }
+ },
+ "spacy": {
+  "aceptacion": {
+   "VP": 51,
+   "FP": 8,
+   "VN": 9,
+   "FN": 8,
+   "sin_respuesta": 0,
+   "precision": 0.864406779661017,
+   "recall": 0.864406779661017,
+   "rechazo_correcto": 0.5294117647058824,
+   "exactitud": 0.7894736842105263
+  },
+  "por_nivel": {
+   "1": {
+    "VP": 14,
+    "FP": 4,
+    "VN": 2,
+    "FN": 2,
+    "sin_respuesta": 0,
+    "precision": 0.7777777777777778,
+    "recall": 0.875,
+    "rechazo_correcto": 0.3333333333333333,
+    "exactitud": 0.7272727272727273
+   },
+   "2": {
+    "VP": 20,
+    "FP": 4,
+    "VN": 2,
+    "FN": 3,
+    "sin_respuesta": 0,
+    "precision": 0.8333333333333334,
+    "recall": 0.8695652173913043,
+    "rechazo_correcto": 0.3333333333333333,
+    "exactitud": 0.7586206896551724
+   },
+   "3": {
+    "VP": 17,
+    "FP": 0,
+    "VN": 5,
+    "FN": 3,
+    "sin_respuesta": 0,
+    "precision": 1.0,
+    "recall": 0.85,
+    "rechazo_correcto": 1.0,
+    "exactitud": 0.88
+   }
+  },
+  "etiquetado": {
+   "aciertos": 461,
+   "total": 480,
+   "errores": 19,
+   "exactitud": 0.9604166666666667,
+   "confusiones": [
+    {
+     "referencia": "NOUN",
+     "sistema": "PROPN",
+     "palabra": "perro",
+     "veces": 4
+    },
+    {
+     "referencia": "PRON",
+     "sistema": "DET",
+     "palabra": "la",
+     "veces": 2
+    },
+    {
+     "referencia": "VERB",
+     "sistema": "NOUN",
+     "palabra": "come",
+     "veces": 1
+    },
+    {
+     "referencia": "AUX",
+     "sistema": "VERB",
+     "palabra": "está",
+     "veces": 1
+    },
+    {
+     "referencia": "ADV",
+     "sistema": "ADJ",
+     "palabra": "temprano",
+     "veces": 1
+    },
+    {
+     "referencia": "PRON",
+     "sistema": "PROPN",
+     "palabra": "nosotras",
+     "veces": 1
+    },
+    {
+     "referencia": "AUX",
+     "sistema": "VERB",
+     "palabra": "estuvimos",
+     "veces": 1
+    },
+    {
+     "referencia": "NOUN",
+     "sistema": "PROPN",
+     "palabra": "gato",
+     "veces": 1
+    },
+    {
+     "referencia": "VERB",
+     "sistema": "PROPN",
+     "palabra": "come",
+     "veces": 1
+    },
+    {
+     "referencia": "VERB",
+     "sistema": "NOUN",
+     "palabra": "mira",
+     "veces": 1
+    },
+    {
+     "referencia": "VERB",
+     "sistema": "PROPN",
+     "palabra": "canta",
+     "veces": 1
+    },
+    {
+     "referencia": "VERB",
+     "sistema": "PROPN",
+     "palabra": "comió",
+     "veces": 1
+    },
+    {
+     "referencia": "ADV",
+     "sistema": "PROPN",
+     "palabra": "dónde",
+     "veces": 1
+    },
+    {
+     "referencia": "ADV",
+     "sistema": "ADJ",
+     "palabra": "rápido",
+     "veces": 1
+    },
+    {
+     "referencia": "VERB",
+     "sistema": "NOUN",
+     "palabra": "miran",
+     "veces": 1
+    }
+   ]
+  },
+  "adjuncion": {
+   "correctas": 20,
+   "total": 20,
+   "respondidas": 20,
+   "exactitud": 1.0,
+   "a_sustantivo": 1.0,
+   "a_verbo": 1.0
+  }
+ },
+ "hf": {
+  "aceptacion": {
+   "VP": 46,
+   "FP": 7,
+   "VN": 10,
+   "FN": 13,
+   "sin_respuesta": 0,
+   "precision": 0.8679245283018868,
+   "recall": 0.7796610169491526,
+   "rechazo_correcto": 0.5882352941176471,
+   "exactitud": 0.7368421052631579
+  },
+  "por_nivel": {
+   "1": {
+    "VP": 13,
+    "FP": 2,
+    "VN": 4,
+    "FN": 3,
+    "sin_respuesta": 0,
+    "precision": 0.8666666666666667,
+    "recall": 0.8125,
+    "rechazo_correcto": 0.6666666666666666,
+    "exactitud": 0.7727272727272727
+   },
+   "2": {
+    "VP": 21,
+    "FP": 2,
+    "VN": 4,
+    "FN": 2,
+    "sin_respuesta": 0,
+    "precision": 0.9130434782608695,
+    "recall": 0.9130434782608695,
+    "rechazo_correcto": 0.6666666666666666,
+    "exactitud": 0.8620689655172413
+   },
+   "3": {
+    "VP": 12,
+    "FP": 3,
+    "VN": 2,
+    "FN": 8,
+    "sin_respuesta": 0,
+    "precision": 0.8,
+    "recall": 0.6,
+    "rechazo_correcto": 0.4,
+    "exactitud": 0.56
+   }
+  },
+  "etiquetado": {
+   "aciertos": 457,
+   "total": 480,
+   "errores": 23,
+   "exactitud": 0.9520833333333333,
+   "confusiones": [
+    {
+     "referencia": "AUX",
+     "sistema": "VERB",
+     "palabra": "es",
+     "veces": 8
+    },
+    {
+     "referencia": "PRON",
+     "sistema": "SCONJ",
+     "palabra": "que",
+     "veces": 4
+    },
+    {
+     "referencia": "AUX",
+     "sistema": "VERB",
+     "palabra": "está",
+     "veces": 2
+    },
+    {
+     "referencia": "ADP",
+     "sistema": "DET",
+     "palabra": "al",
+     "veces": 2
+    },
+    {
+     "referencia": "PRON",
+     "sistema": "ADV",
+     "palabra": "nosotros",
+     "veces": 1
+    },
+    {
+     "referencia": "PRON",
+     "sistema": "ADV",
+     "palabra": "tú",
+     "veces": 1
+    },
+    {
+     "referencia": "NOUN",
+     "sistema": "PROPN",
+     "palabra": "perro",
+     "veces": 1
+    },
+    {
+     "referencia": "PROPN",
+     "sistema": "PRON",
+     "palabra": "juan",
+     "veces": 1
+    },
+    {
+     "referencia": "AUX",
+     "sistema": "VERB",
+     "palabra": "estará",
+     "veces": 1
+    },
+    {
+     "referencia": "AUX",
+     "sistema": "VERB",
+     "palabra": "estuvimos",
+     "veces": 1
+    },
+    {
+     "referencia": "SCONJ",
+     "sistema": "ADP",
+     "palabra": "que",
+     "veces": 1
+    }
+   ]
+  },
+  "adjuncion": null
+ }
+}

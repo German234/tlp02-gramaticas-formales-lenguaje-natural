@@ -1,0 +1,57 @@
+﻿sistema,id,nivel,tipo,oracion,fenomeno,detalle
+parser,N3-52,3,falso negativo,Juan y María comen manzanas .,"Coordinación de sujetos, sustantivo sin determinante","Error sintáctico: Línea 1, columna 6: se esperaba un verbo, se encontró 'y' (CONJ)"
+parser,N3-53,3,falso negativo,El perro que miró Ana corre .,Cláusula relativa,"Error sintáctico: Línea 1, columna 10: se esperaba un verbo, se encontró 'que' (SUB)"
+parser,N3-54,3,falso negativo,¿ Come Juan una manzana ?,"Interrogativa, orden VSO","Error sintáctico: Línea 1, columna 1: se esperaba un verbo, se encontró '¿' (SIGNO)"
+parser,N3-55,3,falso negativo,Juan la mira .,Pronombre clítico,"Error sintáctico: Línea 1, columna 6: se esperaba un verbo, se encontró 'la' (DET)"
+parser,N3-56,3,falso negativo,La carta fue escrita por Ana .,Voz pasiva,"Error sintáctico: Línea 1, columna 14: se esperaba un adjetivo, un sintagma nominal o preposicional, se encontró 'escrita' (PART)"
+parser,N3-57,3,falso negativo,Ana ha comido el pan .,Tiempo compuesto,"Error sintáctico: Línea 1, columna 5: se esperaba un verbo, se encontró 'ha' (AUX)"
+parser,N3-58,3,falso negativo,Luis estudia porque el profesor es inteligente .,Subordinada causal,"Error sintáctico: Línea 1, columna 14: se esperaba PUNTO, se encontró 'porque' (SUB)"
+parser,N3-59,3,falso negativo,"Cuando Ana canta , los niños bailan .",Subordinada temporal antepuesta,"Error sintáctico: Línea 1, columna 1: se esperaba un verbo, se encontró 'Cuando' (SUB)"
+parser,N3-60,3,falso negativo,Los niños comen manzanas .,Objeto sin determinante,"Error sintáctico: Línea 1, columna 17: se esperaba PUNTO, se encontró 'manzanas' (N)"
+parser,N3-61,3,falso negativo,Ana le escribió una carta a Pedro .,Doble objeto con clítico,"Error sintáctico: Línea 1, columna 5: se esperaba un verbo, se encontró 'le' (CLIT)"
+parser,N3-62,3,falso negativo,Juan o Pedro cocinará el pan .,Disyunción de sujetos,"Error sintáctico: Línea 1, columna 6: se esperaba un verbo, se encontró 'o' (CONJ)"
+parser,N3-63,3,falso negativo,Ana mira al gato pero el gato no mira a Ana .,Coordinación de oraciones,"Error sintáctico: Línea 1, columna 18: se esperaba PUNTO, se encontró 'pero' (CONJ)"
+parser,N3-64,3,falso negativo,Los perros que el niño miró corren .,Relativa de objeto: concordancia a través de la cláusula,"Error sintáctico: Línea 1, columna 12: se esperaba un verbo, se encontró 'que' (SUB)"
+parser,N3-65,3,falso negativo,María es más alta que Ana .,Comparativa,"Error sintáctico: Línea 1, columna 10: se esperaba un adjetivo, un sintagma nominal o preposicional, se encontró 'más' (COMP)"
+parser,N3-66,3,falso negativo,Se come bien en la casa de Ana .,Impersonal con se,"Error sintáctico: Línea 1, columna 1: se esperaba un verbo, se encontró 'Se' (CLIT)"
+parser,N3-67,3,falso negativo,Comió Juan el pan .,Orden VSO declarativo,"Error sintáctico: Línea 1, columna 12: se esperaba PUNTO, se encontró 'el' (DET)"
+parser,N3-68,3,falso negativo,¿ Dónde vive Ana ?,Interrogativa parcial,"Error sintáctico: Línea 1, columna 1: se esperaba un verbo, se encontró '¿' (SIGNO)"
+parser,N3-69,3,falso negativo,La niña cansada y feliz canta .,Coordinación de adjetivos,"Error sintáctico: Línea 1, columna 17: se esperaba un verbo, se encontró 'y' (CONJ)"
+parser,N3-70,3,falso negativo,Ana corre rápido .,Adjetivo usado como adverbio,"Error sintáctico: Línea 1, columna 11: se esperaba PUNTO, se encontró 'rápido' (ADJ)"
+parser,N3-71,3,falso negativo,A Ana la miran los niños .,Objeto antepuesto con clítico,"Error sintáctico: Línea 1, columna 1: se esperaba un verbo, se encontró 'A' (PREP)"
+spacy,N1-08,1,falso negativo,El gato mira el árbol .,SVO,nsubj: 'gato' y 'mira' difieren en Person
+spacy,N1-16,1,falso negativo,Usted cocina el pan .,"Pronombre usted, SVO",nsubj: 'Usted' y 'cocina' difieren en Person
+spacy,N1-17,1,falso positivo,Los perro come .,C1: DET-N en número,sin problemas de concordancia
+spacy,N1-19,1,falso positivo,María es alto .,C3: atributo en género,sin problemas de concordancia
+spacy,N1-20,1,falso positivo,Yo come una manzana .,C2: persona,sin problemas de concordancia
+spacy,N1-21,1,falso positivo,Perro el come .,Orden de palabras,sin problemas de concordancia
+spacy,N2-25,2,falso negativo,Juan mira al hombre con el telescopio .,Adjunción ambigua (dos lecturas válidas),nsubj: 'Juan' y 'mira' difieren en Person
+spacy,N2-44,2,falso negativo,Nosotras estuvimos en el jardín ayer .,"Pretérito de estar, atributo SP",nsubj: 'Nosotras' y 'estuvimos' difieren en Person
+spacy,N2-45,2,falso negativo,Tú escribiste una carta muy bonita .,"2.ª persona, intensificador",nsubj: 'Tú' y 'escribiste' difieren en Person
+spacy,N2-46,2,falso positivo,Ana camina al escuela .,C4: al + femenino,sin problemas de concordancia
+spacy,N2-47,2,falso positivo,Pedro camina el parque .,C5: intransitivo con objeto,sin problemas de concordancia
+spacy,N2-49,2,falso positivo,El gato blanca corre rápidamente .,C1: ADJ-N en género,sin problemas de concordancia
+spacy,N2-50,2,falso positivo,La estudiante alto canta bien .,C1: género común definido por DET,sin problemas de concordancia
+spacy,N3-62,3,falso negativo,Juan o Pedro cocinará el pan .,Disyunción de sujetos,nsubj: 'Juan' y 'cocinará' difieren en Number
+spacy,N3-63,3,falso negativo,Ana mira al gato pero el gato no mira a Ana .,Coordinación de oraciones,nsubj: 'Ana' y 'mira' difieren en Person; nsubj: 'gato' y 'mira' difieren en Person
+spacy,N3-71,3,falso negativo,A Ana la miran los niños .,Objeto antepuesto con clítico,det: 'la' y 'miran' difieren en Number
+hf,N1-06,1,falso negativo,Ana canta .,SV con nombre propio,PLL=-7.184 (umbral -4.113)
+hf,N1-11,1,falso negativo,Pedro es inteligente .,"Copulativa, adjetivo de género común",PLL=-4.084 (umbral -4.014)
+hf,N1-12,1,falso negativo,Mi profesora trabaja .,Determinante posesivo,PLL=-4.907 (umbral -4.113)
+hf,N1-20,1,falso positivo,Yo come una manzana .,C2: persona,PLL=-4.513 (umbral -5.410)
+hf,N1-22,1,falso positivo,Las flores es bonitas .,C2: número,PLL=-4.390 (umbral -5.410)
+hf,N2-25,2,falso negativo,Juan mira al hombre con el telescopio .,Adjunción ambigua (dos lecturas válidas),PLL=-4.947 (umbral -4.113)
+hf,N2-41,2,falso negativo,Juan es un profesor bastante inteligente .,Atributo SN con intensificador,PLL=-5.030 (umbral -4.113)
+hf,N2-48,2,falso positivo,Ana vive en las ciudad .,C1 dentro de un SP,PLL=-4.897 (umbral -5.410)
+hf,N2-51,2,falso positivo,Los niños de la profesora corre .,C2 a distancia con atractor singular,PLL=-4.141 (umbral -5.410)
+hf,N3-52,3,falso negativo,Juan y María comen manzanas .,"Coordinación de sujetos, sustantivo sin determinante",PLL=-7.294 (umbral -4.113)
+hf,N3-53,3,falso negativo,El perro que miró Ana corre .,Cláusula relativa,PLL=-6.332 (umbral -4.113)
+hf,N3-54,3,falso negativo,¿ Come Juan una manzana ?,"Interrogativa, orden VSO",PLL=-7.027 (umbral -4.113)
+hf,N3-55,3,falso negativo,Juan la mira .,Pronombre clítico,PLL=-8.936 (umbral -4.113)
+hf,N3-62,3,falso negativo,Juan o Pedro cocinará el pan .,Disyunción de sujetos,PLL=-6.438 (umbral -4.113)
+hf,N3-64,3,falso negativo,Los perros que el niño miró corren .,Relativa de objeto: concordancia a través de la cláusula,PLL=-4.359 (umbral -4.113)
+hf,N3-67,3,falso negativo,Comió Juan el pan .,Orden VSO declarativo,PLL=-7.005 (umbral -4.113)
+hf,N3-70,3,falso negativo,Ana corre rápido .,Adjetivo usado como adverbio,PLL=-5.372 (umbral -4.113)
+hf,N3-74,3,falso positivo,La carta fueron escrita por Ana .,Pasiva con auxiliar mal conjugado,PLL=-4.354 (umbral -5.410)
+hf,N3-75,3,falso positivo,El perro que corre rápidamente come la manzanas .,Relativa + C1 en el objeto,PLL=-4.419 (umbral -5.410)
+hf,N3-76,3,falso positivo,Ana le escribió una carta a los niño .,Doble objeto + C1,PLL=-3.169 (umbral -4.113)
