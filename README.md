@@ -295,3 +295,76 @@ En resumen:
 - el **lexer** trabaja con lenguajes regulares (un autómata finito basta para reconocer cada token);
 - el **parser** trabaja con lenguajes libres de contexto (la estructura anidada se reconoce con una pila);
 - el **analizador semántico** cubre las dependencias sensibles al contexto, usando una tabla de símbolos que funciona como la "memoria" que le falta a la CFG.
+
+---
+
+# Fase 2 — Parser para el español *(en progreso)*
+
+El parser no necesita librerías externas. Para dibujar los árboles y para la comparación con NLP:
+
+```bash
+pip install -r requirements.txt
+python -m spacy download es_core_news_md
+```
+
+La primera ejecución de HuggingFace descarga dos modelos (~1 GB en total).
+
+| Archivo | Contenido |
+|---|---|
+| `docs/gramatica_espanol.bnf` | Gramática libre de contexto del subconjunto del español, análisis LL(1) y reglas de concordancia |
+| `gramatica_es.py` | La misma gramática como datos; calcula FIRST, FOLLOW y conflictos LL(1) |
+| `lexico_es.py` | Vocabulario (412 formas, 34 de ellas con categorías fuera de la gramática para el nivel 3) con género, número, persona, tiempo y transitividad |
+| `lexer_es.py` | Analizador léxico: oración → tokens con categoría y rasgos |
+| `parser_es.py` | Parser descendente recursivo: tokens → árbol sintáctico |
+| `semantico_es.py` | Analizador semántico: verifica la concordancia (reglas C1–C5) |
+| `pruebas_es.py` | Batería automática de 39 casos (válidos y con errores léxicos, sintácticos y semánticos) |
+| `comparar_nlp.py` | Procesa el set con el parser propio, spaCy y HuggingFace; guarda `resultados/predicciones_<sistema>.json` |
+| `metricas.py` | Calcula precisión, cobertura, rechazo correcto, errores de etiquetado y adjunción; genera tablas y gráficas |
+| `arbol_es.py` | Dibuja el árbol (PNG con matplotlib) o lo exporta a DOT / corchetes (nltk) |
+| `ejemplos/oraciones_es.txt` | Oraciones de ejemplo de los tres niveles |
+| `datos/set_prueba.json` / `.csv` | Set de prueba: 76 oraciones en 3 niveles, con gramaticalidad, resultado esperado, etiquetas UPOS y adjunciones de referencia (ver [docs/SET_PRUEBA.md](docs/SET_PRUEBA.md)) |
+
+```bash
+python gramatica_es.py                                   # FIRST, FOLLOW y conflictos LL(1)
+python lexico_es.py                                      # resumen del vocabulario
+python lexer_es.py "Los niños compramos ."               # tokens y rasgos
+python parser_es.py "Juan mira al hombre con el telescopio ."
+python parser_es.py ejemplos/oraciones_es.txt            # varias oraciones
+python semantico_es.py "Los perro roja come ."            # error de concordancia [C1]
+python semantico_es.py ejemplos/oraciones_es.txt
+python pruebas_es.py                                     # 39/39 casos correctos
+python arbol_es.py "La niña come una manzana roja ." -o arbol.png
+python arbol_es.py ejemplos/oraciones_es.txt -d arboles/ # un PNG por oración
+python arbol_es.py "El perro come ." --dot               # formato Graphviz
+```
+
+### Comparación con NLP moderno
+
+```bash
+python comparar_nlp.py            # parser, spaCy y HuggingFace (o solo algunos: python comparar_nlp.py parser spacy)
+python metricas.py                # tablas y gráficas
+```
+
+Salida en `resultados/`:
+- `metricas.md`: tablas listas para el informe (aceptación, por nivel, etiquetado UPOS, adjunción, tiempo);
+- `errores.csv`: cada falso positivo o falso negativo, con su causa;
+- `graficas/`: `aceptacion.png`, `cobertura_por_nivel.png`, `etiquetado.png`, `adjuncion.png` y `tipos_de_error.png`.
+
+Cómo decide cada sistema si **acepta** una oración:
+- **Parser propio:** la acepta si pasa el lexer, el parser y la verificación de concordancia.
+- **spaCy:** no juzga gramaticalidad por sí solo. Se revisa la concordancia (det/amod con su sustantivo, sujeto con verbo y sujeto con atributo) sobre su árbol de dependencias y sus rasgos morfológicos. Si no encuentra choques, la acepta.
+- **HuggingFace:** calcula la pseudo-log-verosimilitud de la oración con RoBERTa-BNE: qué tan "natural" le parece al modelo. El umbral se elige con validación cruzada dejando uno fuera.
+
+**Cubre:** oraciones SVO y copulativas (ser/estar), sujeto omitido, adjetivos antes y después del sustantivo con intensificador (*muy*, *bastante*), adverbios, negación, frases preposicionales, contracciones *al*/*del*, y tres tiempos verbales (presente, pretérito y futuro).
+
+**Reglas de concordancia que verifica `semantico_es.py`:**
+
+| Regla | Qué verifica | Ejemplo rechazado |
+|---|---|---|
+| C1 | DET, ADJ y N concuerdan en género y número | *Los perro come.* |
+| C2 | Sujeto y verbo concuerdan en persona y número | *Los niños corre.* |
+| C3 | Sujeto y atributo concuerdan (ser / estar), a distancia | *María es alto.* |
+| C4 | *al* / *del* van con sustantivo masculino singular | *Ana camina al escuela.* |
+| C5 | Un verbo intransitivo no lleva objeto directo | *Pedro camina el parque.* |
+
+**Pendiente:** ejecutar la comparación en una computadora con spaCy y HuggingFace instalados, experimento con LLM e informe.
