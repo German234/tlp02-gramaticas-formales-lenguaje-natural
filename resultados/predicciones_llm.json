@@ -7,11 +7,11 @@
     },
     "zero_shot": {
       "veredicto": "error",
-      "razon": "HTTP 404: Not Found"
+      "razon": "API key de Gemini no configurada. Ver GEMINI_API_KEY en api_llm.py"
     },
     "few_shot": {
       "veredicto": "error",
-      "razon": "HTTP 404: Not Found"
+      "razon": "API key de Gemini no configurada. Ver GEMINI_API_KEY en api_llm.py"
     },
     "esperado": "ok",
     "acierto_parser": true,
@@ -29,11 +29,11 @@
     },
     "zero_shot": {
       "veredicto": "error",
-      "razon": "HTTP 404: Not Found"
+      "razon": "API key de Gemini no configurada. Ver GEMINI_API_KEY en api_llm.py"
     },
     "few_shot": {
       "veredicto": "error",
-      "razon": "HTTP 404: Not Found"
+      "razon": "API key de Gemini no configurada. Ver GEMINI_API_KEY en api_llm.py"
     },
     "esperado": "ok",
     "acierto_parser": true,
@@ -51,11 +51,11 @@
     },
     "zero_shot": {
       "veredicto": "error",
-      "razon": "HTTP 404: Not Found"
+      "razon": "API key de Gemini no configurada. Ver GEMINI_API_KEY en api_llm.py"
     },
     "few_shot": {
       "veredicto": "error",
-      "razon": "HTTP 404: Not Found"
+      "razon": "API key de Gemini no configurada. Ver GEMINI_API_KEY en api_llm.py"
     },
     "esperado": "ok",
     "acierto_parser": true,

@@ -1,366 +1,407 @@
-"""Experimento LLM: Gemini analiza oraciones siguiendo las reglas de producción
-de la CFG formal del proyecto TLP02-2026.
+"""Experimento LLM: Gemini analiza oraciones siguiendo la gramática formal.
 
-Compara tres enfoques para cada oración del set de prueba:
-  1. Parser propio  (semantico_es.clasificar)
-  2. Gemini zero-shot  (solo las reglas BNF en el prompt)
-  3. Gemini few-shot   (reglas BNF + ejemplos resueltos)
+Se le da a Gemini, en el prompt, la gramática libre de contexto (generada de
+gramatica_es.py), el vocabulario por categoría (de lexico_es.py) y las reglas
+de concordancia C1-C5, y se le pide clasificar cada oración del set con el
+mismo veredicto que da nuestro analizador:
 
-Resultados guardados en:
-  resultados/predicciones_llm.json   – detalle por oración
-  resultados/logs_llm.md             – prompts y respuestas crudas
+    ok          la oración cumple la gramática y la concordancia
+    lexico      tiene una palabra que no está en el vocabulario
+    sintactico  la secuencia de categorías no la genera la gramática
+    semantico   la gramática la genera, pero falla una regla de concordancia
+
+Dos condiciones:
+    zero-shot   solo las reglas
+    few-shot    las reglas + 10 ejemplos resueltos. Los ejemplos NO están en
+                el set de prueba, y su veredicto se comprueba con nuestro
+                analizador al iniciar (ver EJEMPLOS_FEW_SHOT).
+
+El veredicto se compara con `resultado_esperado` del set: lo que la gramática
+formal dice que debe salir. Así se mide si el LLM aplica las reglas o se
+desvía hacia su conocimiento general del español (p. ej. si responde "ok" en
+las oraciones del nivel 3, que son español válido pero están fuera de la
+gramática).
+
+Salida:
+    resultados/predicciones_llm_zero_shot.json   formato común: lo lee metricas.py
+    resultados/predicciones_llm_few_shot.json
+    resultados/llm_logs/prompt_<modo>.txt        el prompt completo enviado
+    resultados/llm_logs/respuestas_<modo>.jsonl  cada respuesta textual de la API
+    resultados/logs_llm.md                       resumen legible por oración
+
+La clave se lee de la variable de entorno GEMINI_API_KEY (no se escribe en
+el código, para no subirla al repositorio):
+    PowerShell:   $env:GEMINI_API_KEY = "su-clave"
+    cmd:          set GEMINI_API_KEY=su-clave
+    Linux/macOS:  export GEMINI_API_KEY="su-clave"
 
 Uso:
-    python api_llm.py                              # todas las oraciones del set
-    python api_llm.py --limite 10                  # solo las primeras 10
-    python api_llm.py --oracion "El perro come ."  # una oración directa
-    python api_llm.py --modo zero-shot             # solo zero-shot
-    python api_llm.py --modo few-shot              # solo few-shot
+    python api_llm.py                                  # set completo, ambos modos
+    python api_llm.py --modo zero-shot
+    python api_llm.py --limite 5                       # prueba rápida (no afecta las métricas)
+    python api_llm.py --oracion "El perro come ."      # una oración, muestra todo
+    python api_llm.py --modelo gemini-3.5-flash-lite
+    python api_llm.py --listar-modelos                 # modelos que acepta la clave
 """
-
 import argparse
 import json
 import os
+import sys
 import time
+import urllib.error
+import urllib.request
 from datetime import datetime
 from pathlib import Path
-import urllib.request
-import urllib.error
 
+from gramatica_es import GRAMATICA
+from lexico_es import LEXICO, VERBOS_REGULARES
 from semantico_es import clasificar
 
-# ---------------------------------------------------------------------------
-# 🔑 Pega aquí tu API key de Gemini (Google AI Studio)
-# ---------------------------------------------------------------------------
-GEMINI_API_KEY = "//ACA VA LA API KEY XD"
+RAIZ = Path(__file__).parent
+SET_PRUEBA = RAIZ / "datos" / "set_prueba.json"
+RESULTADOS = RAIZ / "resultados"
+LOGS = RESULTADOS / "llm_logs"
 
-# ---------------------------------------------------------------------------
-# Configuración
-# ---------------------------------------------------------------------------
-MODELO = "gemini-2.0-flash"
-ARCHIVO_SET = Path("datos/set_prueba.json")
-ARCHIVO_PREDICCIONES = Path("resultados/predicciones_llm.json")
-ARCHIVO_LOGS = Path("resultados/logs_llm.md")
+MODELO_POR_DEFECTO = os.environ.get("GEMINI_MODEL", "gemini-3.5-flash-lite")
+URL_API = "https://generativelanguage.googleapis.com/v1beta/models"
+VEREDICTOS = ("ok", "lexico", "sintactico", "semantico")
+PAUSA_ENTRE_LLAMADAS = 1.0      # segundos; súbanla si aparecen muchos HTTP 429
 
-# ---------------------------------------------------------------------------
-# Gramática BNF (se inyecta en el prompt)
-# ---------------------------------------------------------------------------
-BNF = """\
-<oracion>          ::= <sujeto_opcional> <predicado> PUNTO
-<sujeto_opcional>  ::= <sujeto> | ε
-<sujeto>           ::= <sn> | PRON
-<sn>               ::= DET <nominal> | NPROP
-<nominal>          ::= <adjetivos> N <adjetivos> <sps_nominales>
-<adjetivos>        ::= <sadj> <adjetivos> | ε
-<sadj>             ::= <intensificador> ADJ
-<intensificador>   ::= INT | ε
-<sps_nominales>    ::= <sp> <sps_nominales> | ε
-<sp>               ::= PREP <sn> | CONTR <nominal>
-<predicado>        ::= <adverbios> <negacion> <sv>
-<adverbios>        ::= <sadv> <adverbios> | ε
-<sadv>             ::= <intensificador> ADV
-<negacion>         ::= NEG | ε
-<sv>               ::= V <objeto_opcional> <circunstanciales>
-                     | VCOP <atributo> <circunstanciales>
-<objeto_opcional>  ::= <sn> | ε
-<atributo>         ::= <sadj> | <sn> | <sp>
-<circunstanciales> ::= <circunstancial> <circunstanciales> | ε
-<circunstancial>   ::= <sp> | <sadv>
 
-Categorías de tokens:
-  DET   determinante        (el, la, los, una, mis)
-  N     sustantivo común    (perro, manzana, ciudad)
-  NPROP nombre propio       (Juan, María)
-  PRON  pronombre personal  (yo, tú, ella, nosotros)
-  ADJ   adjetivo            (rojo, grande, pequeñas)
-  INT   intensificador      (muy, bastante)
-  ADV   adverbio            (ayer, siempre, rápidamente)
-  NEG   negación            (no)
-  V     verbo léxico        (come, caminaron, escribirá)
-  VCOP  verbo copulativo    (es, fue, estará)
-  PREP  preposición         (a, de, en, con, para)
-  CONTR contracción         (al, del)
-  PUNTO fin de oración      (.)
+# =============================================================================
+#  Construcción del prompt
+# =============================================================================
+def gramatica_bnf():
+    """La gramática de gramatica_es.py escrita en BNF (una sola fuente)."""
+    lineas = []
+    ancho = max(len(nt) for nt in GRAMATICA) + 2
+    for nt, alternativas in GRAMATICA.items():
+        partes = [" ".join(s if s.isupper() else f"<{s}>" for s in alt) or "ε"
+                  for alt in alternativas]
+        lineas.append(f"{'<' + nt + '>':{ancho + 2}} ::= " + " | ".join(partes))
+    return "\n".join(lineas)
 
-Reglas de concordancia (sensibles al contexto, no expresables en CFG):
-  C1  DET, ADJ y N concuerdan en género y número dentro del SN.
-  C2  El sujeto y el verbo concuerdan en persona y número.
-  C3  El sujeto y el atributo concuerdan en género y número (ser/estar).
-  C4  "al" y "del" exigen sustantivo masculino singular.
+
+CATEGORIAS_GRAMATICA = ["DET", "N", "NPROP", "PRON", "ADJ", "INT", "ADV", "NEG",
+                        "V", "VCOP", "PREP", "CONTR", "PUNTO"]
+CATEGORIAS_FUERA = ["CONJ", "SUB", "CLIT", "AUX", "PART", "COMP", "INTERR", "SIGNO"]
+
+
+def vocabulario():
+    """Las palabras del léxico agrupadas por categoría."""
+    por_cat = {}
+    for palabra, analisis in LEXICO.items():
+        por_cat.setdefault(analisis[0]["cat"], []).append(palabra)
+    lineas = ["Categorías que usa la gramática:"]
+    for cat in CATEGORIAS_GRAMATICA:
+        lineas.append(f"  {cat}: {', '.join(sorted(por_cat.get(cat, [])))}")
+    lineas.append("\nCategorías que están en el vocabulario pero que NINGUNA regla usa "
+                  "(una oración que las contenga es 'sintactico', no 'lexico'):")
+    for cat in CATEGORIAS_FUERA:
+        lineas.append(f"  {cat}: {', '.join(sorted(por_cat.get(cat, [])))}")
+    intransitivos = sorted(v for v, t in VERBOS_REGULARES.items() if t == "i")
+    lineas.append(f"\nVerbos intransitivos (no admiten objeto directo): "
+                  f"{', '.join(intransitivos)}")
+    return "\n".join(lineas)
+
+
+INSTRUCCIONES = """\
+Eres un analizador sintáctico formal. Tu única tarea es decidir si una oración
+pertenece al lenguaje definido por la gramática y el vocabulario que siguen,
+aplicándolos ESTRICTAMENTE. No uses tu conocimiento general del español: una
+oración correcta en español pero que estas reglas no generan es 'sintactico'.
+
+Procedimiento:
+1. Cada palabra (y el punto) es un token separado por espacios. Si una palabra
+   no aparece en el vocabulario -> 'lexico'.
+2. Reemplaza cada palabra por su categoría. Si la secuencia de categorías no
+   se puede derivar desde <oracion> con la gramática -> 'sintactico'.
+3. Si se puede derivar, revisa la concordancia (C1-C5). Si alguna falla
+   -> 'semantico'.
+4. Si todo se cumple -> 'ok'.
+
+Reglas de concordancia:
+  C1  Dentro del sintagma nominal, DET, ADJ y N concuerdan en género y número.
+      Las formas comunes ("grande", "estudiante", "mi") van con ambos géneros.
+  C2  El sujeto y el verbo concuerdan en persona y número. Un nombre propio o
+      un sintagma nominal es 3.ª persona. Si no hay sujeto, no se revisa.
+  C3  Con ser/estar, el sujeto y el atributo concuerdan en género y número.
+  C4  "al" y "del" solo van con un sustantivo masculino singular.
   C5  Un verbo intransitivo no lleva objeto directo.
+
+Responde ÚNICAMENTE con un objeto JSON, sin texto adicional:
+  {"veredicto": "ok" | "lexico" | "sintactico" | "semantico",
+   "regla": "C1" | "C2" | "C3" | "C4" | "C5" | null,
+   "razon": "explicación breve, máximo 2 líneas"}
 """
 
-EJEMPLOS_FEW_SHOT = """\
-Oración: "El perro come ."
-Veredicto: ok
-Razón: DET(masc,sing) + N(masc,sing) concuerdan (C1). V 3.ª sing. concuerda con sujeto sing. (C2). Estructura SVO válida.
-
-Oración: "Los perro come ."
-Veredicto: semantico
-Razón: DET "los" es plural pero N "perro" es singular: falla C1.
-
-Oración: "Juan caminaron ."
-Veredicto: semantico
-Razón: NPROP singular, V "caminaron" es 3.ª plural: falla C2.
-
-Oración: "El dinosaurio come ."
-Veredicto: lexico
-Razón: "dinosaurio" no pertenece al vocabulario de la gramática.
-
-Oración: "Grande el perro ."
-Veredicto: sintactico
-Razón: La oración comienza con ADJ, que no es inicio válido de <sujeto_opcional> ni de <predicado>.
-"""
-
-# ---------------------------------------------------------------------------
-# Construcción de prompts
-# ---------------------------------------------------------------------------
-INSTRUCCION_COMUN = """\
-Eres un analizador sintáctico formal. Tu única tarea es aplicar \
-estrictamente las reglas de la gramática que se te dan a continuación. \
-No uses tu conocimiento general del español; solo la gramática formal.
-
-Responde ÚNICAMENTE con un objeto JSON con dos campos:
-  "veredicto": uno de ["ok", "lexico", "sintactico", "semantico"]
-  "razon": una explicación breve (máximo 2 líneas)
-
-Definiciones:
-  ok         – la oración es válida según la gramática y las reglas de concordancia
-  lexico     – contiene una palabra fuera del vocabulario de la gramática
-  sintactico – la secuencia de categorías viola la CFG
-  semantico  – la CFG la acepta pero falla una regla de concordancia (C1–C5)
-
-No escribas nada fuera del JSON. Sin comillas adicionales, sin markdown.
-"""
+# Ejemplos para el few-shot. Ninguno está en el set de prueba (se comprueba al
+# iniciar) y su veredicto es el que da nuestro analizador.
+EJEMPLOS_FEW_SHOT = [
+    ("La niña bebe .", "ok", None,
+     "DET(f,s) N(f,s) V(3s). Deriva <sujeto> <predicado> PUNTO y concuerda."),
+    ("Mis gatos pequeños corren en el jardín .", "ok", None,
+     "SN con adjetivo pospuesto y SP circunstancial; C1 y C2 se cumplen."),
+    ("Ellas estudiaron ayer en la casa de Pedro .", "ok", None,
+     "PRON(3p) V(3p) ADV SP; el SP 'de Pedro' modifica a 'casa'."),
+    ("Las casa es bonita .", "semantico", "C1",
+     "'Las' es plural y 'casa' singular."),
+    ("Pedro bailaron .", "semantico", "C2",
+     "Nombre propio (3s) con verbo en 3.ª plural."),
+    ("Luis es bonita .", "semantico", "C3",
+     "Sujeto masculino con atributo femenino."),
+    ("Sofía camina la escuela .", "semantico", "C5",
+     "'caminar' es intransitivo y aquí lleva objeto directo."),
+    ("El dinosaurio corre .", "lexico", None,
+     "'dinosaurio' no está en el vocabulario."),
+    ("Bonito el gato corre .", "sintactico", None,
+     "Ninguna regla permite empezar con ADJ seguido de DET."),
+    ("Ana y Luis bailan .", "sintactico", None,
+     "'y' es CONJ: está en el vocabulario, pero ninguna regla la usa."),
+]
 
 
-def prompt_zero_shot(oracion: str) -> str:
-    return f"""{INSTRUCCION_COMUN}
-
-=== GRAMÁTICA FORMAL (CFG) ===
-{BNF}
-
-=== ORACIÓN A ANALIZAR ===
-"{oracion}"
-"""
+def texto_ejemplos():
+    bloques = []
+    for oracion, veredicto, regla, razon in EJEMPLOS_FEW_SHOT:
+        respuesta = json.dumps({"veredicto": veredicto, "regla": regla, "razon": razon},
+                               ensure_ascii=False)
+        bloques.append(f"Oración: {oracion}\nRespuesta: {respuesta}")
+    return "\n\n".join(bloques)
 
 
-def prompt_few_shot(oracion: str) -> str:
-    return f"""{INSTRUCCION_COMUN}
-
-=== GRAMÁTICA FORMAL (CFG) ===
-{BNF}
-
-=== EJEMPLOS RESUELTOS ===
-{EJEMPLOS_FEW_SHOT}
-
-=== ORACIÓN A ANALIZAR ===
-"{oracion}"
-"""
+def prompt_base(modo):
+    partes = [INSTRUCCIONES,
+              "=== GRAMÁTICA (BNF) ===", gramatica_bnf(),
+              "=== VOCABULARIO ===", vocabulario()]
+    if modo == "few-shot":
+        partes += ["=== EJEMPLOS RESUELTOS ===", texto_ejemplos()]
+    return "\n\n".join(partes)
 
 
-# ---------------------------------------------------------------------------
-# Llamada a la API de Gemini
-# ---------------------------------------------------------------------------
-def llamar_gemini(prompt: str) -> dict:
-    """Envía el prompt a Gemini y devuelve {'veredicto': ..., 'razon': ...}.
+def prompt_completo(modo, oracion):
+    return f"{prompt_base(modo)}\n\n=== ORACIÓN A ANALIZAR ===\n{oracion}\n"
 
-    En caso de error devuelve {'veredicto': 'error', 'razon': <descripción>}.
-    """
-    if not GEMINI_API_KEY or GEMINI_API_KEY == "pega-tu-key-aqui":
-        return {
-            "veredicto": "error",
-            "razon": "API key de Gemini no configurada. Ver GEMINI_API_KEY en api_llm.py",
-        }
 
-    url = (
-        f"https://generativelanguage.googleapis.com/v1beta/models/"
-        f"{MODELO}:generateContent?key={GEMINI_API_KEY}"
-    )
+def comprobar_ejemplos(datos):
+    """Los ejemplos no deben estar en el set y deben ser correctos."""
+    oraciones_set = {d["oracion"] for d in datos}
+    for oracion, veredicto, _, _ in EJEMPLOS_FEW_SHOT:
+        if oracion in oraciones_set:
+            sys.exit(f"El ejemplo few-shot '{oracion}' está en el set de prueba.")
+        obtenido, _ = clasificar(oracion)
+        if obtenido != veredicto:
+            sys.exit(f"El ejemplo '{oracion}' dice '{veredicto}' pero el analizador "
+                     f"da '{obtenido}'.")
 
-    payload = json.dumps({
-        "contents": [{"parts": [{"text": prompt}]}],
-        "generationConfig": {"temperature": 0},
-    }).encode()
 
-    req = urllib.request.Request(
-        url,
-        data=payload,
-        headers={"Content-Type": "application/json"},
-        method="POST",
-    )
+# =============================================================================
+#  API de Gemini
+# =============================================================================
+def clave_api():
+    clave = os.environ.get("GEMINI_API_KEY", "").strip()
+    if not clave:
+        sys.exit("Falta la clave. Defina la variable de entorno GEMINI_API_KEY "
+                 "(ver el encabezado de api_llm.py).")
+    return clave
 
+
+def pedir(url, clave, cuerpo=None):
+    datos = json.dumps(cuerpo).encode("utf-8") if cuerpo is not None else None
+    req = urllib.request.Request(url, data=datos, method="POST" if datos else "GET",
+                                 headers={"Content-Type": "application/json",
+                                          "x-goog-api-key": clave})
+    with urllib.request.urlopen(req, timeout=60) as resp:
+        return json.loads(resp.read().decode("utf-8"))
+
+
+def llamar_gemini(prompt, modelo, clave, reintentos=5):
+    """Devuelve (texto crudo de la respuesta, error o None)."""
+    cuerpo = {"contents": [{"role": "user", "parts": [{"text": prompt}]}],
+              "generationConfig": {"temperature": 0,
+                                   "responseMimeType": "application/json"}}
+    espera = 5
+    for intento in range(1, reintentos + 1):
+        try:
+            data = pedir(f"{URL_API}/{modelo}:generateContent", clave, cuerpo)
+            partes = data["candidates"][0]["content"]["parts"]
+            return "".join(p.get("text", "") for p in partes).strip(), None
+        except urllib.error.HTTPError as e:
+            detalle = e.read().decode("utf-8", "replace")[:300]
+            if e.code in (429, 500, 503) and intento < reintentos:
+                print(f"    HTTP {e.code}, reintento {intento} en {espera} s ...")
+                time.sleep(espera)
+                espera *= 2
+                continue
+            return "", f"HTTP {e.code}: {detalle}"
+        except (KeyError, IndexError):
+            return json.dumps(data, ensure_ascii=False)[:500], "respuesta sin texto"
+        except Exception as e:
+            return "", f"{type(e).__name__}: {e}"
+    return "", "sin respuesta"
+
+
+def interpretar(texto):
+    """Extrae {'veredicto', 'regla', 'razon'} del texto de la respuesta."""
+    limpio = texto.strip().removeprefix("```json").removeprefix("```").removesuffix("```")
     try:
-        with urllib.request.urlopen(req, timeout=30) as resp:
-            data = json.loads(resp.read())
-        texto = data["candidates"][0]["content"]["parts"][0]["text"].strip()
-        texto = texto.removeprefix("```json").removeprefix("```").removesuffix("```").strip()
-        return json.loads(texto)
-    except urllib.error.HTTPError as e:
-        return {"veredicto": "error", "razon": f"HTTP {e.code}: {e.reason}"}
-    except (KeyError, json.JSONDecodeError) as e:
-        return {"veredicto": "error", "razon": f"Respuesta inesperada: {e}"}
-    except Exception as e:
-        return {"veredicto": "error", "razon": str(e)}
+        r = json.loads(limpio)
+    except json.JSONDecodeError:
+        inicio, fin = limpio.find("{"), limpio.rfind("}")
+        try:
+            r = json.loads(limpio[inicio:fin + 1])
+        except (ValueError, json.JSONDecodeError):
+            return {"veredicto": "error", "regla": None, "razon": "no es JSON válido"}
+    v = str(r.get("veredicto", "")).strip().lower()
+    v = {"léxico": "lexico", "sintáctico": "sintactico", "semántico": "semantico"}.get(v, v)
+    if v not in VEREDICTOS:
+        return {"veredicto": "error", "regla": None, "razon": f"veredicto no válido: {v!r}"}
+    return {"veredicto": v, "regla": r.get("regla"), "razon": r.get("razon", "")}
 
 
-# ---------------------------------------------------------------------------
-# Análisis de una oración
-# ---------------------------------------------------------------------------
-def analizar_oracion(oracion: str, modo: str = "ambos") -> dict:
-    resultado = {"oracion": oracion}
-
-    # Parser propio
-    v_parser, msg_parser = clasificar(oracion)
-    resultado["parser"] = {"veredicto": v_parser, "razon": msg_parser}
-
-    # Gemini zero-shot
-    if modo in ("zero-shot", "ambos"):
-        resultado["zero_shot"] = llamar_gemini(prompt_zero_shot(oracion))
-        time.sleep(0.5)
-
-    # Gemini few-shot
-    if modo in ("few-shot", "ambos"):
-        resultado["few_shot"] = llamar_gemini(prompt_few_shot(oracion))
-        time.sleep(0.5)
-
-    return resultado
+def listar_modelos(clave):
+    data = pedir(URL_API, clave)
+    for m in data.get("models", []):
+        if "generateContent" in m.get("supportedGenerationMethods", []):
+            print(m["name"].removeprefix("models/"))
 
 
-# ---------------------------------------------------------------------------
-# Comparación y aciertos
-# ---------------------------------------------------------------------------
-def comparar(resultado: dict, esperado: str) -> dict:
-    resultado["esperado"] = esperado
+# =============================================================================
+#  Experimento
+# =============================================================================
+def correr_modo(modo, casos, modelo, clave, guardar):
+    """Analiza `casos` con un modo. Devuelve la lista de resultados."""
+    sistema = "llm_" + modo.replace("-", "_")
+    if guardar:
+        LOGS.mkdir(parents=True, exist_ok=True)
+        (LOGS / f"prompt_{modo}.txt").write_text(
+            prompt_completo(modo, "<la oración del set>"), encoding="utf-8")
+        log = open(LOGS / f"respuestas_{modo}.jsonl", "w", encoding="utf-8")
 
-    def acierto(enfoque):
-        v = resultado.get(enfoque, {}).get("veredicto", "error")
-        return v == esperado
+    resultados, inicio = [], time.perf_counter()
+    for i, caso in enumerate(casos, 1):
+        prompt = prompt_completo(modo, caso["oracion"])
+        t0 = time.perf_counter()
+        crudo, error = llamar_gemini(prompt, modelo, clave)
+        ms = round(1000 * (time.perf_counter() - t0))
+        r = ({"veredicto": "error", "regla": None, "razon": error} if error
+             else interpretar(crudo))
+        esperado = caso.get("resultado_esperado")
+        marca = "" if esperado is None else ("✓" if r["veredicto"] == esperado else "✗")
+        print(f"  [{modo} {i}/{len(casos)}] {marca} {r['veredicto']:10} "
+              f"(esperado {esperado})  {caso['oracion']}")
+        resultados.append({**caso, **r, "respuesta_cruda": crudo, "ms": ms})
+        if guardar:
+            log.write(json.dumps({"id": caso.get("id"), "oracion": caso["oracion"],
+                                  "modo": modo, "modelo": modelo,
+                                  "fecha": datetime.now().isoformat(timespec="seconds"),
+                                  "respuesta_cruda": crudo, "error": error,
+                                  "veredicto": r["veredicto"], "ms": ms},
+                                 ensure_ascii=False) + "\n")
+            log.flush()
+        time.sleep(PAUSA_ENTRE_LLAMADAS)
 
-    resultado["acierto_parser"] = acierto("parser")
-    if "zero_shot" in resultado:
-        resultado["acierto_zero_shot"] = acierto("zero_shot")
-    if "few_shot" in resultado:
-        resultado["acierto_few_shot"] = acierto("few_shot")
-
-    return resultado
-
-
-# ---------------------------------------------------------------------------
-# Escritura de logs Markdown
-# ---------------------------------------------------------------------------
-def escribir_log(f, i: int, resultado: dict):
-    oracion = resultado["oracion"]
-    esperado = resultado.get("esperado", "?")
-
-    f.write(f"\n## Caso {i}: `{oracion}`\n\n")
-    f.write(f"**Esperado:** `{esperado}`\n\n")
-
-    p = resultado["parser"]
-    icono = "✅" if resultado.get("acierto_parser") else "❌"
-    f.write(f"### Parser propio {icono}\n")
-    f.write(f"- Veredicto: `{p['veredicto']}`\n")
-    f.write(f"- Razón: {p['razon']}\n\n")
-
-    if "zero_shot" in resultado:
-        z = resultado["zero_shot"]
-        icono = "✅" if resultado.get("acierto_zero_shot") else "❌"
-        f.write(f"### Gemini zero-shot {icono}\n")
-        f.write(f"- Veredicto: `{z.get('veredicto', '?')}`\n")
-        f.write(f"- Razón: {z.get('razon', '?')}\n\n")
-
-    if "few_shot" in resultado:
-        fs = resultado["few_shot"]
-        icono = "✅" if resultado.get("acierto_few_shot") else "❌"
-        f.write(f"### Gemini few-shot {icono}\n")
-        f.write(f"- Veredicto: `{fs.get('veredicto', '?')}`\n")
-        f.write(f"- Razón: {fs.get('razon', '?')}\n\n")
-
-    f.write("---\n")
-
-
-# ---------------------------------------------------------------------------
-# Resumen de métricas
-# ---------------------------------------------------------------------------
-def imprimir_resumen(resultados: list):
-    total = len(resultados)
-    if total == 0:
-        return
-
-    def tasa(campo):
-        n = sum(1 for r in resultados if r.get(campo) is True)
-        return n, round(100 * n / total, 1)
-
-    n_p, t_p = tasa("acierto_parser")
-    print(f"\n{'='*50}")
-    print(f"  RESUMEN  ({total} oraciones)")
-    print(f"{'='*50}")
-    print(f"  Parser propio    : {n_p}/{total}  ({t_p}%)")
-
-    if any("acierto_zero_shot" in r for r in resultados):
-        n_z, t_z = tasa("acierto_zero_shot")
-        print(f"  Gemini zero-shot : {n_z}/{total}  ({t_z}%)")
-
-    if any("acierto_few_shot" in r for r in resultados):
-        n_f, t_f = tasa("acierto_few_shot")
-        print(f"  Gemini few-shot  : {n_f}/{total}  ({t_f}%)")
-
-    print(f"{'='*50}\n")
+    if guardar:
+        log.close()
+        segundos = round(time.perf_counter() - inicio, 2)
+        errores = sum(r["veredicto"] == "error" for r in resultados)
+        predicciones = [{
+            "id": r["id"],
+            "acepta": None if r["veredicto"] == "error" else r["veredicto"] == "ok",
+            "veredicto": r["veredicto"], "regla": r["regla"],
+            "upos": None, "adjunciones": None,
+            "detalle": f"{r['veredicto']}: {r['razon']}",
+        } for r in resultados]
+        RESULTADOS.mkdir(exist_ok=True)
+        (RESULTADOS / f"predicciones_{sistema}.json").write_text(json.dumps({
+            "sistema": sistema,
+            "info": {"modelo": modelo, "modo": modo, "temperatura": 0,
+                     "ejemplos_few_shot": len(EJEMPLOS_FEW_SHOT) if modo == "few-shot" else 0,
+                     "errores_api": errores, "segundos": segundos,
+                     "ms_por_oracion": round(1000 * segundos / len(casos), 1),
+                     "descripcion": f"Gemini {modo} con la gramática en el prompt"},
+            "predicciones": predicciones}, ensure_ascii=False, indent=1), encoding="utf-8")
+        if errores:
+            print(f"  AVISO: {errores} oraciones sin respuesta válida (ver llm_logs).")
+    return resultados
 
 
-# ---------------------------------------------------------------------------
-# Punto de entrada
-# ---------------------------------------------------------------------------
-def main():
-    ap = argparse.ArgumentParser(description="Experimento LLM — TLP02-2026")
-    ap.add_argument("--oracion", help="Analizar una sola oración entre comillas")
-    ap.add_argument("--limite", type=int, default=0,
-                    help="Limitar a las primeras N oraciones del set")
-    ap.add_argument("--modo", choices=["zero-shot", "few-shot", "ambos"],
-                    default="ambos", help="Qué enfoque(s) usar con Gemini")
-    args = ap.parse_args()
-
-    Path("resultados").mkdir(exist_ok=True)
-    timestamp = datetime.now().strftime("%Y-%m-%d %H:%M")
-
-    # ---- modo oración única ----
-    if args.oracion:
-        resultado = analizar_oracion(args.oracion, args.modo)
-        print(json.dumps(resultado, ensure_ascii=False, indent=2))
-        return
-
-    # ---- modo set completo ----
-    casos = json.loads(ARCHIVO_SET.read_text(encoding="utf-8"))
-    if args.limite:
-        casos = casos[: args.limite]
-
-    resultados = []
-    with open(ARCHIVO_LOGS, "w", encoding="utf-8") as log:
-        log.write(f"# Logs LLM — TLP02-2026\n\nGenerado: {timestamp}\n")
-        log.write(f"Modelo: {MODELO} | Modo: {args.modo} | Oraciones: {len(casos)}\n")
-
-        for i, caso in enumerate(casos, 1):
-            oracion = caso["oracion"]
+def escribir_resumen_md(por_modo, modelo):
+    """Resumen legible: una sección por oración con el parser y cada modo."""
+    modos = list(por_modo)
+    with open(RESULTADOS / "logs_llm.md", "w", encoding="utf-8") as f:
+        f.write(f"# Experimento LLM — TLP02-2026\n\nGenerado: "
+                f"{datetime.now():%Y-%m-%d %H:%M}  \nModelo: `{modelo}`  \n"
+                f"Modos: {', '.join(modos)}  \n"
+                f"Prompts completos: `llm_logs/prompt_<modo>.txt`  \n"
+                f"Respuestas textuales: `llm_logs/respuestas_<modo>.jsonl`\n")
+        for j, caso in enumerate(por_modo[modos[0]]):
             esperado = caso["resultado_esperado"]
-            print(f"[{i}/{len(casos)}] {oracion}")
+            parser, _ = clasificar(caso["oracion"])
+            f.write(f"\n## {caso['id']} (nivel {caso['nivel']}): `{caso['oracion']}`\n\n"
+                    f"Fenómeno: {caso['fenomeno']}  \n"
+                    f"Esperado: `{esperado}` · Parser: `{parser}`\n\n")
+            for modo in modos:
+                r = por_modo[modo][j]
+                marca = "✅" if r["veredicto"] == esperado else "❌"
+                f.write(f"- **{modo}** {marca} `{r['veredicto']}`"
+                        f"{' (' + r['regla'] + ')' if r.get('regla') else ''}: {r['razon']}\n")
 
-            resultado = analizar_oracion(oracion, args.modo)
-            resultado = comparar(resultado, esperado)
-            resultado["id"] = caso.get("id", "")
-            resultado["nivel"] = caso.get("nivel", "")
-            resultado["fenomeno"] = caso.get("fenomeno", "")
 
-            resultados.append(resultado)
-            escribir_log(log, i, resultado)
+def imprimir_resumen(por_modo):
+    print("\n" + "=" * 58)
+    for modo, resultados in por_modo.items():
+        n = len(resultados)
+        ok = sum(r["veredicto"] == r["resultado_esperado"] for r in resultados)
+        n3 = [r for r in resultados if r["nivel"] == 3 and r["gramatical"]]
+        desvios = sum(r["veredicto"] == "ok" for r in n3)
+        print(f"  {modo:10} coincide con la gramática: {ok}/{n} ({100 * ok / n:.1f}%)")
+        if n3:
+            print(f"  {'':10} nivel 3 válido aceptado como 'ok' (desvío): {desvios}/{len(n3)}")
+    print("=" * 58)
 
-    ARCHIVO_PREDICCIONES.write_text(
-        json.dumps(resultados, ensure_ascii=False, indent=2),
-        encoding="utf-8",
-    )
 
-    imprimir_resumen(resultados)
-    print(f"Predicciones : {ARCHIVO_PREDICCIONES}")
-    print(f"Logs         : {ARCHIVO_LOGS}")
+def main():
+    ap = argparse.ArgumentParser(description="Experimento LLM con la gramática formal")
+    ap.add_argument("--oracion", help="analizar una sola oración y mostrar todo")
+    ap.add_argument("--limite", type=int, default=0,
+                    help="solo las primeras N oraciones (prueba; no guarda predicciones)")
+    ap.add_argument("--modo", default="ambos", help="zero-shot, few-shot o ambos")
+    ap.add_argument("--modelo", default=MODELO_POR_DEFECTO)
+    ap.add_argument("--listar-modelos", action="store_true")
+    args = ap.parse_args()
+    if args.modo not in ("zero-shot", "few-shot", "ambos"):
+        ap.error("--modo debe ser zero-shot, few-shot o ambos")
+    modos = ["zero-shot", "few-shot"] if args.modo == "ambos" else [args.modo]
+
+    clave = clave_api()                       # la clave se lee una sola vez
+    if args.listar_modelos:
+        listar_modelos(clave)
+        return
+
+    datos = json.loads(SET_PRUEBA.read_text(encoding="utf-8"))
+    comprobar_ejemplos(datos)
+
+    if args.oracion:
+        caso = {"oracion": args.oracion}
+        for modo in modos:
+            r = correr_modo(modo, [caso], args.modelo, clave, guardar=False)[0]
+            print(json.dumps({k: r[k] for k in ("veredicto", "regla", "razon",
+                                                 "respuesta_cruda", "ms")},
+                             ensure_ascii=False, indent=2))
+        print(f"Parser propio: {clasificar(args.oracion)}")
+        return
+
+    casos = datos[:args.limite] if args.limite else datos
+    guardar = not args.limite
+    print(f"Modelo: {args.modelo} · {len(casos)} oraciones · modos: {', '.join(modos)}"
+          + ("" if guardar else "  (prueba: no se guardan predicciones)"))
+    por_modo = {m: correr_modo(m, casos, args.modelo, clave, guardar) for m in modos}
+    imprimir_resumen(por_modo)
+    if guardar:
+        escribir_resumen_md(por_modo, args.modelo)
+        print(f"\nResultados en {RESULTADOS}/ (predicciones_llm_*.json, logs_llm.md, "
+              f"llm_logs/). Ahora ejecute: python metricas.py")
 
 
 if __name__ == "__main__":

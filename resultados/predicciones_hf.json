@@ -6,9 +6,9 @@
   "transformers": "5.24.1",
   "umbral_global": -4.112627143772053,
   "etiquetas_no_upos": [],
-  "descripcion": "RoBERTa-BNE: POS + aceptabilidad por PLL",
-  "segundos": 21.13,
-  "ms_por_oracion": 278.0
+  "descripcion": "Transformers: POS + aceptabilidad por PLL",
+  "segundos": 16.7,
+  "ms_por_oracion": 219.7
  },
  "predicciones": [
   {
@@ -319,7 +319,7 @@
    ],
    "adjunciones": null,
    "detalle": "PLL=-1.774 (umbral -4.113)",
-   "pll": -1.7740103036630899
+   "pll": -1.7740097150672227
   },
   {
    "id": "N2-24",
@@ -351,7 +351,7 @@
    ],
    "adjunciones": null,
    "detalle": "PLL=-4.947 (umbral -4.113)",
-   "pll": -4.94721456989646
+   "pll": -4.9472146352960005
   },
   {
    "id": "N2-26",
@@ -383,7 +383,7 @@
    ],
    "adjunciones": null,
    "detalle": "PLL=-2.551 (umbral -4.113)",
-   "pll": -2.55139406853252
+   "pll": -2.5513928511904345
   },
   {
    "id": "N2-28",
@@ -400,7 +400,7 @@
    ],
    "adjunciones": null,
    "detalle": "PLL=-2.914 (umbral -4.113)",
-   "pll": -2.9135795049369335
+   "pll": -2.9135787452105433
   },
   {
    "id": "N2-29",
@@ -417,7 +417,7 @@
    ],
    "adjunciones": null,
    "detalle": "PLL=-1.737 (umbral -4.113)",
-   "pll": -1.7369059344960585
+   "pll": -1.7369057807243533
   },
   {
    "id": "N2-30",
@@ -434,7 +434,7 @@
    ],
    "adjunciones": null,
    "detalle": "PLL=-2.815 (umbral -4.113)",
-   "pll": -2.8151273112744093
+   "pll": -2.8151271361857653
   },
   {
    "id": "N2-31",
@@ -450,7 +450,7 @@
    ],
    "adjunciones": null,
    "detalle": "PLL=-2.174 (umbral -4.113)",
-   "pll": -2.1741747385822237
+   "pll": -2.1741762100718915
   },
   {
    "id": "N2-32",
@@ -468,7 +468,7 @@
    ],
    "adjunciones": null,
    "detalle": "PLL=-1.464 (umbral -4.113)",
-   "pll": -1.4644350891725884
+   "pll": -1.4644363565991323
   },
   {
    "id": "N2-33",
@@ -485,7 +485,7 @@
    ],
    "adjunciones": null,
    "detalle": "PLL=-3.887 (umbral -4.113)",
-   "pll": -3.887164890766144
+   "pll": -3.887165038846433
   },
   {
    "id": "N2-34",
@@ -502,7 +502,7 @@
    ],
    "adjunciones": null,
    "detalle": "PLL=-3.009 (umbral -4.113)",
-   "pll": -3.0089206868368716
+   "pll": -3.0089214981223145
   },
   {
    "id": "N2-35",
@@ -534,7 +534,7 @@
    ],
    "adjunciones": null,
    "detalle": "PLL=-2.463 (umbral -4.113)",
-   "pll": -2.463263662531972
+   "pll": -2.4632640685886145
   },
   {
    "id": "N2-37",
@@ -551,7 +551,7 @@
    ],
    "adjunciones": null,
    "detalle": "PLL=-1.163 (umbral -4.113)",
-   "pll": -1.162555553821019
+   "pll": -1.1625553998423532
   },
   {
    "id": "N2-38",
@@ -569,7 +569,7 @@
    ],
    "adjunciones": null,
    "detalle": "PLL=-1.126 (umbral -4.113)",
-   "pll": -1.1256414943167732
+   "pll": -1.1256417360467215
   },
   {
    "id": "N2-39",
@@ -604,7 +604,7 @@
    ],
    "adjunciones": null,
    "detalle": "PLL=-2.424 (umbral -4.113)",
-   "pll": -2.4244826161725954
+   "pll": -2.424480735916983
   },
   {
    "id": "N2-41",
@@ -620,7 +620,7 @@
    ],
    "adjunciones": null,
    "detalle": "PLL=-5.030 (umbral -4.113)",
-   "pll": -5.0301834172569215
+   "pll": -5.030183626106009
   },
   {
    "id": "N2-42",
@@ -636,7 +636,7 @@
    ],
    "adjunciones": null,
    "detalle": "PLL=-2.719 (umbral -4.113)",
-   "pll": -2.71878394135274
+   "pll": -2.718785361619666
   },
   {
    "id": "N2-43",
@@ -653,7 +653,7 @@
    ],
    "adjunciones": null,
    "detalle": "PLL=-2.008 (umbral -4.113)",
-   "pll": -2.0076130266404815
+   "pll": -2.0076135067890086
   },
   {
    "id": "N2-44",
@@ -669,7 +669,7 @@
    ],
    "adjunciones": null,
    "detalle": "PLL=-1.545 (umbral -4.113)",
-   "pll": -1.545442939658339
+   "pll": -1.5454438821567844
   },
   {
    "id": "N2-45",
@@ -685,7 +685,7 @@
    ],
    "adjunciones": null,
    "detalle": "PLL=-0.919 (umbral -4.113)",
-   "pll": -0.9191378041650751
+   "pll": -0.9191371972920024
   },
   {
    "id": "N2-46",
@@ -881,7 +881,7 @@
    ],
    "adjunciones": null,
    "detalle": "PLL=-3.613 (umbral -4.113)",
-   "pll": -3.612839249195531
+   "pll": -3.612838795175776
   },
   {
    "id": "N3-59",
@@ -898,7 +898,7 @@
    ],
    "adjunciones": null,
    "detalle": "PLL=-1.656 (umbral -4.113)",
-   "pll": -1.656478210662802
+   "pll": -1.6564777402414217
   },
   {
    "id": "N3-60",
@@ -929,7 +929,7 @@
    ],
    "adjunciones": null,
    "detalle": "PLL=-1.581 (umbral -4.113)",
-   "pll": -1.5810942123644054
+   "pll": -1.5810941737145185
   },
   {
    "id": "N3-62",
@@ -945,7 +945,7 @@
    ],
    "adjunciones": null,
    "detalle": "PLL=-6.438 (umbral -4.113)",
-   "pll": -6.438247761792606
+   "pll": -6.438249582217799
   },
   {
    "id": "N3-63",
@@ -983,7 +983,7 @@
    ],
    "adjunciones": null,
    "detalle": "PLL=-4.359 (umbral -4.113)",
-   "pll": -4.358721433207393
+   "pll": -4.358722653239965
   },
   {
    "id": "N3-65",
@@ -1017,7 +1017,7 @@
    ],
    "adjunciones": null,
    "detalle": "PLL=-2.216 (umbral -4.113)",
-   "pll": -2.215920942628549
+   "pll": -2.215920966066834
   },
   {
    "id": "N3-67",
@@ -1155,7 +1155,7 @@
    ],
    "adjunciones": null,
    "detalle": "PLL=-4.419 (umbral -5.410)",
-   "pll": -4.418569931294769
+   "pll": -4.418571422549172
   },
   {
    "id": "N3-76",
@@ -1173,7 +1173,7 @@
    ],
    "adjunciones": null,
    "detalle": "PLL=-3.169 (umbral -4.113)",
-   "pll": -3.1686070557269783
+   "pll": -3.168606775916285
   }
  ]
 }

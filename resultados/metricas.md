@@ -40,7 +40,7 @@ Set de prueba: 76 oraciones (59 gramaticales, 17 agramaticales).
 | Sistema | Tiempo total | ms por oración |
 |---|---|---|
 | Parser propio (CFG) | 0.01 s | 0.1 |
-| spaCy | 6.1 s | 80.3 |
-| HuggingFace | 21.13 s | 278.0 |
+| spaCy | 4.63 s | 60.9 |
+| HuggingFace | 16.7 s | 219.7 |
 
 Conformidad del parser con su especificación (`resultado_esperado`): 76/76.

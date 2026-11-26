@@ -4,8 +4,8 @@
   "modelo": "es_core_news_md",
   "spacy": "3.8.18",
   "descripcion": "spaCy + reglas de concordancia sobre su análisis",
-  "segundos": 6.1,
-  "ms_por_oracion": 80.3
+  "segundos": 4.63,
+  "ms_por_oracion": 60.9
  },
  "predicciones": [
   {

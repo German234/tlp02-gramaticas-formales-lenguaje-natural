@@ -15,9 +15,10 @@ Este proyecto implementa un analizador léxico (lexer) y un analizador semántic
 | Carné | Nombre |
 |---|---|
 | 00083522 | Nieto Rivas, Kelvin Armando |
-| 00095322 | Martínez Ávila, María Auxiliadora |
+| 00090121 | Martínez Ávila, María Auxiliadora |
 | 00059122 | Santos Hernández, German David |
 | 00100520 | Serrano Córdova, Alejandra Vanessa |
+| 00095322 | Ramírez Ramírez, José Miguel |
 
 ## Requisitos
 
@@ -319,6 +320,7 @@ La primera ejecución de HuggingFace descarga dos modelos (~1 GB en total): BETO
 | `semantico_es.py` | Analizador semántico: verifica la concordancia (reglas C1–C5) |
 | `pruebas_es.py` | Batería automática de 39 casos (válidos y con errores léxicos, sintácticos y semánticos) |
 | `comparar_nlp.py` | Procesa el set con el parser propio, spaCy y HuggingFace; guarda `resultados/predicciones_<sistema>.json` |
+| `api_llm.py` | Experimento con Gemini: zero-shot y few-shot con la gramática en el prompt; guarda prompts, respuestas y predicciones |
 | `metricas.py` | Calcula precisión, cobertura, rechazo correcto, errores de etiquetado y adjunción; genera tablas y gráficas |
 | `arbol_es.py` | Dibuja el árbol (PNG con matplotlib) o lo exporta a DOT / corchetes (nltk) |
 | `ejemplos/oraciones_es.txt` | Oraciones de ejemplo de los tres niveles |
@@ -367,4 +369,26 @@ Cómo decide cada sistema si **acepta** una oración:
 | C4 | *al* / *del* van con sustantivo masculino singular | *Ana camina al escuela.* |
 | C5 | Un verbo intransitivo no lleva objeto directo | *Pedro camina el parque.* |
 
-**Pendiente:** ejecutar la comparación en una computadora con spaCy y HuggingFace instalados, experimento con LLM e informe.
+### Experimento con el LLM (Gemini)
+
+Se le da a Gemini la gramática (BNF), el vocabulario y las reglas de concordancia, y se le pide el mismo veredicto que da el parser (`ok`, `lexico`, `sintactico` o `semantico`). Hay dos condiciones: **zero-shot** (solo las reglas) y **few-shot** (las reglas más 10 ejemplos resueltos que no están en el set de prueba).
+
+La clave se lee de la variable de entorno `GEMINI_API_KEY`, para no escribirla en el código:
+
+```powershell
+$env:GEMINI_API_KEY = "su-clave"          # PowerShell  (cmd: set GEMINI_API_KEY=su-clave)
+python api_llm.py --listar-modelos         # modelos que acepta la clave
+python api_llm.py --limite 3               # prueba rápida, no guarda predicciones
+python api_llm.py                          # 76 oraciones x 2 modos
+python metricas.py
+```
+
+`api_llm.py` guarda:
+- `resultados/predicciones_llm_zero_shot.json` y `predicciones_llm_few_shot.json`, que `metricas.py` agrega a las tablas;
+- `resultados/llm_logs/prompt_<modo>.txt`: el prompt completo enviado;
+- `resultados/llm_logs/respuestas_<modo>.jsonl`: cada respuesta textual de la API, con fecha, modelo y tiempo;
+- `resultados/logs_llm.md`: resumen legible, oración por oración.
+
+En `metricas.md`, la sección **Conformidad con la gramática formal** compara cada veredicto con `resultado_esperado`. La columna **Desvíos nivel 3** cuenta las oraciones correctas en español, pero fuera de la gramática, que el LLM aceptó como `ok`: ahí usó su conocimiento del español en vez de las reglas.
+
+**Pendiente:** ejecutar el experimento completo con el LLM e informe.

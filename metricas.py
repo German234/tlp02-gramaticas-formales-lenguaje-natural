@@ -27,8 +27,9 @@ from pathlib import Path
 RAIZ = Path(__file__).parent
 RESULTADOS = RAIZ / "resultados"
 GRAFICAS = RESULTADOS / "graficas"
-ORDEN = ["parser", "spacy", "hf"]
-NOMBRES = {"parser": "Parser propio (CFG)", "spacy": "spaCy", "hf": "HuggingFace"}
+ORDEN = ["parser", "spacy", "hf", "llm_zero_shot", "llm_few_shot"]
+NOMBRES = {"parser": "Parser propio (CFG)", "spacy": "spaCy", "hf": "HuggingFace",
+           "llm_zero_shot": "Gemini zero-shot", "llm_few_shot": "Gemini few-shot"}
 
 
 def nombre(sistema):
@@ -48,6 +49,13 @@ def cargar():
     sistemas = {}
     for archivo in sorted(RESULTADOS.glob("predicciones_*.json")):
         contenido = json.loads(archivo.read_text(encoding="utf-8"))
+        # Se ignoran los archivos que no tienen el formato común
+        # {"sistema", "info", "predicciones"} en lugar de detener el script.
+        if not isinstance(contenido, dict) or "sistema" not in contenido \
+                or "predicciones" not in contenido:
+            print(f"AVISO: se ignora {archivo.name}: no tiene el formato "
+                  f'{{"sistema", "info", "predicciones"}} (ver comparar_nlp.py)')
+            continue
         sistemas[contenido["sistema"]] = contenido
     orden = [s for s in ORDEN if s in sistemas] + sorted(s for s in sistemas if s not in ORDEN)
     return datos, {s: sistemas[s] for s in orden}
@@ -112,6 +120,44 @@ def metricas_adjuncion(datos, pred):
             "a_verbo": division(por_tipo[("verbo", "ok")], por_tipo[("verbo", "total")])}
 
 
+CLASES = ("ok", "lexico", "sintactico", "semantico")
+
+
+def metricas_conformidad(datos, pred):
+    """Para sistemas que dan un veredicto (el LLM): ¿coincide con lo que la
+    gramática formal dice que debe salir (`resultado_esperado`)?
+
+    - por_clase: aciertos según el veredicto esperado.
+    - desvios_n3: oraciones válidas del nivel 3 (fuera de la gramática) que el
+      sistema aceptó como 'ok': usó su conocimiento del español, no las reglas.
+    - confusion: (esperado, obtenido) -> veces.
+    """
+    if not any("veredicto" in p for p in pred.values()):
+        return None
+    total = coinciden = errores_api = 0
+    por_clase = {c: [0, 0] for c in CLASES}
+    confusion = Counter()
+    n3 = desvios = 0
+    for d in datos:
+        p = pred.get(d["id"], {})
+        esperado, obtenido = d["resultado_esperado"], p.get("veredicto", "error")
+        total += 1
+        errores_api += obtenido == "error"
+        coinciden += obtenido == esperado
+        por_clase[esperado][1] += 1
+        por_clase[esperado][0] += obtenido == esperado
+        confusion[(esperado, obtenido)] += 1
+        if d["nivel"] == 3 and d["gramatical"]:
+            n3 += 1
+            desvios += obtenido == "ok"
+    return {"coinciden": coinciden, "total": total,
+            "exactitud": division(coinciden, total), "errores_api": errores_api,
+            "por_clase": {c: division(a, n) for c, (a, n) in por_clase.items()},
+            "por_clase_n": {c: n for c, (_, n) in por_clase.items()},
+            "desvios_n3": desvios, "n3_validas": n3,
+            "confusion": {f"{e}->{o}": n for (e, o), n in sorted(confusion.items())}}
+
+
 def por_nivel(datos, pred):
     resultado = {}
     for nivel in (1, 2, 3):
@@ -174,6 +220,14 @@ def graficas(tabla, sistemas):
                          [(nombre(s), [tabla[s]["adjuncion"][k] for k in
                                        ("exactitud", "a_sustantivo", "a_verbo")]) for s in con_adj],
                          "Adjunción de frases preposicionales", "adjuncion.png")
+
+    con_veredicto = [s for s in sistemas if tabla[s]["conformidad"]]
+    if con_veredicto:
+        barras_agrupadas(["ok", "lexico", "sintactico", "semantico", "Total"],
+                         [(nombre(s), [tabla[s]["conformidad"]["por_clase"][c] for c in CLASES]
+                           + [tabla[s]["conformidad"]["exactitud"]]) for s in con_veredicto],
+                         "LLM: coincidencia con la gramática formal según el veredicto esperado",
+                         "llm_conformidad.png")
 
     # Tipos de error por sistema (barras apiladas)
     fig, ax = plt.subplots(figsize=(7, 4.5))
@@ -244,6 +298,30 @@ def markdown(datos, tabla, sistemas, info):
             L.append(f"| {nombre(s)} | {a['correctas']} | {a['total']} | {pct(a['exactitud'])} | "
                      f"{pct(a['a_sustantivo'])} | {pct(a['a_verbo'])} |")
 
+    con_veredicto = [s for s in sistemas if tabla[s]["conformidad"]]
+    if con_veredicto:
+        L += ["\n## Conformidad con la gramática formal (LLM)\n",
+              "Compara el veredicto (`ok`, `lexico`, `sintactico`, `semantico`) con "
+              "`resultado_esperado`, lo que la gramática formal dice que debe salir.\n",
+              "| Sistema | Coincide | " + " | ".join(
+                  f"`{c}` (n={tabla[con_veredicto[0]]['conformidad']['por_clase_n'][c]})"
+                  for c in CLASES) + " | Desvíos nivel 3 | Errores API |",
+              "|---|---|" + "---|" * len(CLASES) + "---|---|"]
+        for s in con_veredicto:
+            c = tabla[s]["conformidad"]
+            L.append(f"| {nombre(s)} | {c['coinciden']}/{c['total']} ({pct(c['exactitud'])}) | "
+                     + " | ".join(pct(c["por_clase"][k]) for k in CLASES)
+                     + f" | {c['desvios_n3']}/{c['n3_validas']} | {c['errores_api']} |")
+        L.append("\n> **Desvíos nivel 3:** oraciones correctas en español pero fuera de la "
+                 "gramática que el LLM aceptó como `ok`: siguió su conocimiento general "
+                 "del español en vez de las reglas.\n")
+        L += ["| Sistema | Confusiones (esperado → obtenido) |", "|---|---|"]
+        for s in con_veredicto:
+            conf = tabla[s]["conformidad"]["confusion"]
+            errores = ", ".join(f"{k.replace('->', ' → ')}: {n}" for k, n in conf.items()
+                                if k.split("->")[0] != k.split("->")[1])
+            L.append(f"| {nombre(s)} | {errores or 'ninguna'} |")
+
     L += ["\n## Costo computacional\n", "| Sistema | Tiempo total | ms por oración |",
           "|---|---|---|"]
     for s in sistemas:
@@ -281,7 +359,8 @@ def main():
                     "aceptacion": metricas_aceptacion(datos, pred),
                     "por_nivel": por_nivel(datos, pred),
                     "etiquetado": metricas_etiquetado(datos, pred),
-                    "adjuncion": metricas_adjuncion(datos, pred)}
+                    "adjuncion": metricas_adjuncion(datos, pred),
+                    "conformidad": metricas_conformidad(datos, pred)}
 
     orden = list(sistemas)
     texto = markdown(datos, tabla, orden, info)
