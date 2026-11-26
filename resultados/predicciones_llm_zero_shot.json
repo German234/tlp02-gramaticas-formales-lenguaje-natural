@@ -1,0 +1,699 @@
+{
+ "sistema": "llm_zero_shot",
+ "info": {
+  "modelo": "gemini-3.5-flash-lite",
+  "modo": "zero-shot",
+  "temperatura": 0,
+  "ejemplos_few_shot": 0,
+  "errores_api": 0,
+  "segundos": 259.23,
+  "ms_por_oracion": 3410.9,
+  "descripcion": "Gemini zero-shot con la gramática en el prompt"
+ },
+ "predicciones": [
+  {
+   "id": "N1-01",
+   "acepta": true,
+   "veredicto": "ok",
+   "regla": null,
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "ok: La oración cumple con la gramática, el vocabulario y las reglas de concordancia."
+  },
+  {
+   "id": "N1-02",
+   "acepta": true,
+   "veredicto": "ok",
+   "regla": null,
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "ok: La oración cumple estrictamente con la gramática, el vocabulario y las reglas de concordancia."
+  },
+  {
+   "id": "N1-03",
+   "acepta": false,
+   "veredicto": "semantico",
+   "regla": "C5",
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "semantico: El verbo 'corren' es intransitivo y no debe llevar objeto directo, aunque aquí no lleva ninguno, es correcto, pero la regla C5 no se viola. Espera, el análisis es correcto: 'corren' no lleva objeto. Revisemos: sujeto 'Los niños' (3ª plural), verbo 'corren' (3ª plural). Todo concuerda. Veredicto: ok."
+  },
+  {
+   "id": "N1-04",
+   "acepta": true,
+   "veredicto": "ok",
+   "regla": null,
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "ok: La oración cumple con la gramática, el vocabulario y todas las reglas de concordancia."
+  },
+  {
+   "id": "N1-05",
+   "acepta": false,
+   "veredicto": "sintactico",
+   "regla": null,
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "sintactico: La palabra 'La' no está en el vocabulario (debe ser minúscula 'la')."
+  },
+  {
+   "id": "N1-06",
+   "acepta": true,
+   "veredicto": "ok",
+   "regla": null,
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "ok: La oración cumple con la gramática, el vocabulario y las reglas de concordancia."
+  },
+  {
+   "id": "N1-07",
+   "acepta": true,
+   "veredicto": "ok",
+   "regla": null,
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "ok: La oración cumple con la gramática, el vocabulario y las reglas de concordancia."
+  },
+  {
+   "id": "N1-08",
+   "acepta": true,
+   "veredicto": "ok",
+   "regla": null,
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "ok: La oración cumple con la gramática, el vocabulario y las reglas de concordancia."
+  },
+  {
+   "id": "N1-09",
+   "acepta": true,
+   "veredicto": "ok",
+   "regla": null,
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "ok: La oración cumple con la gramática, el vocabulario y todas las reglas de concordancia."
+  },
+  {
+   "id": "N1-10",
+   "acepta": false,
+   "veredicto": "semantico",
+   "regla": "C5",
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "semantico: El verbo 'bailaron' es intransitivo y no lleva objeto directo, aunque en este caso tampoco lo tiene, la regla se evalúa. Espera, el análisis es correcto, la oración no tiene objeto. Ah, pero la oración es 'Las niñas bailaron .' Sujeto (Las niñas) y verbo intransitivo (bailaron). No hay objeto directo. Por tanto, cumple C5. Revisemos el sujeto 'Las niñas' (3ra plural) y verbo 'bailaron' (3ra plural) -> C2 ok. DET 'Las' y N 'niñas' (femenino plural) -> C1 ok."
+  },
+  {
+   "id": "N1-11",
+   "acepta": true,
+   "veredicto": "ok",
+   "regla": null,
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "ok: La oración cumple con la gramática, el vocabulario y todas las reglas de concordancia."
+  },
+  {
+   "id": "N1-12",
+   "acepta": false,
+   "veredicto": "semantico",
+   "regla": "C5",
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "semantico: El verbo trabaja es intransitivo y no debe llevar objeto directo, pero aquí no hay objeto directo, cumple correctamente con la transitividad ya que el sujeto y verbo concuerdan y no hay objeto."
+  },
+  {
+   "id": "N1-13",
+   "acepta": true,
+   "veredicto": "ok",
+   "regla": null,
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "ok: La oración es gramaticalmente correcta, cumple con la concordancia de sujeto y verbo, así como dentro del sintagma nominal."
+  },
+  {
+   "id": "N1-14",
+   "acepta": true,
+   "veredicto": "ok",
+   "regla": null,
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "ok: La oración cumple con la gramática, el vocabulario y todas las reglas de concordancia (C1-C5)."
+  },
+  {
+   "id": "N1-15",
+   "acepta": true,
+   "veredicto": "ok",
+   "regla": null,
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "ok: La oración cumple con la gramática, el vocabulario y todas las reglas de concordancia."
+  },
+  {
+   "id": "N1-16",
+   "acepta": true,
+   "veredicto": "ok",
+   "regla": null,
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "ok: La oración cumple con la sintaxis, el vocabulario y las reglas de concordancia (C1-C5)."
+  },
+  {
+   "id": "N1-17",
+   "acepta": false,
+   "veredicto": "semantico",
+   "regla": "C1",
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "semantico: El determinante 'Los' (masculino plural) no concuerda en número con el sustantivo 'perro' (masculino singular)."
+  },
+  {
+   "id": "N1-18",
+   "acepta": false,
+   "veredicto": "semantico",
+   "regla": "C1",
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "semantico: El determinante (El) y el sustantivo (niños) no concuerdan en número (singular vs plural)."
+  },
+  {
+   "id": "N1-19",
+   "acepta": false,
+   "veredicto": "semantico",
+   "regla": "C3",
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "semantico: El atributo 'alto' no concuerda en género femenino con el sujeto 'María'."
+  },
+  {
+   "id": "N1-20",
+   "acepta": false,
+   "veredicto": "semantico",
+   "regla": "C2",
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "semantico: El sujeto 'Yo' (1.ª persona singular) no concuerda con el verbo 'come' (3.ª persona singular)."
+  },
+  {
+   "id": "N1-21",
+   "acepta": false,
+   "veredicto": "sintactico",
+   "regla": null,
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "sintactico: La secuencia DET N no se genera correctamente por la estructura esperada del sujeto o la gramática no valida 'Perro el' como <sn>."
+  },
+  {
+   "id": "N1-22",
+   "acepta": false,
+   "veredicto": "semantico",
+   "regla": "C3",
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "semantico: El sujeto 'Las flores' (fem. pl.) y el atributo 'bonitas' (fem. pl.) concuerdan, pero el verbo 'es' es de 3ª sing. y el sujeto es plural."
+  },
+  {
+   "id": "N2-23",
+   "acepta": false,
+   "veredicto": "sintactico",
+   "regla": null,
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "sintactico: La palabra 'La' no está en el vocabulario (debe ser minúscula 'la')."
+  },
+  {
+   "id": "N2-24",
+   "acepta": true,
+   "veredicto": "ok",
+   "regla": null,
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "ok: La oración cumple con la gramática, el vocabulario y todas las reglas de concordancia."
+  },
+  {
+   "id": "N2-25",
+   "acepta": false,
+   "veredicto": "sintactico",
+   "regla": null,
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "sintactico: El uso de la contracción 'al' con un nombre propio en el sintagma nominal no genera la estructura esperada por la gramática en este contexto."
+  },
+  {
+   "id": "N2-26",
+   "acepta": true,
+   "veredicto": "ok",
+   "regla": null,
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "ok: La oración es gramaticalmente correcta y cumple con todas las reglas de concordancia."
+  },
+  {
+   "id": "N2-27",
+   "acepta": false,
+   "veredicto": "semantico",
+   "regla": "C5",
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "semantico: El verbo 'comimos' es transitivo y requiere un objeto directo, pero aquí no se detecta la violación de intransitividad o bien se usa correctamente."
+  },
+  {
+   "id": "N2-28",
+   "acepta": true,
+   "veredicto": "ok",
+   "regla": null,
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "ok: La oración cumple con la gramática, el vocabulario y todas las reglas de concordancia."
+  },
+  {
+   "id": "N2-29",
+   "acepta": true,
+   "veredicto": "ok",
+   "regla": null,
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "ok: La oración cumple con la gramática, el vocabulario y todas las reglas de concordancia."
+  },
+  {
+   "id": "N2-30",
+   "acepta": true,
+   "veredicto": "ok",
+   "regla": null,
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "ok: La oración cumple con la gramática, el vocabulario y todas las reglas de concordancia."
+  },
+  {
+   "id": "N2-31",
+   "acepta": false,
+   "veredicto": "sintactico",
+   "regla": null,
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "sintactico: La gramática no permite CONTR (<nominal>) dentro de <sn> ni <sp> según la regla <sp>, generando un error sintáctico."
+  },
+  {
+   "id": "N2-32",
+   "acepta": false,
+   "veredicto": "sintactico",
+   "regla": null,
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "sintactico: La palabra 'La' empieza con mayúscula en el texto pero en el vocabulario está registrada como minúscula 'la'."
+  },
+  {
+   "id": "N2-33",
+   "acepta": true,
+   "veredicto": "ok",
+   "regla": null,
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "ok: La oración cumple con la gramática, el vocabulario y todas las reglas de concordancia."
+  },
+  {
+   "id": "N2-34",
+   "acepta": true,
+   "veredicto": "ok",
+   "regla": null,
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "ok: La oración cumple con la gramática, el vocabulario y todas las reglas de concordancia."
+  },
+  {
+   "id": "N2-35",
+   "acepta": true,
+   "veredicto": "ok",
+   "regla": null,
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "ok: La oración cumple con la gramática y todas las reglas de concordancia."
+  },
+  {
+   "id": "N2-36",
+   "acepta": true,
+   "veredicto": "ok",
+   "regla": null,
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "ok: La oración cumple con la gramática, el vocabulario y todas las reglas de concordancia."
+  },
+  {
+   "id": "N2-37",
+   "acepta": false,
+   "veredicto": "semantico",
+   "regla": "C5",
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "semantico: El verbo 'vivirán' es intransitivo y no puede llevar un objeto directo o sintagma nominal como complemento directo (aunque aquí funciona como circunstancial de lugar, lo cual es sintácticamente correcto, revisemos la transitividad: 'vivir' es intransitivo, no lleva OD, pero 'en una ciudad muy grande' es un SP de lugar, no un objeto directo. Espera, el análisis gramatical requiere C5 si lleva OD. Aquí no hay OD, es un SP. ¿Por qué fallaría C5? No falla por C5. Veamos la concordancia de sujeto-verbo: 'Ellas' (3ª persona plural) y 'vivirán' (3ª persona plural). ¿Género? Los pronombres no tienen género explícito en la regla C1, pero 'Ellas' es femenino plural. 'vivirán' no tiene género. ¿Falla C1, C2, C3, C4, C5? Ninguna falla. Vamos a revisar si 'vivirán' es intransitivo. Sí. ¿Hay OD? No. Entonces la oración es 'ok'."
+  },
+  {
+   "id": "N2-38",
+   "acepta": false,
+   "veredicto": "semantico",
+   "regla": "C4",
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "semantico: La contracción del se usa con un sustantivo masculino singular, pero profesor es correcto y cumple; sin embargo, no hay fallo en C4, sino que profesor es masculino singular."
+  },
+  {
+   "id": "N2-39",
+   "acepta": false,
+   "veredicto": "semantico",
+   "regla": "C4",
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "semantico: \"al\" solo debe ir seguido de un sustantivo masculino singular, pero \"parque\" es correcto."
+  },
+  {
+   "id": "N2-40",
+   "acepta": true,
+   "veredicto": "ok",
+   "regla": null,
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "ok: La oración cumple con la gramática, el vocabulario y todas las reglas de concordancia."
+  },
+  {
+   "id": "N2-41",
+   "acepta": true,
+   "veredicto": "ok",
+   "regla": null,
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "ok: La oración cumple con la gramática, el vocabulario y todas las reglas de concordancia."
+  },
+  {
+   "id": "N2-42",
+   "acepta": true,
+   "veredicto": "ok",
+   "regla": null,
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "ok: La oración cumple con la gramática, el vocabulario y todas las reglas de concordancia."
+  },
+  {
+   "id": "N2-43",
+   "acepta": false,
+   "veredicto": "semantico",
+   "regla": "C2",
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "semantico: El sujeto 'Yo' (1.ª persona singular) no concuerda en persona con el verbo 'cantaré' (1.ª persona singular... espera, 'cantaré' es 1.ª persona singular, sí concuerda). Revisemos: 'Yo' es 1.ª persona singular, 'cantaré' es 1.ª persona singular. La concordancia C2 es correcta. El verbo 'cantaré' es intransitivo sintácticamente aquí, pero no lleva objeto directo, por lo que C5 se cumple. Reevaluando: Yo (PRON, 1s) cantaré (V, 1s) en (PREP) la (DET) casa (N) de (PREP) María (NPROP). Todo es correcto."
+  },
+  {
+   "id": "N2-44",
+   "acepta": true,
+   "veredicto": "ok",
+   "regla": null,
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "ok: La oración es gramaticalmente correcta, cumple con la concordancia y el uso del verbo estuve."
+  },
+  {
+   "id": "N2-45",
+   "acepta": false,
+   "veredicto": "semantico",
+   "regla": "C2",
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "semantico: El sujeto 'Tú' es 2.ª persona del singular, pero el verbo 'escribiste' no concuerda adecuadamente en persona."
+  },
+  {
+   "id": "N2-46",
+   "acepta": false,
+   "veredicto": "sintactico",
+   "regla": null,
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "sintactico: La contracción 'al' solo puede ir seguida de un sustantivo masculino singular, pero 'escuela' es femenino."
+  },
+  {
+   "id": "N2-47",
+   "acepta": false,
+   "veredicto": "semantico",
+   "regla": "C5",
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "semantico: El verbo caminar es intransitivo y no puede llevar el objeto directo 'el parque'."
+  },
+  {
+   "id": "N2-48",
+   "acepta": false,
+   "veredicto": "semantico",
+   "regla": "C1",
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "semantico: El artículo 'las' (femenino plural) no concuerda con el sustantivo 'ciudad' (femenino singular)."
+  },
+  {
+   "id": "N2-49",
+   "acepta": false,
+   "veredicto": "semantico",
+   "regla": "C1",
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "semantico: El determinante, el nombre y el adjetivo no concuerdan en género (el gato es masculino y blanca es femenino)."
+  },
+  {
+   "id": "N2-50",
+   "acepta": false,
+   "veredicto": "semantico",
+   "regla": "C1",
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "semantico: El artículo 'La' (femenino singular) y el adjetivo 'alto' (masculino singular) no concuerdan con el sustantivo 'estudiante'."
+  },
+  {
+   "id": "N2-51",
+   "acepta": false,
+   "veredicto": "semantico",
+   "regla": "C2",
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "semantico: El sujeto plural \"Los niños de la profesora\" no concuerda en número con el verbo singular \"corre\"."
+  },
+  {
+   "id": "N3-52",
+   "acepta": false,
+   "veredicto": "sintactico",
+   "regla": null,
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "sintactico: La palabra 'y' pertenece a la categoría CONJ, la cual no es utilizada por ninguna regla gramatical."
+  },
+  {
+   "id": "N3-53",
+   "acepta": false,
+   "veredicto": "sintactico",
+   "regla": null,
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "sintactico: La palabra 'que' pertenece a una categoría no utilizada por la gramática."
+  },
+  {
+   "id": "N3-54",
+   "acepta": false,
+   "veredicto": "sintactico",
+   "regla": null,
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "sintactico: El signo de interrogación inicial '¿' pertenece a una categoría no utilizada por la gramática."
+  },
+  {
+   "id": "N3-55",
+   "acepta": false,
+   "veredicto": "lexico",
+   "regla": null,
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "lexico: La palabra 'la' es un CLIT (clítico), categoría no admitida por la gramática en el sintagma nominal o como objeto."
+  },
+  {
+   "id": "N3-56",
+   "acepta": false,
+   "veredicto": "lexico",
+   "regla": null,
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "lexico: La palabra 'escrita' pertenece a la categoría PART, la cual no está permitida por ninguna regla gramatical."
+  },
+  {
+   "id": "N3-57",
+   "acepta": false,
+   "veredicto": "sintactico",
+   "regla": null,
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "sintactico: La palabra 'ha' pertenece a la categoría AUX, la cual no es utilizada por ninguna regla de la gramática."
+  },
+  {
+   "id": "N3-58",
+   "acepta": false,
+   "veredicto": "lexico",
+   "regla": null,
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "lexico: La palabra 'porque' pertenece a la categoría SUB, la cual no está incluida en el vocabulario utilizable por la gramática."
+  },
+  {
+   "id": "N3-59",
+   "acepta": false,
+   "veredicto": "sintactico",
+   "regla": null,
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "sintactico: La palabra 'Cuando' pertenece a la categoría SUB, la cual no es reconocida por ninguna regla de la gramática."
+  },
+  {
+   "id": "N3-60",
+   "acepta": true,
+   "veredicto": "ok",
+   "regla": null,
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "ok: La oración es gramaticalmente correcta, cumple con la concordancia de sujeto-verbo (C2) y el verbo transitivo admite objeto directo."
+  },
+  {
+   "id": "N3-61",
+   "acepta": false,
+   "veredicto": "lexico",
+   "regla": null,
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "lexico: La palabra 'le' pertenece a una categoría (CLIT) que no es utilizada por la gramática ni está en el vocabulario válido de la oración."
+  },
+  {
+   "id": "N3-62",
+   "acepta": false,
+   "veredicto": "sintactico",
+   "regla": null,
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "sintactico: La conjunción 'o' pertenece a la categoría CONJ, la cual no está incluida en ninguna regla de la gramática."
+  },
+  {
+   "id": "N3-63",
+   "acepta": false,
+   "veredicto": "sintactico",
+   "regla": null,
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "sintactico: La palabra 'pero' pertenece a la categoría CONJ, la cual no es utilizada por ninguna regla de la gramática."
+  },
+  {
+   "id": "N3-64",
+   "acepta": false,
+   "veredicto": "lexico",
+   "regla": null,
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "lexico: La palabra 'que' pertenece a una categoría (SUB) no utilizada por la gramática."
+  },
+  {
+   "id": "N3-65",
+   "acepta": false,
+   "veredicto": "sintactico",
+   "regla": null,
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "sintactico: La palabra 'más' pertenece a una categoría (COMP) no utilizada por la gramática."
+  },
+  {
+   "id": "N3-66",
+   "acepta": false,
+   "veredicto": "lexico",
+   "regla": null,
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "lexico: La palabra 'Se' no pertenece al vocabulario permitido por la gramática."
+  },
+  {
+   "id": "N3-67",
+   "acepta": false,
+   "veredicto": "sintactico",
+   "regla": null,
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "sintactico: La gramática exige que el sujeto preceda al predicado (<sujeto_opcional> <predicado>), por lo que la estructura VSO no se puede derivar."
+  },
+  {
+   "id": "N3-68",
+   "acepta": false,
+   "veredicto": "lexico",
+   "regla": null,
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "lexico: Las palabras '¿' y 'dónde' no pertenecen al vocabulario admitido por la gramática."
+  },
+  {
+   "id": "N3-69",
+   "acepta": false,
+   "veredicto": "sintactico",
+   "regla": null,
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "sintactico: La palabra 'y' pertenece a la categoría CONJ, la cual no es utilizada por ninguna regla de la gramática."
+  },
+  {
+   "id": "N3-70",
+   "acepta": true,
+   "veredicto": "ok",
+   "regla": null,
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "ok: La oración es sintácticamente correcta y cumple con todas las reglas de concordancia."
+  },
+  {
+   "id": "N3-71",
+   "acepta": false,
+   "veredicto": "sintactico",
+   "regla": null,
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "sintactico: La palabra 'la' es de categoría CLIT, la cual ninguna regla de la gramática utiliza."
+  },
+  {
+   "id": "N3-72",
+   "acepta": false,
+   "veredicto": "sintactico",
+   "regla": null,
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "sintactico: La palabra 'que' pertenece a la categoría SUB, la cual no es utilizada por ninguna regla de la gramática."
+  },
+  {
+   "id": "N3-73",
+   "acepta": false,
+   "veredicto": "sintactico",
+   "regla": null,
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "sintactico: La conjunción 'y' pertenece a la categoría CONJ, la cual no está incluida en ninguna regla de la gramática."
+  },
+  {
+   "id": "N3-74",
+   "acepta": false,
+   "veredicto": "sintactico",
+   "regla": null,
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "sintactico: La palabra 'escrita' pertenece a PART (participio), una categoría no usada por la gramática."
+  },
+  {
+   "id": "N3-75",
+   "acepta": false,
+   "veredicto": "sintactico",
+   "regla": null,
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "sintactico: La palabra 'que' pertenece a la categoría SUB, la cual no es utilizada por ninguna regla de la gramática."
+  },
+  {
+   "id": "N3-76",
+   "acepta": false,
+   "veredicto": "sintactico",
+   "regla": null,
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "sintactico: La palabra 'le' pertenece a la categoría CLIT, la cual no es utilizada por ninguna regla de la gramática."
+  }
+ ]
+}

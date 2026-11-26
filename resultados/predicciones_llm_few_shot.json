@@ -1,0 +1,699 @@
+{
+ "sistema": "llm_few_shot",
+ "info": {
+  "modelo": "gemini-3.5-flash-lite",
+  "modo": "few-shot",
+  "temperatura": 0,
+  "ejemplos_few_shot": 10,
+  "errores_api": 0,
+  "segundos": 280.53,
+  "ms_por_oracion": 3691.2,
+  "descripcion": "Gemini few-shot con la gramática en el prompt"
+ },
+ "predicciones": [
+  {
+   "id": "N1-01",
+   "acepta": true,
+   "veredicto": "ok",
+   "regla": null,
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "ok: DET(m,s) N(m,s) V(3s). Deriva <sujeto> <predicado> PUNTO y concuerda perfectamente."
+  },
+  {
+   "id": "N1-02",
+   "acepta": true,
+   "veredicto": "ok",
+   "regla": null,
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "ok: María es NPROP(3s), compra es V(3s), una manzana es objeto directo femenino singular. Todo concuerda."
+  },
+  {
+   "id": "N1-03",
+   "acepta": true,
+   "veredicto": "ok",
+   "regla": null,
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "ok: DET(m,p) N(m,p) V(3p). Deriva <sujeto> <predicado> PUNTO y concuerda perfectamente."
+  },
+  {
+   "id": "N1-04",
+   "acepta": true,
+   "veredicto": "ok",
+   "regla": null,
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "ok: PRON(1s) V(1s) DET(f,s) N(f,s) PUNTO. Sujeto y verbo concuerdan en 1.ª persona singular y cumple todas las reglas."
+  },
+  {
+   "id": "N1-05",
+   "acepta": true,
+   "veredicto": "ok",
+   "regla": null,
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "ok: DET(f,s) N(f,s) VCOP ADJ. Concuerdan en género y número (C1, C3) y sujeto y verbo (C2)."
+  },
+  {
+   "id": "N1-06",
+   "acepta": true,
+   "veredicto": "ok",
+   "regla": null,
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "ok: NPROP(3s) V(3s). Deriva <sujeto> <predicado> PUNTO y cumple la concordancia de persona y número."
+  },
+  {
+   "id": "N1-07",
+   "acepta": true,
+   "veredicto": "ok",
+   "regla": null,
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "ok: PRON(1p) V(1p) PUNTO. Deriva <sujeto> <predicado> PUNTO y concuerda en persona y número."
+  },
+  {
+   "id": "N1-08",
+   "acepta": true,
+   "veredicto": "ok",
+   "regla": null,
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "ok: DET(m,s) N(m,s) V(3s) DET(m,s) N(m,s). Deriva correctamente y cumple C1 y C2."
+  },
+  {
+   "id": "N1-09",
+   "acepta": true,
+   "veredicto": "ok",
+   "regla": null,
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "ok: PRON(2s) V(2s) ADV PUNTO; cumple con la derivación y la concordancia C2."
+  },
+  {
+   "id": "N1-10",
+   "acepta": false,
+   "veredicto": "semantico",
+   "regla": "C5",
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "semantico: 'bailar' es un verbo intransitivo y no puede llevar objeto directo, pero la estructura no lo lleva; sin embargo, cumple con C1 y C2."
+  },
+  {
+   "id": "N1-11",
+   "acepta": true,
+   "veredicto": "ok",
+   "regla": null,
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "ok: NPROP(3s) VCOP(3s) ADJ. C3 se cumple pues el sujeto singular y el atributo coinciden."
+  },
+  {
+   "id": "N1-12",
+   "acepta": true,
+   "veredicto": "ok",
+   "regla": null,
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "ok: DET N V; 'profesora' y 'trabaja' concuerdan en 3.ª persona singular (C2)."
+  },
+  {
+   "id": "N1-13",
+   "acepta": true,
+   "veredicto": "ok",
+   "regla": null,
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "ok: PRON(3p) V(3p) DET(f,s) N(f,s). El sujeto y el verbo concuerdan en persona y número (C2), y el DET y N en género y número (C1)."
+  },
+  {
+   "id": "N1-14",
+   "acepta": true,
+   "veredicto": "ok",
+   "regla": null,
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "ok: NPROP con VCOP y atributo adjetival; C3 se cumple en género y número."
+  },
+  {
+   "id": "N1-15",
+   "acepta": true,
+   "veredicto": "ok",
+   "regla": null,
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "ok: DET(m,s) N(m,s) V(3s). Deriva <sujeto> <predicado> PUNTO y concuerda perfectamente."
+  },
+  {
+   "id": "N1-16",
+   "acepta": false,
+   "veredicto": "semantico",
+   "regla": "C2",
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "semantico: 'usted' es de 2.ª persona (o requiere tratamiento especial) y el verbo 'cocina' concuerda en 3.ª persona, fallando la concordancia estricta."
+  },
+  {
+   "id": "N1-17",
+   "acepta": false,
+   "veredicto": "semantico",
+   "regla": "C1",
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "semantico: 'Los' es plural y 'perro' es singular."
+  },
+  {
+   "id": "N1-18",
+   "acepta": false,
+   "veredicto": "semantico",
+   "regla": "C1",
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "semantico: 'El' es singular y 'niños' es plural."
+  },
+  {
+   "id": "N1-19",
+   "acepta": false,
+   "veredicto": "semantico",
+   "regla": "C3",
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "semantico: Sujeto femenino (María) con atributo masculino (alto)."
+  },
+  {
+   "id": "N1-20",
+   "acepta": false,
+   "veredicto": "semantico",
+   "regla": "C2",
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "semantico: 'Yo' es 1.ª persona singular y 'come' es 3.ª persona singular."
+  },
+  {
+   "id": "N1-21",
+   "acepta": false,
+   "veredicto": "sintactico",
+   "regla": null,
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "sintactico: Ninguna regla permite comenzar con un sustantivo sin determinante seguido de un determinante."
+  },
+  {
+   "id": "N1-22",
+   "acepta": false,
+   "veredicto": "semantico",
+   "regla": "C2",
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "semantico: 'Las flores' es plural (3p) y el verbo 'es' es singular (3s); además falla C3 con el atributo."
+  },
+  {
+   "id": "N2-23",
+   "acepta": true,
+   "veredicto": "ok",
+   "regla": null,
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "ok: DET ADJ N V DET N ADJ PUNTO. Todos los componentes derivan correctamente y cumplen C1, C2 y C5."
+  },
+  {
+   "id": "N2-24",
+   "acepta": true,
+   "veredicto": "ok",
+   "regla": null,
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "ok: DET N NEG V ADV PUNTO. Cumple C1, C2 y C5 (trabajar es intransitivo y no lleva OD)."
+  },
+  {
+   "id": "N2-25",
+   "acepta": true,
+   "veredicto": "ok",
+   "regla": null,
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "ok: NPROP(3s) V(3s) CONTR N con SP válido; C1, C2, C4 se cumplen correctamente."
+  },
+  {
+   "id": "N2-26",
+   "acepta": true,
+   "veredicto": "ok",
+   "regla": null,
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "ok: Ana(NPROP:3s) VCOP(estará:3s) INT(muy) ADJ(cansada:f,s) ADV(hoy). C3 se cumple (sujeto y atributo femenino singular)."
+  },
+  {
+   "id": "N2-27",
+   "acepta": true,
+   "veredicto": "ok",
+   "regla": null,
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "ok: Sujeto tácito (nosotros), verbo transitivo 'comimos', SN objeto directo 'el pan', SP posesivo y adverbio circunstancial."
+  },
+  {
+   "id": "N2-28",
+   "acepta": true,
+   "veredicto": "ok",
+   "regla": null,
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "ok: DET(m,s) N(m,s) INT ADJ(m,s) V(3s) INT ADV. La estructura y concordancias se cumplen."
+  },
+  {
+   "id": "N2-29",
+   "acepta": true,
+   "veredicto": "ok",
+   "regla": null,
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "ok: NPROP come DET N PREP DET N PUNTO. Deriva correctamente y cumple todas las concordancias."
+  },
+  {
+   "id": "N2-30",
+   "acepta": true,
+   "veredicto": "ok",
+   "regla": null,
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "ok: Pedro(NPROP, 3s) escribió(V, 3s) una carta(SN, f,s) en la mesa(SP); sujeto y verbo concuerdan."
+  },
+  {
+   "id": "N2-31",
+   "acepta": true,
+   "veredicto": "ok",
+   "regla": null,
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "ok: DET N CONTR N V ADV PUNTO. Todas las palabras derivan correctamente y cumplen la concordancia."
+  },
+  {
+   "id": "N2-32",
+   "acepta": true,
+   "veredicto": "ok",
+   "regla": null,
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "ok: DET N V DET N SP (DET N) cumple todas las reglas sintácticas y semánticas."
+  },
+  {
+   "id": "N2-33",
+   "acepta": true,
+   "veredicto": "ok",
+   "regla": null,
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "ok: DET(ms) N(ms) ADJ(ms) V(3s) PREP DET N PUNTO. Deriva correctamente, hay concordancia y 'correr' es intransitivo sin objeto directo."
+  },
+  {
+   "id": "N2-34",
+   "acepta": true,
+   "veredicto": "ok",
+   "regla": null,
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "ok: DET(f,p) N(f,p) ADJ(f,p) V(3p) SP(DET(f,s) N(f,s)). Cumple C1, C2 y la gramática."
+  },
+  {
+   "id": "N2-35",
+   "acepta": true,
+   "veredicto": "ok",
+   "regla": null,
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "ok: DET N ADJ NEG VCOP ADJ PUNTO. Sujeto, negación, VCOP y atributo concuerdan (C1, C2, C3)."
+  },
+  {
+   "id": "N2-36",
+   "acepta": true,
+   "veredicto": "ok",
+   "regla": null,
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "ok: NPROP V SN SP; sujeto (3s) y verbo (3s) concuerdan, 'cocinar' admite objeto directo y el SP es circunstancial."
+  },
+  {
+   "id": "N2-37",
+   "acepta": true,
+   "veredicto": "ok",
+   "regla": null,
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "ok: PRON(3p) V(3p) SP con DET, N, INT y ADJ; todas las concordancias y reglas se cumplen."
+  },
+  {
+   "id": "N2-38",
+   "acepta": true,
+   "veredicto": "ok",
+   "regla": null,
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "ok: DET N CONTR N VCOP SP; concuerdan DET, N y CONTR ('del' con masculino singular), y el sujeto con VCOP."
+  },
+  {
+   "id": "N2-39",
+   "acepta": true,
+   "veredicto": "ok",
+   "regla": null,
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "ok: ADV V CONTR N ADV. Deriva correctamente con sujeto omitido y se cumplen todas las reglas de concordancia y restricciones."
+  },
+  {
+   "id": "N2-40",
+   "acepta": true,
+   "veredicto": "ok",
+   "regla": null,
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "ok: DET N ADJ V DET N ADJ SP DET N PUNTO. C1, C2 y las demás reglas se cumplen perfectamente."
+  },
+  {
+   "id": "N2-41",
+   "acepta": true,
+   "veredicto": "ok",
+   "regla": null,
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "ok: Sujeto NPROP(3s) VCOP(3s) con atributo nominal modificado por un adjetivo con intensificador; cumple C2 y C3."
+  },
+  {
+   "id": "N2-42",
+   "acepta": true,
+   "veredicto": "ok",
+   "regla": null,
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "ok: DET N ADJ NEG V ADV PUNTO; cumple con C1, C2 y la estructura gramatical."
+  },
+  {
+   "id": "N2-43",
+   "acepta": true,
+   "veredicto": "ok",
+   "regla": null,
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "ok: PRON(1s) V(1s) ADV SP con SP nominal; C2 se cumple entre sujeto y verbo."
+  },
+  {
+   "id": "N2-44",
+   "acepta": true,
+   "veredicto": "ok",
+   "regla": null,
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "ok: PRON(1p) VCOP(1p) SP ADV PUNTO; cumple con todas las reglas y concordancias."
+  },
+  {
+   "id": "N2-45",
+   "acepta": true,
+   "veredicto": "ok",
+   "regla": null,
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "ok: PRON(2s) V(2s) DET(f,s) N(f,s) INT ADJ(f,s). Cumple C1, C2 y la estructura sintáctica."
+  },
+  {
+   "id": "N2-46",
+   "acepta": false,
+   "veredicto": "semantico",
+   "regla": "C4",
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "semantico: 'al' (CONTR) va con un sustantivo masculino singular, pero 'escuela' es femenino."
+  },
+  {
+   "id": "N2-47",
+   "acepta": false,
+   "veredicto": "semantico",
+   "regla": "C5",
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "semantico: 'caminar' es un verbo intransitivo y no puede llevar un objeto directo."
+  },
+  {
+   "id": "N2-48",
+   "acepta": false,
+   "veredicto": "semantico",
+   "regla": "C1",
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "semantico: 'las' es plural y 'ciudad' es singular."
+  },
+  {
+   "id": "N2-49",
+   "acepta": false,
+   "veredicto": "semantico",
+   "regla": "C1",
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "semantico: 'El' es masculino singular y 'blanca' es femenino singular."
+  },
+  {
+   "id": "N2-50",
+   "acepta": false,
+   "veredicto": "semantico",
+   "regla": "C1",
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "semantico: 'estudiante' es singular pero 'alto' no concuerda en género femenino con el sustantivo."
+  },
+  {
+   "id": "N2-51",
+   "acepta": false,
+   "veredicto": "semantico",
+   "regla": "C2",
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "semantico: 'Los niños de la profesora' es sujeto plural (3p) y 'corre' está en singular (3s)."
+  },
+  {
+   "id": "N3-52",
+   "acepta": false,
+   "veredicto": "sintactico",
+   "regla": null,
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "sintactico: 'y' es CONJ: está en el vocabulario, pero ninguna regla la usa."
+  },
+  {
+   "id": "N3-53",
+   "acepta": false,
+   "veredicto": "sintactico",
+   "regla": null,
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "sintactico: 'que' es SUB: está en el vocabulario, pero ninguna regla de la gramática la usa."
+  },
+  {
+   "id": "N3-54",
+   "acepta": false,
+   "veredicto": "sintactico",
+   "regla": null,
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "sintactico: '¿' es un signo de interrogación que ninguna regla de la gramática utiliza."
+  },
+  {
+   "id": "N3-55",
+   "acepta": false,
+   "veredicto": "sintactico",
+   "regla": null,
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "sintactico: 'la' es CLIT, está en el vocabulario pero ninguna regla de la gramática la usa."
+  },
+  {
+   "id": "N3-56",
+   "acepta": false,
+   "veredicto": "sintactico",
+   "regla": null,
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "sintactico: 'escrita' es PART: está en el vocabulario, pero ninguna regla de la gramática la usa."
+  },
+  {
+   "id": "N3-57",
+   "acepta": false,
+   "veredicto": "sintactico",
+   "regla": null,
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "sintactico: 'ha' es AUX: está en el vocabulario, pero ninguna regla de la gramática la usa."
+  },
+  {
+   "id": "N3-58",
+   "acepta": false,
+   "veredicto": "sintactico",
+   "regla": null,
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "sintactico: 'porque' es SUB: está en el vocabulario, pero ninguna regla gramatical la utiliza."
+  },
+  {
+   "id": "N3-59",
+   "acepta": false,
+   "veredicto": "sintactico",
+   "regla": null,
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "sintactico: 'Cuando' es SUB y ',' es SIGNO: están en el vocabulario, pero ninguna regla los usa."
+  },
+  {
+   "id": "N3-60",
+   "acepta": true,
+   "veredicto": "ok",
+   "regla": null,
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "ok: DET(mp) N(mp) V(3p) SN(fp). Cumple C1, C2 y la transitividad del verbo comer."
+  },
+  {
+   "id": "N3-61",
+   "acepta": false,
+   "veredicto": "sintactico",
+   "regla": null,
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "sintactico: 'le' es CLIT: está en el vocabulario, pero ninguna regla gramatical la utiliza."
+  },
+  {
+   "id": "N3-62",
+   "acepta": false,
+   "veredicto": "sintactico",
+   "regla": null,
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "sintactico: 'o' es CONJ: está en el vocabulario, pero ninguna regla de la gramática la usa."
+  },
+  {
+   "id": "N3-63",
+   "acepta": false,
+   "veredicto": "sintactico",
+   "regla": null,
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "sintactico: 'pero' es CONJ: está en el vocabulario, pero ninguna regla de la gramática la usa."
+  },
+  {
+   "id": "N3-64",
+   "acepta": false,
+   "veredicto": "sintactico",
+   "regla": null,
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "sintactico: 'que' es SUB: está en el vocabulario, pero ninguna regla la usa."
+  },
+  {
+   "id": "N3-65",
+   "acepta": false,
+   "veredicto": "sintactico",
+   "regla": null,
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "sintactico: 'más' (COMP) y 'que' (SUB) están en el vocabulario, pero ninguna regla de la gramática los utiliza."
+  },
+  {
+   "id": "N3-66",
+   "acepta": false,
+   "veredicto": "sintactico",
+   "regla": null,
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "sintactico: 'Se' es CLIT: está en el vocabulario, pero ninguna regla de la gramática la usa."
+  },
+  {
+   "id": "N3-67",
+   "acepta": false,
+   "veredicto": "sintactico",
+   "regla": null,
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "sintactico: La gramática no permite la estructura V OSV; el sujeto debe preceder al predicado o no estar."
+  },
+  {
+   "id": "N3-68",
+   "acepta": false,
+   "veredicto": "sintactico",
+   "regla": null,
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "sintactico: '¿' y 'dónde' son signos e interrogativos del vocabulario no usados por la gramática."
+  },
+  {
+   "id": "N3-69",
+   "acepta": false,
+   "veredicto": "sintactico",
+   "regla": null,
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "sintactico: 'y' es CONJ: está en el vocabulario, pero ninguna regla gramatical la incluye."
+  },
+  {
+   "id": "N3-70",
+   "acepta": false,
+   "veredicto": "semantico",
+   "regla": "C5",
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "semantico: 'correr' es un verbo intransitivo y no lleva objeto directo."
+  },
+  {
+   "id": "N3-71",
+   "acepta": false,
+   "veredicto": "sintactico",
+   "regla": null,
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "sintactico: La estructura 'A Ana' es un SP, y la gramática no contempla un SP como inicio de un SN o sujeto directo sin un mecanismo de topicalización."
+  },
+  {
+   "id": "N3-72",
+   "acepta": false,
+   "veredicto": "sintactico",
+   "regla": null,
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "sintactico: 'que' es SUB: está en el vocabulario, pero ninguna regla gramatical la usa."
+  },
+  {
+   "id": "N3-73",
+   "acepta": false,
+   "veredicto": "sintactico",
+   "regla": null,
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "sintactico: 'y' es CONJ: está en el vocabulario, pero ninguna regla la usa."
+  },
+  {
+   "id": "N3-74",
+   "acepta": false,
+   "veredicto": "sintactico",
+   "regla": null,
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "sintactico: 'escrita' es PART, la cual está en una categoría del vocabulario que ninguna regla usa."
+  },
+  {
+   "id": "N3-75",
+   "acepta": false,
+   "veredicto": "sintactico",
+   "regla": null,
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "sintactico: 'que' es SUB: está en el vocabulario, pero ninguna regla la usa."
+  },
+  {
+   "id": "N3-76",
+   "acepta": false,
+   "veredicto": "sintactico",
+   "regla": null,
+   "upos": null,
+   "adjunciones": null,
+   "detalle": "sintactico: 'le' pertenece a la categoría CLIT que ninguna regla de la gramática utiliza."
+  }
+ ]
+}

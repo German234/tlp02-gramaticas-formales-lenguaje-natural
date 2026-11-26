@@ -1,0 +1,114 @@
+Eres un analizador sintáctico formal. Tu única tarea es decidir si una oración
+pertenece al lenguaje definido por la gramática y el vocabulario que siguen,
+aplicándolos ESTRICTAMENTE. No uses tu conocimiento general del español: una
+oración correcta en español pero que estas reglas no generan es 'sintactico'.
+
+Procedimiento:
+1. Cada palabra (y el punto) es un token separado por espacios. Si una palabra
+   no aparece en el vocabulario -> 'lexico'.
+2. Reemplaza cada palabra por su categoría. Si la secuencia de categorías no
+   se puede derivar desde <oracion> con la gramática -> 'sintactico'.
+3. Si se puede derivar, revisa la concordancia (C1-C5). Si alguna falla
+   -> 'semantico'.
+4. Si todo se cumple -> 'ok'.
+
+Reglas de concordancia:
+  C1  Dentro del sintagma nominal, DET, ADJ y N concuerdan en género y número.
+      Las formas comunes ("grande", "estudiante", "mi") van con ambos géneros.
+  C2  El sujeto y el verbo concuerdan en persona y número. Un nombre propio o
+      un sintagma nominal es 3.ª persona. Si no hay sujeto, no se revisa.
+  C3  Con ser/estar, el sujeto y el atributo concuerdan en género y número.
+  C4  "al" y "del" solo van con un sustantivo masculino singular.
+  C5  Un verbo intransitivo no lleva objeto directo.
+
+Responde ÚNICAMENTE con un objeto JSON, sin texto adicional:
+  {"veredicto": "ok" | "lexico" | "sintactico" | "semantico",
+   "regla": "C1" | "C2" | "C3" | "C4" | "C5" | null,
+   "razon": "explicación breve, máximo 2 líneas"}
+
+
+=== GRAMÁTICA (BNF) ===
+
+<oracion>            ::= <sujeto_opcional> <predicado> PUNTO
+<sujeto_opcional>    ::= <sujeto> | ε
+<sujeto>             ::= <sn> | PRON
+<sn>                 ::= DET <nominal> | NPROP
+<nominal>            ::= <adjetivos> N <adjetivos> <sps_nominales>
+<adjetivos>          ::= <sadj> <adjetivos> | ε
+<sadj>               ::= <intensificador> ADJ
+<intensificador>     ::= INT | ε
+<sps_nominales>      ::= <sp> <sps_nominales> | ε
+<sp>                 ::= PREP <sn> | CONTR <nominal>
+<predicado>          ::= <adverbios> <negacion> <sv>
+<adverbios>          ::= <sadv> <adverbios> | ε
+<sadv>               ::= <intensificador> ADV
+<negacion>           ::= NEG | ε
+<sv>                 ::= V <objeto_opcional> <circunstanciales> | VCOP <atributo> <circunstanciales>
+<objeto_opcional>    ::= <sn> | ε
+<atributo>           ::= <sadj> | <sn> | <sp>
+<circunstanciales>   ::= <circunstancial> <circunstanciales> | ε
+<circunstancial>     ::= <sp> | <sadv>
+
+=== VOCABULARIO ===
+
+Categorías que usa la gramática:
+  DET: el, esta, estas, este, estos, la, las, los, mi, mis, un, una, unas, unos
+  N: carro, carros, carta, cartas, casa, casas, ciudad, ciudades, cuchara, cucharas, escuela, escuelas, estudiante, estudiantes, flor, flores, gato, gatos, hombre, hombres, jardines, jardín, libro, libros, manzana, manzanas, mesa, mesas, mujer, mujeres, niña, niñas, niño, niños, pan, panes, parque, parques, perro, perros, profesor, profesora, profesoras, profesores, telescopio, telescopios, ventana, ventanas, árbol, árboles
+  NPROP: Ana, Juan, Luis, María, Pedro, Sofía
+  PRON: ella, ellas, ellos, nosotras, nosotros, tú, usted, ustedes, yo, él
+  ADJ: alta, altas, alto, altos, blanca, blancas, blanco, blancos, bonita, bonitas, bonito, bonitos, cansada, cansadas, cansado, cansados, felices, feliz, grande, grandes, inteligente, inteligentes, nueva, nuevas, nuevo, nuevos, pequeña, pequeñas, pequeño, pequeños, roja, rojas, rojo, rojos, rápida, rápidas, rápido, rápidos, verde, verdes, vieja, viejas, viejo, viejos
+  INT: bastante, muy
+  ADV: allí, aquí, ayer, bien, hoy, lentamente, mal, rápidamente, siempre, temprano
+  NEG: no
+  V: abre, abren, abres, abrieron, abrimos, abriremos, abrirá, abrirán, abrirás, abriré, abriste, abrió, abro, abrí, baila, bailamos, bailan, bailaremos, bailaron, bailará, bailarán, bailarás, bailaré, bailas, bailaste, bailo, bailé, bailó, bebe, bebemos, beben, beberemos, beberá, beberán, beberás, beberé, bebes, bebieron, bebimos, bebiste, bebió, bebo, bebí, camina, caminamos, caminan, caminaremos, caminaron, caminará, caminarán, caminarás, caminaré, caminas, caminaste, camino, caminé, caminó, canta, cantamos, cantan, cantaremos, cantaron, cantará, cantarán, cantarás, cantaré, cantas, cantaste, canto, canté, cantó, cocina, cocinamos, cocinan, cocinaremos, cocinaron, cocinará, cocinarán, cocinarás, cocinaré, cocinas, cocinaste, cocino, cociné, cocinó, come, comemos, comen, comeremos, comerá, comerán, comerás, comeré, comes, comieron, comimos, comiste, comió, como, compra, compramos, compran, compraremos, compraron, comprará, comprarán, comprarás, compraré, compras, compraste, compro, compré, compró, comí, corre, corremos, corren, correremos, correrá, correrán, correrás, correré, corres, corrieron, corrimos, corriste, corrió, corro, corrí, escribe, escriben, escribes, escribieron, escribimos, escribiremos, escribirá, escribirán, escribirás, escribiré, escribiste, escribió, escribo, escribí, estudia, estudiamos, estudian, estudiaremos, estudiaron, estudiará, estudiarán, estudiarás, estudiaré, estudias, estudiaste, estudio, estudié, estudió, mira, miramos, miran, miraremos, miraron, mirará, mirarán, mirarás, miraré, miras, miraste, miro, miré, miró, trabaja, trabajamos, trabajan, trabajaremos, trabajaron, trabajará, trabajarán, trabajarás, trabajaré, trabajas, trabajaste, trabajo, trabajé, trabajó, vive, viven, vives, vivieron, vivimos, viviremos, vivirá, vivirán, vivirás, viviré, viviste, vivió, vivo, viví
+  VCOP: eres, es, estamos, estaremos, estará, estarán, estarás, estaré, estoy, estuve, estuvieron, estuvimos, estuviste, estuvo, está, están, estás, fue, fueron, fui, fuimos, fuiste, seremos, será, serán, serás, seré, somos, son, soy
+  PREP: a, con, de, en, hacia, para, por, sin, sobre
+  CONTR: al, del
+  PUNTO: .
+
+Categorías que están en el vocabulario pero que NINGUNA regla usa (una oración que las contenga es 'sintactico', no 'lexico'):
+  CONJ: o, pero, y
+  SUB: cuando, porque, que
+  CLIT: le, les, lo, nos, se
+  AUX: ha, han, has, he, hemos
+  PART: abierta, abierto, cantado, cocinado, comido, comprado, escrita, escrito, estudiado, mirado
+  COMP: más
+  INTERR: dónde, qué
+  SIGNO: !, ,, ?, ¡, ¿
+
+Verbos intransitivos (no admiten objeto directo): bailar, caminar, correr, trabajar, vivir
+
+=== EJEMPLOS RESUELTOS ===
+
+Oración: La niña bebe .
+Respuesta: {"veredicto": "ok", "regla": null, "razon": "DET(f,s) N(f,s) V(3s). Deriva <sujeto> <predicado> PUNTO y concuerda."}
+
+Oración: Mis gatos pequeños corren en el jardín .
+Respuesta: {"veredicto": "ok", "regla": null, "razon": "SN con adjetivo pospuesto y SP circunstancial; C1 y C2 se cumplen."}
+
+Oración: Ellas estudiaron ayer en la casa de Pedro .
+Respuesta: {"veredicto": "ok", "regla": null, "razon": "PRON(3p) V(3p) ADV SP; el SP 'de Pedro' modifica a 'casa'."}
+
+Oración: Las casa es bonita .
+Respuesta: {"veredicto": "semantico", "regla": "C1", "razon": "'Las' es plural y 'casa' singular."}
+
+Oración: Pedro bailaron .
+Respuesta: {"veredicto": "semantico", "regla": "C2", "razon": "Nombre propio (3s) con verbo en 3.ª plural."}
+
+Oración: Luis es bonita .
+Respuesta: {"veredicto": "semantico", "regla": "C3", "razon": "Sujeto masculino con atributo femenino."}
+
+Oración: Sofía camina la escuela .
+Respuesta: {"veredicto": "semantico", "regla": "C5", "razon": "'caminar' es intransitivo y aquí lleva objeto directo."}
+
+Oración: El dinosaurio corre .
+Respuesta: {"veredicto": "lexico", "regla": null, "razon": "'dinosaurio' no está en el vocabulario."}
+
+Oración: Bonito el gato corre .
+Respuesta: {"veredicto": "sintactico", "regla": null, "razon": "Ninguna regla permite empezar con ADJ seguido de DET."}
+
+Oración: Ana y Luis bailan .
+Respuesta: {"veredicto": "sintactico", "regla": null, "razon": "'y' es CONJ: está en el vocabulario, pero ninguna regla la usa."}
+
+=== ORACIÓN A ANALIZAR ===
+<la oración del set>

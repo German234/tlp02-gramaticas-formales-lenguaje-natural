@@ -85,7 +85,8 @@
    "exactitud": 0.6,
    "a_sustantivo": 0.8333333333333334,
    "a_verbo": 0.5
-  }
+  },
+  "conformidad": null
  },
  "spacy": {
   "aceptacion": {
@@ -239,7 +240,8 @@
    "exactitud": 1.0,
    "a_sustantivo": 1.0,
    "a_verbo": 1.0
-  }
+  },
+  "conformidad": null
  },
  "hf": {
   "aceptacion": {
@@ -362,6 +364,177 @@
     }
    ]
   },
-  "adjuncion": null
+  "adjuncion": null,
+  "conformidad": null
+ },
+ "llm_zero_shot": {
+  "aceptacion": {
+   "VP": 27,
+   "FP": 0,
+   "VN": 17,
+   "FN": 32,
+   "sin_respuesta": 0,
+   "precision": 1.0,
+   "recall": 0.4576271186440678,
+   "rechazo_correcto": 1.0,
+   "exactitud": 0.5789473684210527
+  },
+  "por_nivel": {
+   "1": {
+    "VP": 12,
+    "FP": 0,
+    "VN": 6,
+    "FN": 4,
+    "sin_respuesta": 0,
+    "precision": 1.0,
+    "recall": 0.75,
+    "rechazo_correcto": 1.0,
+    "exactitud": 0.8181818181818182
+   },
+   "2": {
+    "VP": 13,
+    "FP": 0,
+    "VN": 6,
+    "FN": 10,
+    "sin_respuesta": 0,
+    "precision": 1.0,
+    "recall": 0.5652173913043478,
+    "rechazo_correcto": 1.0,
+    "exactitud": 0.6551724137931034
+   },
+   "3": {
+    "VP": 2,
+    "FP": 0,
+    "VN": 5,
+    "FN": 18,
+    "sin_respuesta": 0,
+    "precision": 1.0,
+    "recall": 0.1,
+    "rechazo_correcto": 1.0,
+    "exactitud": 0.28
+   }
+  },
+  "etiquetado": {
+   "aciertos": 0,
+   "total": 0,
+   "errores": 0,
+   "exactitud": NaN,
+   "confusiones": []
+  },
+  "adjuncion": null,
+  "conformidad": {
+   "coinciden": 52,
+   "total": 76,
+   "exactitud": 0.6842105263157895,
+   "errores_api": 0,
+   "por_clase": {
+    "ok": 0.6410256410256411,
+    "lexico": NaN,
+    "sintactico": 0.6538461538461539,
+    "semantico": 0.9090909090909091
+   },
+   "por_clase_n": {
+    "ok": 39,
+    "lexico": 0,
+    "sintactico": 26,
+    "semantico": 11
+   },
+   "desvios_n3": 2,
+   "n3_validas": 20,
+   "confusion": {
+    "ok->ok": 25,
+    "ok->semantico": 9,
+    "ok->sintactico": 5,
+    "semantico->semantico": 10,
+    "semantico->sintactico": 1,
+    "sintactico->lexico": 7,
+    "sintactico->ok": 2,
+    "sintactico->sintactico": 17
+   }
+  }
+ },
+ "llm_few_shot": {
+  "aceptacion": {
+   "VP": 38,
+   "FP": 0,
+   "VN": 17,
+   "FN": 21,
+   "sin_respuesta": 0,
+   "precision": 1.0,
+   "recall": 0.6440677966101694,
+   "rechazo_correcto": 1.0,
+   "exactitud": 0.7236842105263158
+  },
+  "por_nivel": {
+   "1": {
+    "VP": 14,
+    "FP": 0,
+    "VN": 6,
+    "FN": 2,
+    "sin_respuesta": 0,
+    "precision": 1.0,
+    "recall": 0.875,
+    "rechazo_correcto": 1.0,
+    "exactitud": 0.9090909090909091
+   },
+   "2": {
+    "VP": 23,
+    "FP": 0,
+    "VN": 6,
+    "FN": 0,
+    "sin_respuesta": 0,
+    "precision": 1.0,
+    "recall": 1.0,
+    "rechazo_correcto": 1.0,
+    "exactitud": 1.0
+   },
+   "3": {
+    "VP": 1,
+    "FP": 0,
+    "VN": 5,
+    "FN": 19,
+    "sin_respuesta": 0,
+    "precision": 1.0,
+    "recall": 0.05,
+    "rechazo_correcto": 1.0,
+    "exactitud": 0.24
+   }
+  },
+  "etiquetado": {
+   "aciertos": 0,
+   "total": 0,
+   "errores": 0,
+   "exactitud": NaN,
+   "confusiones": []
+  },
+  "adjuncion": null,
+  "conformidad": {
+   "coinciden": 72,
+   "total": 76,
+   "exactitud": 0.9473684210526315,
+   "errores_api": 0,
+   "por_clase": {
+    "ok": 0.9487179487179487,
+    "lexico": NaN,
+    "sintactico": 0.9230769230769231,
+    "semantico": 1.0
+   },
+   "por_clase_n": {
+    "ok": 39,
+    "lexico": 0,
+    "sintactico": 26,
+    "semantico": 11
+   },
+   "desvios_n3": 1,
+   "n3_validas": 20,
+   "confusion": {
+    "ok->ok": 37,
+    "ok->semantico": 2,
+    "semantico->semantico": 11,
+    "sintactico->ok": 1,
+    "sintactico->semantico": 1,
+    "sintactico->sintactico": 24
+   }
+  }
  }
 }

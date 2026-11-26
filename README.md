@@ -1,12 +1,15 @@
-# Proyecto TLP02-2026 — Fase 1: Lexer y analizador semántico
+# Proyecto TLP02-2026 — Gramáticas formales y lenguaje natural
 
-Este proyecto implementa un analizador léxico (lexer) y un analizador semántico para un **subconjunto de C++**, escritos en Python. También incluye un parser descendente recursivo que construye el árbol sintáctico.
+El proyecto tiene dos fases:
 
-| Fase del compilador | Archivo | Jerarquía de Chomsky |
-|---|---|---|
-| Análisis léxico | `lexer.py` | Lenguaje regular (tipo 3) |
-| Análisis sintáctico | `parser.py` | Lenguaje libre de contexto (tipo 2) |
-| Análisis semántico | `semantico.py` | Verificaciones sensibles al contexto (relacionadas con el tipo 1)|
+- **Fase 1** — Lexer y analizador semántico para un **subconjunto de C++** (más un parser descendente recursivo que construye el árbol sintáctico). Ver las secciones siguientes.
+- **Fase 2** — Parser para un subconjunto del **español** y comparación con spaCy, HuggingFace y Gemini. Ver [Fase 2](#fase-2--parser-para-el-español).
+
+| Fase del compilador | Fase 1 (C++) | Fase 2 (español) | Jerarquía de Chomsky |
+|---|---|---|---|
+| Análisis léxico | `lexer.py` | `lexer_es.py` | Lenguaje regular (tipo 3) |
+| Análisis sintáctico | `parser.py` | `parser_es.py` | Lenguaje libre de contexto (tipo 2) |
+| Análisis semántico | `semantico.py` | `semantico_es.py` | Verificaciones sensibles al contexto (relacionadas con el tipo 1)|
 
 ## Integrantes
 
@@ -23,7 +26,8 @@ Este proyecto implementa un analizador léxico (lexer) y un analizador semántic
 ## Requisitos
 
 - Python 3.9 o superior.
-- No se necesitan librerías externas: solo se usa la biblioteca estándar.
+- **Fase 1** y el parser de la **Fase 2** no necesitan librerías externas: solo usan la biblioteca estándar.
+- Los árboles en PNG, las gráficas y la comparación con NLP necesitan las librerías de `requirements.txt` (ver [Fase 2](#fase-2--parser-para-el-español)).
 
 ## Estructura del proyecto
 
@@ -299,14 +303,18 @@ En resumen:
 
 ---
 
-# Fase 2 — Parser para el español *(en progreso)*
+# Fase 2 — Parser para el español
 
-El parser no necesita librerías externas. Para dibujar los árboles y para la comparación con NLP:
+El parser no necesita librerías externas. Para dibujar los árboles, generar las gráficas y correr la comparación con NLP, cree un entorno virtual e instale las dependencias:
 
-```bash
+```powershell
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1               # Linux/macOS: source .venv/bin/activate
 pip install -r requirements.txt
 python -m spacy download es_core_news_md
 ```
+
+Si `spacy` o `torch` no se instalan con la versión de Python más reciente, use Python 3.11 o 3.12 para el entorno virtual. Para la demo basta con `pip install matplotlib`.
 
 La primera ejecución de HuggingFace descarga dos modelos (~1 GB en total): BETO y un BERT en español ajustado para etiquetado POS. Los modelos de PlanTL-GOB-ES y BSC-LT ya no están disponibles en HuggingFace.
 
@@ -350,7 +358,7 @@ python metricas.py                # tablas y gráficas
 Salida en `resultados/`:
 - `metricas.md`: tablas listas para el informe (aceptación, por nivel, etiquetado UPOS, adjunción, tiempo);
 - `errores.csv`: cada falso positivo o falso negativo, con su causa;
-- `graficas/`: `aceptacion.png`, `cobertura_por_nivel.png`, `etiquetado.png`, `adjuncion.png` y `tipos_de_error.png`.
+- `graficas/`: `aceptacion.png`, `cobertura_por_nivel.png`, `etiquetado.png`, `adjuncion.png`, `tipos_de_error.png` y `llm_conformidad.png` (esta última solo si existen las predicciones del LLM).
 
 Cómo decide cada sistema si **acepta** una oración:
 - **Parser propio:** la acepta si pasa el lexer, el parser y la verificación de concordancia.
@@ -391,4 +399,20 @@ python metricas.py
 
 En `metricas.md`, la sección **Conformidad con la gramática formal** compara cada veredicto con `resultado_esperado`. La columna **Desvíos nivel 3** cuenta las oraciones correctas en español, pero fuera de la gramática, que el LLM aceptó como `ok`: ahí usó su conocimiento del español en vez de las reglas.
 
-**Pendiente:** ejecutar el experimento completo con el LLM e informe.
+### Resultados principales
+
+Corrida completa: 76 oraciones (59 gramaticales, 17 agramaticales). Gemini: modelo `gemini-3.5-flash-lite`, temperatura 0, una corrida por modo, sin errores de API. Detalle en [resultados/metricas.md](resultados/metricas.md).
+
+| Sistema | Precisión | Cobertura | Rechazo correcto | Coincide con la gramática | ms por oración |
+|---|---|---|---|---|---|
+| Parser propio (CFG) | 100% | 66.1% | 100% | 76/76 | 0.1 |
+| spaCy | 86.4% | 86.4% | 52.9% | — | 61 |
+| HuggingFace | 86.8% | 78.0% | 58.8% | — | 220 |
+| Gemini zero-shot | 100% | 45.8% | 100% | 52/76 (68.4%) | 3 411 |
+| Gemini few-shot | 100% | 64.4% | 100% | 72/76 (94.7%) | 3 691 |
+
+- **El parser** nunca acepta una oración incorrecta, pero rechaza las 20 oraciones válidas del nivel 3 (0% de cobertura ahí): solo cubre el español que su gramática describe.
+- **spaCy y HuggingFace** cubren más, pero dejan pasar 8 y 7 de los 17 errores de concordancia. spaCy solo rechaza el 33% de los errores en los niveles 1 y 2.
+- **Adjunción de frases preposicionales:** spaCy acierta 20/20 y el parser 12/20; el parser falla cuando la frase va con el verbo (*come el pan con la cuchara*).
+- **Gemini** respeta la gramática y nunca acepta una oración agramatical. Con ejemplos (few-shot), la coincidencia con la gramática sube de 68.4% a 94.7%. En zero-shot su error típico es inventar errores (9 oraciones correctas marcadas como `semantico`, 7 fuera de la gramática marcadas como `lexico`). Se desvió hacia el español general en 2 (zero-shot) y 1 (few-shot) de las 20 oraciones válidas del nivel 3.
+- **Costo:** el parser tarda 0.1 ms por oración; Gemini, unos 3.5 s (incluye 1 s de pausa entre consultas y los reintentos por límite de uso).
