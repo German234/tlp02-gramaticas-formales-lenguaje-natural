@@ -1,0 +1,1455 @@
+[
+ {
+  "id": "N1-01",
+  "nivel": 1,
+  "oracion": "El perro come .",
+  "gramatical": true,
+  "resultado_esperado": "ok",
+  "fenomeno": "SV intransitivo/transitivo sin objeto",
+  "upos": [
+   "DET",
+   "NOUN",
+   "VERB",
+   "PUNCT"
+  ],
+  "adjunciones": []
+ },
+ {
+  "id": "N1-02",
+  "nivel": 1,
+  "oracion": "María compra una manzana .",
+  "gramatical": true,
+  "resultado_esperado": "ok",
+  "fenomeno": "SVO",
+  "upos": [
+   "PROPN",
+   "VERB",
+   "DET",
+   "NOUN",
+   "PUNCT"
+  ],
+  "adjunciones": []
+ },
+ {
+  "id": "N1-03",
+  "nivel": 1,
+  "oracion": "Los niños corren .",
+  "gramatical": true,
+  "resultado_esperado": "ok",
+  "fenomeno": "SV plural",
+  "upos": [
+   "DET",
+   "NOUN",
+   "VERB",
+   "PUNCT"
+  ],
+  "adjunciones": []
+ },
+ {
+  "id": "N1-04",
+  "nivel": 1,
+  "oracion": "Yo escribiré una carta .",
+  "gramatical": true,
+  "resultado_esperado": "ok",
+  "fenomeno": "SVO, pronombre, futuro",
+  "upos": [
+   "PRON",
+   "VERB",
+   "DET",
+   "NOUN",
+   "PUNCT"
+  ],
+  "adjunciones": []
+ },
+ {
+  "id": "N1-05",
+  "nivel": 1,
+  "oracion": "La casa es grande .",
+  "gramatical": true,
+  "resultado_esperado": "ok",
+  "fenomeno": "Copulativa con adjetivo",
+  "upos": [
+   "DET",
+   "NOUN",
+   "AUX",
+   "ADJ",
+   "PUNCT"
+  ],
+  "adjunciones": []
+ },
+ {
+  "id": "N1-06",
+  "nivel": 1,
+  "oracion": "Ana canta .",
+  "gramatical": true,
+  "resultado_esperado": "ok",
+  "fenomeno": "SV con nombre propio",
+  "upos": [
+   "PROPN",
+   "VERB",
+   "PUNCT"
+  ],
+  "adjunciones": []
+ },
+ {
+  "id": "N1-07",
+  "nivel": 1,
+  "oracion": "Nosotros estudiamos .",
+  "gramatical": true,
+  "resultado_esperado": "ok",
+  "fenomeno": "Pronombre plural, tiempo ambiguo",
+  "upos": [
+   "PRON",
+   "VERB",
+   "PUNCT"
+  ],
+  "adjunciones": []
+ },
+ {
+  "id": "N1-08",
+  "nivel": 1,
+  "oracion": "El gato mira el árbol .",
+  "gramatical": true,
+  "resultado_esperado": "ok",
+  "fenomeno": "SVO",
+  "upos": [
+   "DET",
+   "NOUN",
+   "VERB",
+   "DET",
+   "NOUN",
+   "PUNCT"
+  ],
+  "adjunciones": []
+ },
+ {
+  "id": "N1-09",
+  "nivel": 1,
+  "oracion": "Tú vives aquí .",
+  "gramatical": true,
+  "resultado_esperado": "ok",
+  "fenomeno": "2.ª persona, adverbio",
+  "upos": [
+   "PRON",
+   "VERB",
+   "ADV",
+   "PUNCT"
+  ],
+  "adjunciones": []
+ },
+ {
+  "id": "N1-10",
+  "nivel": 1,
+  "oracion": "Las niñas bailaron .",
+  "gramatical": true,
+  "resultado_esperado": "ok",
+  "fenomeno": "Pretérito plural",
+  "upos": [
+   "DET",
+   "NOUN",
+   "VERB",
+   "PUNCT"
+  ],
+  "adjunciones": []
+ },
+ {
+  "id": "N1-11",
+  "nivel": 1,
+  "oracion": "Pedro es inteligente .",
+  "gramatical": true,
+  "resultado_esperado": "ok",
+  "fenomeno": "Copulativa, adjetivo de género común",
+  "upos": [
+   "PROPN",
+   "AUX",
+   "ADJ",
+   "PUNCT"
+  ],
+  "adjunciones": []
+ },
+ {
+  "id": "N1-12",
+  "nivel": 1,
+  "oracion": "Mi profesora trabaja .",
+  "gramatical": true,
+  "resultado_esperado": "ok",
+  "fenomeno": "Determinante posesivo",
+  "upos": [
+   "DET",
+   "NOUN",
+   "VERB",
+   "PUNCT"
+  ],
+  "adjunciones": []
+ },
+ {
+  "id": "N1-13",
+  "nivel": 1,
+  "oracion": "Ellos abrirán la ventana .",
+  "gramatical": true,
+  "resultado_esperado": "ok",
+  "fenomeno": "SVO, futuro",
+  "upos": [
+   "PRON",
+   "VERB",
+   "DET",
+   "NOUN",
+   "PUNCT"
+  ],
+  "adjunciones": []
+ },
+ {
+  "id": "N1-14",
+  "nivel": 1,
+  "oracion": "Luis está cansado .",
+  "gramatical": true,
+  "resultado_esperado": "ok",
+  "fenomeno": "Copulativa con estar",
+  "upos": [
+   "PROPN",
+   "AUX",
+   "ADJ",
+   "PUNCT"
+  ],
+  "adjunciones": []
+ },
+ {
+  "id": "N1-15",
+  "nivel": 1,
+  "oracion": "Un hombre caminó .",
+  "gramatical": true,
+  "resultado_esperado": "ok",
+  "fenomeno": "Pretérito singular",
+  "upos": [
+   "DET",
+   "NOUN",
+   "VERB",
+   "PUNCT"
+  ],
+  "adjunciones": []
+ },
+ {
+  "id": "N1-16",
+  "nivel": 1,
+  "oracion": "Usted cocina el pan .",
+  "gramatical": true,
+  "resultado_esperado": "ok",
+  "fenomeno": "Pronombre usted, SVO",
+  "upos": [
+   "PRON",
+   "VERB",
+   "DET",
+   "NOUN",
+   "PUNCT"
+  ],
+  "adjunciones": []
+ },
+ {
+  "id": "N1-17",
+  "nivel": 1,
+  "oracion": "Los perro come .",
+  "gramatical": false,
+  "resultado_esperado": "semantico",
+  "fenomeno": "C1: DET-N en número",
+  "upos": [
+   "DET",
+   "NOUN",
+   "VERB",
+   "PUNCT"
+  ],
+  "adjunciones": []
+ },
+ {
+  "id": "N1-18",
+  "nivel": 1,
+  "oracion": "El niños corre .",
+  "gramatical": false,
+  "resultado_esperado": "semantico",
+  "fenomeno": "C1: DET-N en número",
+  "upos": [
+   "DET",
+   "NOUN",
+   "VERB",
+   "PUNCT"
+  ],
+  "adjunciones": []
+ },
+ {
+  "id": "N1-19",
+  "nivel": 1,
+  "oracion": "María es alto .",
+  "gramatical": false,
+  "resultado_esperado": "semantico",
+  "fenomeno": "C3: atributo en género",
+  "upos": [
+   "PROPN",
+   "AUX",
+   "ADJ",
+   "PUNCT"
+  ],
+  "adjunciones": []
+ },
+ {
+  "id": "N1-20",
+  "nivel": 1,
+  "oracion": "Yo come una manzana .",
+  "gramatical": false,
+  "resultado_esperado": "semantico",
+  "fenomeno": "C2: persona",
+  "upos": [
+   "PRON",
+   "VERB",
+   "DET",
+   "NOUN",
+   "PUNCT"
+  ],
+  "adjunciones": []
+ },
+ {
+  "id": "N1-21",
+  "nivel": 1,
+  "oracion": "Perro el come .",
+  "gramatical": false,
+  "resultado_esperado": "sintactico",
+  "fenomeno": "Orden de palabras",
+  "upos": [
+   "NOUN",
+   "DET",
+   "VERB",
+   "PUNCT"
+  ],
+  "adjunciones": []
+ },
+ {
+  "id": "N1-22",
+  "nivel": 1,
+  "oracion": "Las flores es bonitas .",
+  "gramatical": false,
+  "resultado_esperado": "semantico",
+  "fenomeno": "C2: número",
+  "upos": [
+   "DET",
+   "NOUN",
+   "AUX",
+   "ADJ",
+   "PUNCT"
+  ],
+  "adjunciones": []
+ },
+ {
+  "id": "N2-23",
+  "nivel": 2,
+  "oracion": "La pequeña niña come una manzana roja .",
+  "gramatical": true,
+  "resultado_esperado": "ok",
+  "fenomeno": "Adjetivos antes y después",
+  "upos": [
+   "DET",
+   "ADJ",
+   "NOUN",
+   "VERB",
+   "DET",
+   "NOUN",
+   "ADJ",
+   "PUNCT"
+  ],
+  "adjunciones": []
+ },
+ {
+  "id": "N2-24",
+  "nivel": 2,
+  "oracion": "Mis profesores no trabajaron ayer .",
+  "gramatical": true,
+  "resultado_esperado": "ok",
+  "fenomeno": "Negación y adverbio",
+  "upos": [
+   "DET",
+   "NOUN",
+   "ADV",
+   "VERB",
+   "ADV",
+   "PUNCT"
+  ],
+  "adjunciones": []
+ },
+ {
+  "id": "N2-25",
+  "nivel": 2,
+  "oracion": "Juan mira al hombre con el telescopio .",
+  "gramatical": true,
+  "resultado_esperado": "ok",
+  "fenomeno": "Adjunción ambigua (dos lecturas válidas)",
+  "upos": [
+   "PROPN",
+   "VERB",
+   "ADP",
+   "NOUN",
+   "ADP",
+   "DET",
+   "NOUN",
+   "PUNCT"
+  ],
+  "adjunciones": []
+ },
+ {
+  "id": "N2-26",
+  "nivel": 2,
+  "oracion": "Ana estará muy cansada hoy .",
+  "gramatical": true,
+  "resultado_esperado": "ok",
+  "fenomeno": "Intensificador, futuro de estar",
+  "upos": [
+   "PROPN",
+   "AUX",
+   "ADV",
+   "ADJ",
+   "ADV",
+   "PUNCT"
+  ],
+  "adjunciones": []
+ },
+ {
+  "id": "N2-27",
+  "nivel": 2,
+  "oracion": "Comimos el pan de Ana muy rápidamente .",
+  "gramatical": true,
+  "resultado_esperado": "ok",
+  "fenomeno": "Sujeto omitido, SP nominal, adverbio intensificado",
+  "upos": [
+   "VERB",
+   "DET",
+   "NOUN",
+   "ADP",
+   "PROPN",
+   "ADV",
+   "ADV",
+   "PUNCT"
+  ],
+  "adjunciones": [
+   {
+    "sp": "de",
+    "sp_indice": 3,
+    "nucleo": "pan",
+    "nucleo_indice": 2
+   }
+  ]
+ },
+ {
+  "id": "N2-28",
+  "nivel": 2,
+  "oracion": "El perro muy grande corre muy lentamente .",
+  "gramatical": true,
+  "resultado_esperado": "ok",
+  "fenomeno": "Conflicto INT (LL(2))",
+  "upos": [
+   "DET",
+   "NOUN",
+   "ADV",
+   "ADJ",
+   "VERB",
+   "ADV",
+   "ADV",
+   "PUNCT"
+  ],
+  "adjunciones": []
+ },
+ {
+  "id": "N2-29",
+  "nivel": 2,
+  "oracion": "Ana come el pan con la cuchara .",
+  "gramatical": true,
+  "resultado_esperado": "ok",
+  "fenomeno": "SP instrumental (adjunción al verbo)",
+  "upos": [
+   "PROPN",
+   "VERB",
+   "DET",
+   "NOUN",
+   "ADP",
+   "DET",
+   "NOUN",
+   "PUNCT"
+  ],
+  "adjunciones": [
+   {
+    "sp": "con",
+    "sp_indice": 4,
+    "nucleo": "come",
+    "nucleo_indice": 1
+   }
+  ]
+ },
+ {
+  "id": "N2-30",
+  "nivel": 2,
+  "oracion": "Pedro escribió una carta en la mesa .",
+  "gramatical": true,
+  "resultado_esperado": "ok",
+  "fenomeno": "SP de lugar (adjunción al verbo)",
+  "upos": [
+   "PROPN",
+   "VERB",
+   "DET",
+   "NOUN",
+   "ADP",
+   "DET",
+   "NOUN",
+   "PUNCT"
+  ],
+  "adjunciones": [
+   {
+    "sp": "en",
+    "sp_indice": 4,
+    "nucleo": "escribió",
+    "nucleo_indice": 1
+   }
+  ]
+ },
+ {
+  "id": "N2-31",
+  "nivel": 2,
+  "oracion": "Los niños del parque cantaron bien .",
+  "gramatical": true,
+  "resultado_esperado": "ok",
+  "fenomeno": "Contracción en el sujeto",
+  "upos": [
+   "DET",
+   "NOUN",
+   "ADP",
+   "NOUN",
+   "VERB",
+   "ADV",
+   "PUNCT"
+  ],
+  "adjunciones": [
+   {
+    "sp": "del",
+    "sp_indice": 2,
+    "nucleo": "niños",
+    "nucleo_indice": 1
+   }
+  ]
+ },
+ {
+  "id": "N2-32",
+  "nivel": 2,
+  "oracion": "La niña abrió la ventana de la casa .",
+  "gramatical": true,
+  "resultado_esperado": "ok",
+  "fenomeno": "SP nominal en el objeto",
+  "upos": [
+   "DET",
+   "NOUN",
+   "VERB",
+   "DET",
+   "NOUN",
+   "ADP",
+   "DET",
+   "NOUN",
+   "PUNCT"
+  ],
+  "adjunciones": [
+   {
+    "sp": "de",
+    "sp_indice": 5,
+    "nucleo": "ventana",
+    "nucleo_indice": 4
+   }
+  ]
+ },
+ {
+  "id": "N2-33",
+  "nivel": 2,
+  "oracion": "Mi gato blanco corre en el jardín .",
+  "gramatical": true,
+  "resultado_esperado": "ok",
+  "fenomeno": "SP circunstancial sin objeto",
+  "upos": [
+   "DET",
+   "NOUN",
+   "ADJ",
+   "VERB",
+   "ADP",
+   "DET",
+   "NOUN",
+   "PUNCT"
+  ],
+  "adjunciones": [
+   {
+    "sp": "en",
+    "sp_indice": 4,
+    "nucleo": "corre",
+    "nucleo_indice": 3
+   }
+  ]
+ },
+ {
+  "id": "N2-34",
+  "nivel": 2,
+  "oracion": "Las estudiantes inteligentes estudiaron en la escuela .",
+  "gramatical": true,
+  "resultado_esperado": "ok",
+  "fenomeno": "Género común, SP circunstancial",
+  "upos": [
+   "DET",
+   "NOUN",
+   "ADJ",
+   "VERB",
+   "ADP",
+   "DET",
+   "NOUN",
+   "PUNCT"
+  ],
+  "adjunciones": [
+   {
+    "sp": "en",
+    "sp_indice": 4,
+    "nucleo": "estudiaron",
+    "nucleo_indice": 3
+   }
+  ]
+ },
+ {
+  "id": "N2-35",
+  "nivel": 2,
+  "oracion": "El viejo profesor no es feliz .",
+  "gramatical": true,
+  "resultado_esperado": "ok",
+  "fenomeno": "Adjetivo antepuesto, negación con copulativo",
+  "upos": [
+   "DET",
+   "ADJ",
+   "NOUN",
+   "ADV",
+   "AUX",
+   "ADJ",
+   "PUNCT"
+  ],
+  "adjunciones": []
+ },
+ {
+  "id": "N2-36",
+  "nivel": 2,
+  "oracion": "Sofía cocinó el pan para Luis .",
+  "gramatical": true,
+  "resultado_esperado": "ok",
+  "fenomeno": "SP beneficiario (adjunción al verbo)",
+  "upos": [
+   "PROPN",
+   "VERB",
+   "DET",
+   "NOUN",
+   "ADP",
+   "PROPN",
+   "PUNCT"
+  ],
+  "adjunciones": [
+   {
+    "sp": "para",
+    "sp_indice": 4,
+    "nucleo": "cocinó",
+    "nucleo_indice": 1
+   }
+  ]
+ },
+ {
+  "id": "N2-37",
+  "nivel": 2,
+  "oracion": "Ellas vivirán en una ciudad muy grande .",
+  "gramatical": true,
+  "resultado_esperado": "ok",
+  "fenomeno": "SP con adjetivo intensificado",
+  "upos": [
+   "PRON",
+   "VERB",
+   "ADP",
+   "DET",
+   "NOUN",
+   "ADV",
+   "ADJ",
+   "PUNCT"
+  ],
+  "adjunciones": [
+   {
+    "sp": "en",
+    "sp_indice": 2,
+    "nucleo": "vivirán",
+    "nucleo_indice": 1
+   }
+  ]
+ },
+ {
+  "id": "N2-38",
+  "nivel": 2,
+  "oracion": "La casa del profesor está en el parque .",
+  "gramatical": true,
+  "resultado_esperado": "ok",
+  "fenomeno": "Contracción, atributo SP",
+  "upos": [
+   "DET",
+   "NOUN",
+   "ADP",
+   "NOUN",
+   "AUX",
+   "ADP",
+   "DET",
+   "NOUN",
+   "PUNCT"
+  ],
+  "adjunciones": [
+   {
+    "sp": "del",
+    "sp_indice": 2,
+    "nucleo": "casa",
+    "nucleo_indice": 1
+   },
+   {
+    "sp": "en",
+    "sp_indice": 5,
+    "nucleo": "está",
+    "nucleo_indice": 4
+   }
+  ]
+ },
+ {
+  "id": "N2-39",
+  "nivel": 2,
+  "oracion": "Siempre caminamos al parque temprano .",
+  "gramatical": true,
+  "resultado_esperado": "ok",
+  "fenomeno": "Adverbio inicial, sujeto omitido",
+  "upos": [
+   "ADV",
+   "VERB",
+   "ADP",
+   "NOUN",
+   "ADV",
+   "PUNCT"
+  ],
+  "adjunciones": [
+   {
+    "sp": "al",
+    "sp_indice": 2,
+    "nucleo": "caminamos",
+    "nucleo_indice": 1
+   }
+  ]
+ },
+ {
+  "id": "N2-40",
+  "nivel": 2,
+  "oracion": "El hombre alto miró la flor roja con el telescopio .",
+  "gramatical": true,
+  "resultado_esperado": "ok",
+  "fenomeno": "SP instrumental tras objeto modificado",
+  "upos": [
+   "DET",
+   "NOUN",
+   "ADJ",
+   "VERB",
+   "DET",
+   "NOUN",
+   "ADJ",
+   "ADP",
+   "DET",
+   "NOUN",
+   "PUNCT"
+  ],
+  "adjunciones": [
+   {
+    "sp": "con",
+    "sp_indice": 7,
+    "nucleo": "miró",
+    "nucleo_indice": 3
+   }
+  ]
+ },
+ {
+  "id": "N2-41",
+  "nivel": 2,
+  "oracion": "Juan es un profesor bastante inteligente .",
+  "gramatical": true,
+  "resultado_esperado": "ok",
+  "fenomeno": "Atributo SN con intensificador",
+  "upos": [
+   "PROPN",
+   "AUX",
+   "DET",
+   "NOUN",
+   "ADV",
+   "ADJ",
+   "PUNCT"
+  ],
+  "adjunciones": []
+ },
+ {
+  "id": "N2-42",
+  "nivel": 2,
+  "oracion": "Los gatos pequeños no beben rápidamente .",
+  "gramatical": true,
+  "resultado_esperado": "ok",
+  "fenomeno": "Negación, adverbio de modo",
+  "upos": [
+   "DET",
+   "NOUN",
+   "ADJ",
+   "ADV",
+   "VERB",
+   "ADV",
+   "PUNCT"
+  ],
+  "adjunciones": []
+ },
+ {
+  "id": "N2-43",
+  "nivel": 2,
+  "oracion": "Yo cantaré en la casa de María .",
+  "gramatical": true,
+  "resultado_esperado": "ok",
+  "fenomeno": "Dos SP encadenados",
+  "upos": [
+   "PRON",
+   "VERB",
+   "ADP",
+   "DET",
+   "NOUN",
+   "ADP",
+   "PROPN",
+   "PUNCT"
+  ],
+  "adjunciones": [
+   {
+    "sp": "en",
+    "sp_indice": 2,
+    "nucleo": "cantaré",
+    "nucleo_indice": 1
+   },
+   {
+    "sp": "de",
+    "sp_indice": 5,
+    "nucleo": "casa",
+    "nucleo_indice": 4
+   }
+  ]
+ },
+ {
+  "id": "N2-44",
+  "nivel": 2,
+  "oracion": "Nosotras estuvimos en el jardín ayer .",
+  "gramatical": true,
+  "resultado_esperado": "ok",
+  "fenomeno": "Pretérito de estar, atributo SP",
+  "upos": [
+   "PRON",
+   "AUX",
+   "ADP",
+   "DET",
+   "NOUN",
+   "ADV",
+   "PUNCT"
+  ],
+  "adjunciones": [
+   {
+    "sp": "en",
+    "sp_indice": 2,
+    "nucleo": "estuvimos",
+    "nucleo_indice": 1
+   }
+  ]
+ },
+ {
+  "id": "N2-45",
+  "nivel": 2,
+  "oracion": "Tú escribiste una carta muy bonita .",
+  "gramatical": true,
+  "resultado_esperado": "ok",
+  "fenomeno": "2.ª persona, intensificador",
+  "upos": [
+   "PRON",
+   "VERB",
+   "DET",
+   "NOUN",
+   "ADV",
+   "ADJ",
+   "PUNCT"
+  ],
+  "adjunciones": []
+ },
+ {
+  "id": "N2-46",
+  "nivel": 2,
+  "oracion": "Ana camina al escuela .",
+  "gramatical": false,
+  "resultado_esperado": "semantico",
+  "fenomeno": "C4: al + femenino",
+  "upos": [
+   "PROPN",
+   "VERB",
+   "ADP",
+   "NOUN",
+   "PUNCT"
+  ],
+  "adjunciones": []
+ },
+ {
+  "id": "N2-47",
+  "nivel": 2,
+  "oracion": "Pedro camina el parque .",
+  "gramatical": false,
+  "resultado_esperado": "semantico",
+  "fenomeno": "C5: intransitivo con objeto",
+  "upos": [
+   "PROPN",
+   "VERB",
+   "DET",
+   "NOUN",
+   "PUNCT"
+  ],
+  "adjunciones": []
+ },
+ {
+  "id": "N2-48",
+  "nivel": 2,
+  "oracion": "Ana vive en las ciudad .",
+  "gramatical": false,
+  "resultado_esperado": "semantico",
+  "fenomeno": "C1 dentro de un SP",
+  "upos": [
+   "PROPN",
+   "VERB",
+   "ADP",
+   "DET",
+   "NOUN",
+   "PUNCT"
+  ],
+  "adjunciones": []
+ },
+ {
+  "id": "N2-49",
+  "nivel": 2,
+  "oracion": "El gato blanca corre rápidamente .",
+  "gramatical": false,
+  "resultado_esperado": "semantico",
+  "fenomeno": "C1: ADJ-N en género",
+  "upos": [
+   "DET",
+   "NOUN",
+   "ADJ",
+   "VERB",
+   "ADV",
+   "PUNCT"
+  ],
+  "adjunciones": []
+ },
+ {
+  "id": "N2-50",
+  "nivel": 2,
+  "oracion": "La estudiante alto canta bien .",
+  "gramatical": false,
+  "resultado_esperado": "semantico",
+  "fenomeno": "C1: género común definido por DET",
+  "upos": [
+   "DET",
+   "NOUN",
+   "ADJ",
+   "VERB",
+   "ADV",
+   "PUNCT"
+  ],
+  "adjunciones": []
+ },
+ {
+  "id": "N2-51",
+  "nivel": 2,
+  "oracion": "Los niños de la profesora corre .",
+  "gramatical": false,
+  "resultado_esperado": "semantico",
+  "fenomeno": "C2 a distancia con atractor singular",
+  "upos": [
+   "DET",
+   "NOUN",
+   "ADP",
+   "DET",
+   "NOUN",
+   "VERB",
+   "PUNCT"
+  ],
+  "adjunciones": []
+ },
+ {
+  "id": "N3-52",
+  "nivel": 3,
+  "oracion": "Juan y María comen manzanas .",
+  "gramatical": true,
+  "resultado_esperado": "sintactico",
+  "fenomeno": "Coordinación de sujetos, sustantivo sin determinante",
+  "upos": [
+   "PROPN",
+   "CCONJ",
+   "PROPN",
+   "VERB",
+   "NOUN",
+   "PUNCT"
+  ],
+  "adjunciones": []
+ },
+ {
+  "id": "N3-53",
+  "nivel": 3,
+  "oracion": "El perro que miró Ana corre .",
+  "gramatical": true,
+  "resultado_esperado": "sintactico",
+  "fenomeno": "Cláusula relativa",
+  "upos": [
+   "DET",
+   "NOUN",
+   "PRON",
+   "VERB",
+   "PROPN",
+   "VERB",
+   "PUNCT"
+  ],
+  "adjunciones": []
+ },
+ {
+  "id": "N3-54",
+  "nivel": 3,
+  "oracion": "¿ Come Juan una manzana ?",
+  "gramatical": true,
+  "resultado_esperado": "sintactico",
+  "fenomeno": "Interrogativa, orden VSO",
+  "upos": [
+   "PUNCT",
+   "VERB",
+   "PROPN",
+   "DET",
+   "NOUN",
+   "PUNCT"
+  ],
+  "adjunciones": []
+ },
+ {
+  "id": "N3-55",
+  "nivel": 3,
+  "oracion": "Juan la mira .",
+  "gramatical": true,
+  "resultado_esperado": "sintactico",
+  "fenomeno": "Pronombre clítico",
+  "upos": [
+   "PROPN",
+   "PRON",
+   "VERB",
+   "PUNCT"
+  ],
+  "adjunciones": []
+ },
+ {
+  "id": "N3-56",
+  "nivel": 3,
+  "oracion": "La carta fue escrita por Ana .",
+  "gramatical": true,
+  "resultado_esperado": "sintactico",
+  "fenomeno": "Voz pasiva",
+  "upos": [
+   "DET",
+   "NOUN",
+   "AUX",
+   "VERB",
+   "ADP",
+   "PROPN",
+   "PUNCT"
+  ],
+  "adjunciones": [
+   {
+    "sp": "por",
+    "sp_indice": 4,
+    "nucleo": "escrita",
+    "nucleo_indice": 3
+   }
+  ]
+ },
+ {
+  "id": "N3-57",
+  "nivel": 3,
+  "oracion": "Ana ha comido el pan .",
+  "gramatical": true,
+  "resultado_esperado": "sintactico",
+  "fenomeno": "Tiempo compuesto",
+  "upos": [
+   "PROPN",
+   "AUX",
+   "VERB",
+   "DET",
+   "NOUN",
+   "PUNCT"
+  ],
+  "adjunciones": []
+ },
+ {
+  "id": "N3-58",
+  "nivel": 3,
+  "oracion": "Luis estudia porque el profesor es inteligente .",
+  "gramatical": true,
+  "resultado_esperado": "sintactico",
+  "fenomeno": "Subordinada causal",
+  "upos": [
+   "PROPN",
+   "VERB",
+   "SCONJ",
+   "DET",
+   "NOUN",
+   "AUX",
+   "ADJ",
+   "PUNCT"
+  ],
+  "adjunciones": []
+ },
+ {
+  "id": "N3-59",
+  "nivel": 3,
+  "oracion": "Cuando Ana canta , los niños bailan .",
+  "gramatical": true,
+  "resultado_esperado": "sintactico",
+  "fenomeno": "Subordinada temporal antepuesta",
+  "upos": [
+   "SCONJ",
+   "PROPN",
+   "VERB",
+   "PUNCT",
+   "DET",
+   "NOUN",
+   "VERB",
+   "PUNCT"
+  ],
+  "adjunciones": []
+ },
+ {
+  "id": "N3-60",
+  "nivel": 3,
+  "oracion": "Los niños comen manzanas .",
+  "gramatical": true,
+  "resultado_esperado": "sintactico",
+  "fenomeno": "Objeto sin determinante",
+  "upos": [
+   "DET",
+   "NOUN",
+   "VERB",
+   "NOUN",
+   "PUNCT"
+  ],
+  "adjunciones": []
+ },
+ {
+  "id": "N3-61",
+  "nivel": 3,
+  "oracion": "Ana le escribió una carta a Pedro .",
+  "gramatical": true,
+  "resultado_esperado": "sintactico",
+  "fenomeno": "Doble objeto con clítico",
+  "upos": [
+   "PROPN",
+   "PRON",
+   "VERB",
+   "DET",
+   "NOUN",
+   "ADP",
+   "PROPN",
+   "PUNCT"
+  ],
+  "adjunciones": [
+   {
+    "sp": "a",
+    "sp_indice": 5,
+    "nucleo": "escribió",
+    "nucleo_indice": 2
+   }
+  ]
+ },
+ {
+  "id": "N3-62",
+  "nivel": 3,
+  "oracion": "Juan o Pedro cocinará el pan .",
+  "gramatical": true,
+  "resultado_esperado": "sintactico",
+  "fenomeno": "Disyunción de sujetos",
+  "upos": [
+   "PROPN",
+   "CCONJ",
+   "PROPN",
+   "VERB",
+   "DET",
+   "NOUN",
+   "PUNCT"
+  ],
+  "adjunciones": []
+ },
+ {
+  "id": "N3-63",
+  "nivel": 3,
+  "oracion": "Ana mira al gato pero el gato no mira a Ana .",
+  "gramatical": true,
+  "resultado_esperado": "sintactico",
+  "fenomeno": "Coordinación de oraciones",
+  "upos": [
+   "PROPN",
+   "VERB",
+   "ADP",
+   "NOUN",
+   "CCONJ",
+   "DET",
+   "NOUN",
+   "ADV",
+   "VERB",
+   "ADP",
+   "PROPN",
+   "PUNCT"
+  ],
+  "adjunciones": []
+ },
+ {
+  "id": "N3-64",
+  "nivel": 3,
+  "oracion": "Los perros que el niño miró corren .",
+  "gramatical": true,
+  "resultado_esperado": "sintactico",
+  "fenomeno": "Relativa de objeto: concordancia a través de la cláusula",
+  "upos": [
+   "DET",
+   "NOUN",
+   "PRON",
+   "DET",
+   "NOUN",
+   "VERB",
+   "VERB",
+   "PUNCT"
+  ],
+  "adjunciones": []
+ },
+ {
+  "id": "N3-65",
+  "nivel": 3,
+  "oracion": "María es más alta que Ana .",
+  "gramatical": true,
+  "resultado_esperado": "sintactico",
+  "fenomeno": "Comparativa",
+  "upos": [
+   "PROPN",
+   "AUX",
+   "ADV",
+   "ADJ",
+   "SCONJ",
+   "PROPN",
+   "PUNCT"
+  ],
+  "adjunciones": []
+ },
+ {
+  "id": "N3-66",
+  "nivel": 3,
+  "oracion": "Se come bien en la casa de Ana .",
+  "gramatical": true,
+  "resultado_esperado": "sintactico",
+  "fenomeno": "Impersonal con se",
+  "upos": [
+   "PRON",
+   "VERB",
+   "ADV",
+   "ADP",
+   "DET",
+   "NOUN",
+   "ADP",
+   "PROPN",
+   "PUNCT"
+  ],
+  "adjunciones": [
+   {
+    "sp": "en",
+    "sp_indice": 3,
+    "nucleo": "come",
+    "nucleo_indice": 1
+   },
+   {
+    "sp": "de",
+    "sp_indice": 6,
+    "nucleo": "casa",
+    "nucleo_indice": 5
+   }
+  ]
+ },
+ {
+  "id": "N3-67",
+  "nivel": 3,
+  "oracion": "Comió Juan el pan .",
+  "gramatical": true,
+  "resultado_esperado": "sintactico",
+  "fenomeno": "Orden VSO declarativo",
+  "upos": [
+   "VERB",
+   "PROPN",
+   "DET",
+   "NOUN",
+   "PUNCT"
+  ],
+  "adjunciones": []
+ },
+ {
+  "id": "N3-68",
+  "nivel": 3,
+  "oracion": "¿ Dónde vive Ana ?",
+  "gramatical": true,
+  "resultado_esperado": "sintactico",
+  "fenomeno": "Interrogativa parcial",
+  "upos": [
+   "PUNCT",
+   "ADV",
+   "VERB",
+   "PROPN",
+   "PUNCT"
+  ],
+  "adjunciones": []
+ },
+ {
+  "id": "N3-69",
+  "nivel": 3,
+  "oracion": "La niña cansada y feliz canta .",
+  "gramatical": true,
+  "resultado_esperado": "sintactico",
+  "fenomeno": "Coordinación de adjetivos",
+  "upos": [
+   "DET",
+   "NOUN",
+   "ADJ",
+   "CCONJ",
+   "ADJ",
+   "VERB",
+   "PUNCT"
+  ],
+  "adjunciones": []
+ },
+ {
+  "id": "N3-70",
+  "nivel": 3,
+  "oracion": "Ana corre rápido .",
+  "gramatical": true,
+  "resultado_esperado": "sintactico",
+  "fenomeno": "Adjetivo usado como adverbio",
+  "upos": [
+   "PROPN",
+   "VERB",
+   "ADV",
+   "PUNCT"
+  ],
+  "adjunciones": []
+ },
+ {
+  "id": "N3-71",
+  "nivel": 3,
+  "oracion": "A Ana la miran los niños .",
+  "gramatical": true,
+  "resultado_esperado": "sintactico",
+  "fenomeno": "Objeto antepuesto con clítico",
+  "upos": [
+   "ADP",
+   "PROPN",
+   "PRON",
+   "VERB",
+   "DET",
+   "NOUN",
+   "PUNCT"
+  ],
+  "adjunciones": []
+ },
+ {
+  "id": "N3-72",
+  "nivel": 3,
+  "oracion": "Los perros que miró Ana corre .",
+  "gramatical": false,
+  "resultado_esperado": "sintactico",
+  "fenomeno": "Relativa + C2 a distancia",
+  "upos": [
+   "DET",
+   "NOUN",
+   "PRON",
+   "VERB",
+   "PROPN",
+   "VERB",
+   "PUNCT"
+  ],
+  "adjunciones": []
+ },
+ {
+  "id": "N3-73",
+  "nivel": 3,
+  "oracion": "Juan y María come manzanas .",
+  "gramatical": false,
+  "resultado_esperado": "sintactico",
+  "fenomeno": "Sujeto coordinado con verbo singular",
+  "upos": [
+   "PROPN",
+   "CCONJ",
+   "PROPN",
+   "VERB",
+   "NOUN",
+   "PUNCT"
+  ],
+  "adjunciones": []
+ },
+ {
+  "id": "N3-74",
+  "nivel": 3,
+  "oracion": "La carta fueron escrita por Ana .",
+  "gramatical": false,
+  "resultado_esperado": "sintactico",
+  "fenomeno": "Pasiva con auxiliar mal conjugado",
+  "upos": [
+   "DET",
+   "NOUN",
+   "AUX",
+   "VERB",
+   "ADP",
+   "PROPN",
+   "PUNCT"
+  ],
+  "adjunciones": []
+ },
+ {
+  "id": "N3-75",
+  "nivel": 3,
+  "oracion": "El perro que corre rápidamente come la manzanas .",
+  "gramatical": false,
+  "resultado_esperado": "sintactico",
+  "fenomeno": "Relativa + C1 en el objeto",
+  "upos": [
+   "DET",
+   "NOUN",
+   "PRON",
+   "VERB",
+   "ADV",
+   "VERB",
+   "DET",
+   "NOUN",
+   "PUNCT"
+  ],
+  "adjunciones": []
+ },
+ {
+  "id": "N3-76",
+  "nivel": 3,
+  "oracion": "Ana le escribió una carta a los niño .",
+  "gramatical": false,
+  "resultado_esperado": "sintactico",
+  "fenomeno": "Doble objeto + C1",
+  "upos": [
+   "PROPN",
+   "PRON",
+   "VERB",
+   "DET",
+   "NOUN",
+   "ADP",
+   "DET",
+   "NOUN",
+   "PUNCT"
+  ],
+  "adjunciones": []
+ }
+]

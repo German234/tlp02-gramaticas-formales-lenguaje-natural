@@ -1,0 +1,1179 @@
+{
+ "sistema": "hf",
+ "info": {
+  "modelo_pos": "mrm8488/bert-spanish-cased-finetuned-pos-16-tags",
+  "modelo_lm": "dccuchile/bert-base-spanish-wwm-cased",
+  "transformers": "5.24.1",
+  "umbral_global": -4.112627143772053,
+  "etiquetas_no_upos": [],
+  "descripcion": "Transformers: POS + aceptabilidad por PLL",
+  "segundos": 16.7,
+  "ms_por_oracion": 219.7
+ },
+ "predicciones": [
+  {
+   "id": "N1-01",
+   "acepta": true,
+   "upos": [
+    "DET",
+    "NOUN",
+    "VERB",
+    "PUNCT"
+   ],
+   "adjunciones": null,
+   "detalle": "PLL=-2.917 (umbral -4.113)",
+   "pll": -2.9174346774816513
+  },
+  {
+   "id": "N1-02",
+   "acepta": true,
+   "upos": [
+    "PROPN",
+    "VERB",
+    "DET",
+    "NOUN",
+    "PUNCT"
+   ],
+   "adjunciones": null,
+   "detalle": "PLL=-3.351 (umbral -4.113)",
+   "pll": -3.3512668572366238
+  },
+  {
+   "id": "N1-03",
+   "acepta": true,
+   "upos": [
+    "DET",
+    "NOUN",
+    "VERB",
+    "PUNCT"
+   ],
+   "adjunciones": null,
+   "detalle": "PLL=-2.904 (umbral -4.113)",
+   "pll": -2.9041255209594965
+  },
+  {
+   "id": "N1-04",
+   "acepta": true,
+   "upos": [
+    "PRON",
+    "VERB",
+    "DET",
+    "NOUN",
+    "PUNCT"
+   ],
+   "adjunciones": null,
+   "detalle": "PLL=-1.916 (umbral -4.113)",
+   "pll": -1.9160572160035372
+  },
+  {
+   "id": "N1-05",
+   "acepta": true,
+   "upos": [
+    "DET",
+    "NOUN",
+    "VERB",
+    "ADJ",
+    "PUNCT"
+   ],
+   "adjunciones": null,
+   "detalle": "PLL=-1.693 (umbral -4.113)",
+   "pll": -1.69304224178195
+  },
+  {
+   "id": "N1-06",
+   "acepta": false,
+   "upos": [
+    "PROPN",
+    "VERB",
+    "PUNCT"
+   ],
+   "adjunciones": null,
+   "detalle": "PLL=-7.184 (umbral -4.113)",
+   "pll": -7.184205899635951
+  },
+  {
+   "id": "N1-07",
+   "acepta": true,
+   "upos": [
+    "ADV",
+    "VERB",
+    "PUNCT"
+   ],
+   "adjunciones": null,
+   "detalle": "PLL=-3.356 (umbral -4.113)",
+   "pll": -3.356164362281561
+  },
+  {
+   "id": "N1-08",
+   "acepta": true,
+   "upos": [
+    "DET",
+    "NOUN",
+    "VERB",
+    "DET",
+    "NOUN",
+    "PUNCT"
+   ],
+   "adjunciones": null,
+   "detalle": "PLL=-3.116 (umbral -4.113)",
+   "pll": -3.116020269691944
+  },
+  {
+   "id": "N1-09",
+   "acepta": true,
+   "upos": [
+    "ADV",
+    "VERB",
+    "ADV",
+    "PUNCT"
+   ],
+   "adjunciones": null,
+   "detalle": "PLL=-1.771 (umbral -4.113)",
+   "pll": -1.7706891745328903
+  },
+  {
+   "id": "N1-10",
+   "acepta": true,
+   "upos": [
+    "DET",
+    "NOUN",
+    "VERB",
+    "PUNCT"
+   ],
+   "adjunciones": null,
+   "detalle": "PLL=-3.519 (umbral -4.113)",
+   "pll": -3.519035616517067
+  },
+  {
+   "id": "N1-11",
+   "acepta": false,
+   "upos": [
+    "PROPN",
+    "VERB",
+    "ADJ",
+    "PUNCT"
+   ],
+   "adjunciones": null,
+   "detalle": "PLL=-4.084 (umbral -4.014)",
+   "pll": -4.083899573422968
+  },
+  {
+   "id": "N1-12",
+   "acepta": false,
+   "upos": [
+    "DET",
+    "NOUN",
+    "VERB",
+    "PUNCT"
+   ],
+   "adjunciones": null,
+   "detalle": "PLL=-4.907 (umbral -4.113)",
+   "pll": -4.907242693006992
+  },
+  {
+   "id": "N1-13",
+   "acepta": true,
+   "upos": [
+    "PRON",
+    "VERB",
+    "DET",
+    "NOUN",
+    "PUNCT"
+   ],
+   "adjunciones": null,
+   "detalle": "PLL=-1.935 (umbral -4.113)",
+   "pll": -1.93474842607975
+  },
+  {
+   "id": "N1-14",
+   "acepta": true,
+   "upos": [
+    "PROPN",
+    "VERB",
+    "ADJ",
+    "PUNCT"
+   ],
+   "adjunciones": null,
+   "detalle": "PLL=-3.850 (umbral -4.113)",
+   "pll": -3.8498032079078257
+  },
+  {
+   "id": "N1-15",
+   "acepta": true,
+   "upos": [
+    "DET",
+    "NOUN",
+    "VERB",
+    "PUNCT"
+   ],
+   "adjunciones": null,
+   "detalle": "PLL=-2.502 (umbral -4.113)",
+   "pll": -2.5022748351097106
+  },
+  {
+   "id": "N1-16",
+   "acepta": true,
+   "upos": [
+    "PRON",
+    "VERB",
+    "DET",
+    "NOUN",
+    "PUNCT"
+   ],
+   "adjunciones": null,
+   "detalle": "PLL=-3.730 (umbral -4.113)",
+   "pll": -3.7295428052544595
+  },
+  {
+   "id": "N1-17",
+   "acepta": false,
+   "upos": [
+    "DET",
+    "NOUN",
+    "VERB",
+    "PUNCT"
+   ],
+   "adjunciones": null,
+   "detalle": "PLL=-7.395 (umbral -4.113)",
+   "pll": -7.395388640463352
+  },
+  {
+   "id": "N1-18",
+   "acepta": false,
+   "upos": [
+    "DET",
+    "NOUN",
+    "VERB",
+    "PUNCT"
+   ],
+   "adjunciones": null,
+   "detalle": "PLL=-6.989 (umbral -4.113)",
+   "pll": -6.98928140103817
+  },
+  {
+   "id": "N1-19",
+   "acepta": false,
+   "upos": [
+    "PROPN",
+    "VERB",
+    "ADJ",
+    "PUNCT"
+   ],
+   "adjunciones": null,
+   "detalle": "PLL=-5.447 (umbral -4.113)",
+   "pll": -5.447252956684679
+  },
+  {
+   "id": "N1-20",
+   "acepta": true,
+   "upos": [
+    "PRON",
+    "VERB",
+    "DET",
+    "NOUN",
+    "PUNCT"
+   ],
+   "adjunciones": null,
+   "detalle": "PLL=-4.513 (umbral -5.410)",
+   "pll": -4.513027010858059
+  },
+  {
+   "id": "N1-21",
+   "acepta": false,
+   "upos": [
+    "PROPN",
+    "DET",
+    "VERB",
+    "PUNCT"
+   ],
+   "adjunciones": null,
+   "detalle": "PLL=-7.234 (umbral -4.113)",
+   "pll": -7.234232842922211
+  },
+  {
+   "id": "N1-22",
+   "acepta": true,
+   "upos": [
+    "DET",
+    "NOUN",
+    "VERB",
+    "ADJ",
+    "PUNCT"
+   ],
+   "adjunciones": null,
+   "detalle": "PLL=-4.390 (umbral -5.410)",
+   "pll": -4.389935858175159
+  },
+  {
+   "id": "N2-23",
+   "acepta": true,
+   "upos": [
+    "DET",
+    "ADJ",
+    "NOUN",
+    "VERB",
+    "DET",
+    "NOUN",
+    "ADJ",
+    "PUNCT"
+   ],
+   "adjunciones": null,
+   "detalle": "PLL=-1.774 (umbral -4.113)",
+   "pll": -1.7740097150672227
+  },
+  {
+   "id": "N2-24",
+   "acepta": true,
+   "upos": [
+    "DET",
+    "NOUN",
+    "ADV",
+    "VERB",
+    "ADV",
+    "PUNCT"
+   ],
+   "adjunciones": null,
+   "detalle": "PLL=-3.806 (umbral -4.113)",
+   "pll": -3.8062584698200226
+  },
+  {
+   "id": "N2-25",
+   "acepta": false,
+   "upos": [
+    "PRON",
+    "VERB",
+    "DET",
+    "NOUN",
+    "ADP",
+    "DET",
+    "NOUN",
+    "PUNCT"
+   ],
+   "adjunciones": null,
+   "detalle": "PLL=-4.947 (umbral -4.113)",
+   "pll": -4.9472146352960005
+  },
+  {
+   "id": "N2-26",
+   "acepta": true,
+   "upos": [
+    "PROPN",
+    "VERB",
+    "ADV",
+    "ADJ",
+    "ADV",
+    "PUNCT"
+   ],
+   "adjunciones": null,
+   "detalle": "PLL=-3.065 (umbral -4.113)",
+   "pll": -3.064724133039514
+  },
+  {
+   "id": "N2-27",
+   "acepta": true,
+   "upos": [
+    "VERB",
+    "DET",
+    "NOUN",
+    "ADP",
+    "PROPN",
+    "ADV",
+    "ADV",
+    "PUNCT"
+   ],
+   "adjunciones": null,
+   "detalle": "PLL=-2.551 (umbral -4.113)",
+   "pll": -2.5513928511904345
+  },
+  {
+   "id": "N2-28",
+   "acepta": true,
+   "upos": [
+    "DET",
+    "NOUN",
+    "ADV",
+    "ADJ",
+    "VERB",
+    "ADV",
+    "ADV",
+    "PUNCT"
+   ],
+   "adjunciones": null,
+   "detalle": "PLL=-2.914 (umbral -4.113)",
+   "pll": -2.9135787452105433
+  },
+  {
+   "id": "N2-29",
+   "acepta": true,
+   "upos": [
+    "PROPN",
+    "VERB",
+    "DET",
+    "NOUN",
+    "ADP",
+    "DET",
+    "NOUN",
+    "PUNCT"
+   ],
+   "adjunciones": null,
+   "detalle": "PLL=-1.737 (umbral -4.113)",
+   "pll": -1.7369057807243533
+  },
+  {
+   "id": "N2-30",
+   "acepta": true,
+   "upos": [
+    "PROPN",
+    "VERB",
+    "DET",
+    "NOUN",
+    "ADP",
+    "DET",
+    "NOUN",
+    "PUNCT"
+   ],
+   "adjunciones": null,
+   "detalle": "PLL=-2.815 (umbral -4.113)",
+   "pll": -2.8151271361857653
+  },
+  {
+   "id": "N2-31",
+   "acepta": true,
+   "upos": [
+    "DET",
+    "NOUN",
+    "ADP",
+    "NOUN",
+    "VERB",
+    "ADV",
+    "PUNCT"
+   ],
+   "adjunciones": null,
+   "detalle": "PLL=-2.174 (umbral -4.113)",
+   "pll": -2.1741762100718915
+  },
+  {
+   "id": "N2-32",
+   "acepta": true,
+   "upos": [
+    "DET",
+    "NOUN",
+    "VERB",
+    "DET",
+    "NOUN",
+    "ADP",
+    "DET",
+    "NOUN",
+    "PUNCT"
+   ],
+   "adjunciones": null,
+   "detalle": "PLL=-1.464 (umbral -4.113)",
+   "pll": -1.4644363565991323
+  },
+  {
+   "id": "N2-33",
+   "acepta": true,
+   "upos": [
+    "DET",
+    "NOUN",
+    "ADJ",
+    "VERB",
+    "ADP",
+    "DET",
+    "NOUN",
+    "PUNCT"
+   ],
+   "adjunciones": null,
+   "detalle": "PLL=-3.887 (umbral -4.113)",
+   "pll": -3.887165038846433
+  },
+  {
+   "id": "N2-34",
+   "acepta": true,
+   "upos": [
+    "DET",
+    "NOUN",
+    "ADJ",
+    "VERB",
+    "ADP",
+    "DET",
+    "NOUN",
+    "PUNCT"
+   ],
+   "adjunciones": null,
+   "detalle": "PLL=-3.009 (umbral -4.113)",
+   "pll": -3.0089214981223145
+  },
+  {
+   "id": "N2-35",
+   "acepta": true,
+   "upos": [
+    "DET",
+    "ADJ",
+    "NOUN",
+    "ADV",
+    "VERB",
+    "ADJ",
+    "PUNCT"
+   ],
+   "adjunciones": null,
+   "detalle": "PLL=-2.294 (umbral -4.113)",
+   "pll": -2.2943235651722977
+  },
+  {
+   "id": "N2-36",
+   "acepta": true,
+   "upos": [
+    "PROPN",
+    "VERB",
+    "DET",
+    "NOUN",
+    "ADP",
+    "PROPN",
+    "PUNCT"
+   ],
+   "adjunciones": null,
+   "detalle": "PLL=-2.463 (umbral -4.113)",
+   "pll": -2.4632640685886145
+  },
+  {
+   "id": "N2-37",
+   "acepta": true,
+   "upos": [
+    "PRON",
+    "VERB",
+    "ADP",
+    "DET",
+    "NOUN",
+    "ADV",
+    "ADJ",
+    "PUNCT"
+   ],
+   "adjunciones": null,
+   "detalle": "PLL=-1.163 (umbral -4.113)",
+   "pll": -1.1625553998423532
+  },
+  {
+   "id": "N2-38",
+   "acepta": true,
+   "upos": [
+    "DET",
+    "NOUN",
+    "ADP",
+    "NOUN",
+    "VERB",
+    "ADP",
+    "DET",
+    "NOUN",
+    "PUNCT"
+   ],
+   "adjunciones": null,
+   "detalle": "PLL=-1.126 (umbral -4.113)",
+   "pll": -1.1256417360467215
+  },
+  {
+   "id": "N2-39",
+   "acepta": true,
+   "upos": [
+    "ADV",
+    "VERB",
+    "ADP",
+    "NOUN",
+    "ADV",
+    "PUNCT"
+   ],
+   "adjunciones": null,
+   "detalle": "PLL=-3.420 (umbral -4.113)",
+   "pll": -3.41971877177379
+  },
+  {
+   "id": "N2-40",
+   "acepta": true,
+   "upos": [
+    "DET",
+    "NOUN",
+    "ADJ",
+    "VERB",
+    "DET",
+    "NOUN",
+    "ADJ",
+    "ADP",
+    "DET",
+    "NOUN",
+    "PUNCT"
+   ],
+   "adjunciones": null,
+   "detalle": "PLL=-2.424 (umbral -4.113)",
+   "pll": -2.424480735916983
+  },
+  {
+   "id": "N2-41",
+   "acepta": false,
+   "upos": [
+    "PROPN",
+    "VERB",
+    "DET",
+    "NOUN",
+    "ADV",
+    "ADJ",
+    "PUNCT"
+   ],
+   "adjunciones": null,
+   "detalle": "PLL=-5.030 (umbral -4.113)",
+   "pll": -5.030183626106009
+  },
+  {
+   "id": "N2-42",
+   "acepta": true,
+   "upos": [
+    "DET",
+    "NOUN",
+    "ADJ",
+    "ADV",
+    "VERB",
+    "ADV",
+    "PUNCT"
+   ],
+   "adjunciones": null,
+   "detalle": "PLL=-2.719 (umbral -4.113)",
+   "pll": -2.718785361619666
+  },
+  {
+   "id": "N2-43",
+   "acepta": true,
+   "upos": [
+    "PRON",
+    "VERB",
+    "ADP",
+    "DET",
+    "NOUN",
+    "ADP",
+    "PROPN",
+    "PUNCT"
+   ],
+   "adjunciones": null,
+   "detalle": "PLL=-2.008 (umbral -4.113)",
+   "pll": -2.0076135067890086
+  },
+  {
+   "id": "N2-44",
+   "acepta": true,
+   "upos": [
+    "PRON",
+    "VERB",
+    "ADP",
+    "DET",
+    "NOUN",
+    "ADV",
+    "PUNCT"
+   ],
+   "adjunciones": null,
+   "detalle": "PLL=-1.545 (umbral -4.113)",
+   "pll": -1.5454438821567844
+  },
+  {
+   "id": "N2-45",
+   "acepta": true,
+   "upos": [
+    "PRON",
+    "VERB",
+    "DET",
+    "NOUN",
+    "ADV",
+    "ADJ",
+    "PUNCT"
+   ],
+   "adjunciones": null,
+   "detalle": "PLL=-0.919 (umbral -4.113)",
+   "pll": -0.9191371972920024
+  },
+  {
+   "id": "N2-46",
+   "acepta": false,
+   "upos": [
+    "PROPN",
+    "VERB",
+    "ADP",
+    "NOUN",
+    "PUNCT"
+   ],
+   "adjunciones": null,
+   "detalle": "PLL=-6.119 (umbral -4.113)",
+   "pll": -6.118920620530844
+  },
+  {
+   "id": "N2-47",
+   "acepta": false,
+   "upos": [
+    "PROPN",
+    "VERB",
+    "DET",
+    "NOUN",
+    "PUNCT"
+   ],
+   "adjunciones": null,
+   "detalle": "PLL=-5.599 (umbral -4.113)",
+   "pll": -5.598518285155296
+  },
+  {
+   "id": "N2-48",
+   "acepta": true,
+   "upos": [
+    "PROPN",
+    "VERB",
+    "ADP",
+    "DET",
+    "NOUN",
+    "PUNCT"
+   ],
+   "adjunciones": null,
+   "detalle": "PLL=-4.897 (umbral -5.410)",
+   "pll": -4.896769157300393
+  },
+  {
+   "id": "N2-49",
+   "acepta": false,
+   "upos": [
+    "DET",
+    "NOUN",
+    "ADJ",
+    "VERB",
+    "ADV",
+    "PUNCT"
+   ],
+   "adjunciones": null,
+   "detalle": "PLL=-5.455 (umbral -4.113)",
+   "pll": -5.45458284781004
+  },
+  {
+   "id": "N2-50",
+   "acepta": false,
+   "upos": [
+    "DET",
+    "NOUN",
+    "ADJ",
+    "VERB",
+    "ADV",
+    "PUNCT"
+   ],
+   "adjunciones": null,
+   "detalle": "PLL=-6.252 (umbral -4.113)",
+   "pll": -6.252325035321216
+  },
+  {
+   "id": "N2-51",
+   "acepta": true,
+   "upos": [
+    "DET",
+    "NOUN",
+    "ADP",
+    "DET",
+    "NOUN",
+    "VERB",
+    "PUNCT"
+   ],
+   "adjunciones": null,
+   "detalle": "PLL=-4.141 (umbral -5.410)",
+   "pll": -4.141354714121137
+  },
+  {
+   "id": "N3-52",
+   "acepta": false,
+   "upos": [
+    "PROPN",
+    "CCONJ",
+    "PROPN",
+    "VERB",
+    "NOUN",
+    "PUNCT"
+   ],
+   "adjunciones": null,
+   "detalle": "PLL=-7.294 (umbral -4.113)",
+   "pll": -7.294061572823141
+  },
+  {
+   "id": "N3-53",
+   "acepta": false,
+   "upos": [
+    "DET",
+    "NOUN",
+    "SCONJ",
+    "VERB",
+    "PROPN",
+    "VERB",
+    "PUNCT"
+   ],
+   "adjunciones": null,
+   "detalle": "PLL=-6.332 (umbral -4.113)",
+   "pll": -6.331567847302982
+  },
+  {
+   "id": "N3-54",
+   "acepta": false,
+   "upos": [
+    "PUNCT",
+    "VERB",
+    "PROPN",
+    "DET",
+    "NOUN",
+    "PUNCT"
+   ],
+   "adjunciones": null,
+   "detalle": "PLL=-7.027 (umbral -4.113)",
+   "pll": -7.027435946810458
+  },
+  {
+   "id": "N3-55",
+   "acepta": false,
+   "upos": [
+    "PROPN",
+    "PRON",
+    "VERB",
+    "PUNCT"
+   ],
+   "adjunciones": null,
+   "detalle": "PLL=-8.936 (umbral -4.113)",
+   "pll": -8.93575097322464
+  },
+  {
+   "id": "N3-56",
+   "acepta": true,
+   "upos": [
+    "DET",
+    "NOUN",
+    "AUX",
+    "VERB",
+    "ADP",
+    "PROPN",
+    "PUNCT"
+   ],
+   "adjunciones": null,
+   "detalle": "PLL=-2.874 (umbral -4.113)",
+   "pll": -2.874157373394285
+  },
+  {
+   "id": "N3-57",
+   "acepta": true,
+   "upos": [
+    "PROPN",
+    "AUX",
+    "VERB",
+    "DET",
+    "NOUN",
+    "PUNCT"
+   ],
+   "adjunciones": null,
+   "detalle": "PLL=-2.794 (umbral -4.113)",
+   "pll": -2.793946464856466
+  },
+  {
+   "id": "N3-58",
+   "acepta": true,
+   "upos": [
+    "PROPN",
+    "VERB",
+    "SCONJ",
+    "DET",
+    "NOUN",
+    "VERB",
+    "ADJ",
+    "PUNCT"
+   ],
+   "adjunciones": null,
+   "detalle": "PLL=-3.613 (umbral -4.113)",
+   "pll": -3.612838795175776
+  },
+  {
+   "id": "N3-59",
+   "acepta": true,
+   "upos": [
+    "SCONJ",
+    "PROPN",
+    "VERB",
+    "PUNCT",
+    "DET",
+    "NOUN",
+    "VERB",
+    "PUNCT"
+   ],
+   "adjunciones": null,
+   "detalle": "PLL=-1.656 (umbral -4.113)",
+   "pll": -1.6564777402414217
+  },
+  {
+   "id": "N3-60",
+   "acepta": true,
+   "upos": [
+    "DET",
+    "NOUN",
+    "VERB",
+    "NOUN",
+    "PUNCT"
+   ],
+   "adjunciones": null,
+   "detalle": "PLL=-2.050 (umbral -4.113)",
+   "pll": -2.0495960524305703
+  },
+  {
+   "id": "N3-61",
+   "acepta": true,
+   "upos": [
+    "PROPN",
+    "PRON",
+    "VERB",
+    "DET",
+    "NOUN",
+    "ADP",
+    "PROPN",
+    "PUNCT"
+   ],
+   "adjunciones": null,
+   "detalle": "PLL=-1.581 (umbral -4.113)",
+   "pll": -1.5810941737145185
+  },
+  {
+   "id": "N3-62",
+   "acepta": false,
+   "upos": [
+    "PROPN",
+    "CCONJ",
+    "PROPN",
+    "VERB",
+    "DET",
+    "NOUN",
+    "PUNCT"
+   ],
+   "adjunciones": null,
+   "detalle": "PLL=-6.438 (umbral -4.113)",
+   "pll": -6.438249582217799
+  },
+  {
+   "id": "N3-63",
+   "acepta": true,
+   "upos": [
+    "PROPN",
+    "VERB",
+    "DET",
+    "NOUN",
+    "CCONJ",
+    "DET",
+    "NOUN",
+    "ADV",
+    "VERB",
+    "ADP",
+    "PROPN",
+    "PUNCT"
+   ],
+   "adjunciones": null,
+   "detalle": "PLL=-0.492 (umbral -4.113)",
+   "pll": -0.49225339060649276
+  },
+  {
+   "id": "N3-64",
+   "acepta": false,
+   "upos": [
+    "DET",
+    "NOUN",
+    "SCONJ",
+    "DET",
+    "NOUN",
+    "VERB",
+    "VERB",
+    "PUNCT"
+   ],
+   "adjunciones": null,
+   "detalle": "PLL=-4.359 (umbral -4.113)",
+   "pll": -4.358722653239965
+  },
+  {
+   "id": "N3-65",
+   "acepta": true,
+   "upos": [
+    "PROPN",
+    "VERB",
+    "ADV",
+    "ADJ",
+    "ADP",
+    "PROPN",
+    "PUNCT"
+   ],
+   "adjunciones": null,
+   "detalle": "PLL=-2.055 (umbral -4.113)",
+   "pll": -2.0553577364023243
+  },
+  {
+   "id": "N3-66",
+   "acepta": true,
+   "upos": [
+    "PRON",
+    "VERB",
+    "ADV",
+    "ADP",
+    "DET",
+    "NOUN",
+    "ADP",
+    "PROPN",
+    "PUNCT"
+   ],
+   "adjunciones": null,
+   "detalle": "PLL=-2.216 (umbral -4.113)",
+   "pll": -2.215920966066834
+  },
+  {
+   "id": "N3-67",
+   "acepta": false,
+   "upos": [
+    "VERB",
+    "PROPN",
+    "DET",
+    "NOUN",
+    "PUNCT"
+   ],
+   "adjunciones": null,
+   "detalle": "PLL=-7.005 (umbral -4.113)",
+   "pll": -7.005268352372306
+  },
+  {
+   "id": "N3-68",
+   "acepta": true,
+   "upos": [
+    "PUNCT",
+    "ADV",
+    "VERB",
+    "PROPN",
+    "PUNCT"
+   ],
+   "adjunciones": null,
+   "detalle": "PLL=-2.737 (umbral -4.113)",
+   "pll": -2.736881112214178
+  },
+  {
+   "id": "N3-69",
+   "acepta": true,
+   "upos": [
+    "DET",
+    "NOUN",
+    "ADJ",
+    "CCONJ",
+    "ADJ",
+    "VERB",
+    "PUNCT"
+   ],
+   "adjunciones": null,
+   "detalle": "PLL=-2.947 (umbral -4.113)",
+   "pll": -2.946751575384821
+  },
+  {
+   "id": "N3-70",
+   "acepta": false,
+   "upos": [
+    "PROPN",
+    "VERB",
+    "ADV",
+    "PUNCT"
+   ],
+   "adjunciones": null,
+   "detalle": "PLL=-5.372 (umbral -4.113)",
+   "pll": -5.3723995834589005
+  },
+  {
+   "id": "N3-71",
+   "acepta": true,
+   "upos": [
+    "ADP",
+    "PROPN",
+    "PRON",
+    "VERB",
+    "DET",
+    "NOUN",
+    "PUNCT"
+   ],
+   "adjunciones": null,
+   "detalle": "PLL=-2.392 (umbral -4.113)",
+   "pll": -2.392366025596857
+  },
+  {
+   "id": "N3-72",
+   "acepta": false,
+   "upos": [
+    "DET",
+    "NOUN",
+    "SCONJ",
+    "VERB",
+    "PROPN",
+    "VERB",
+    "PUNCT"
+   ],
+   "adjunciones": null,
+   "detalle": "PLL=-7.204 (umbral -4.113)",
+   "pll": -7.204059302806854
+  },
+  {
+   "id": "N3-73",
+   "acepta": false,
+   "upos": [
+    "PROPN",
+    "CCONJ",
+    "PROPN",
+    "VERB",
+    "NOUN",
+    "PUNCT"
+   ],
+   "adjunciones": null,
+   "detalle": "PLL=-7.430 (umbral -4.113)",
+   "pll": -7.429742079760347
+  },
+  {
+   "id": "N3-74",
+   "acepta": true,
+   "upos": [
+    "DET",
+    "NOUN",
+    "AUX",
+    "VERB",
+    "ADP",
+    "PROPN",
+    "PUNCT"
+   ],
+   "adjunciones": null,
+   "detalle": "PLL=-4.354 (umbral -5.410)",
+   "pll": -4.354170311774526
+  },
+  {
+   "id": "N3-75",
+   "acepta": true,
+   "upos": [
+    "DET",
+    "NOUN",
+    "SCONJ",
+    "VERB",
+    "ADV",
+    "VERB",
+    "DET",
+    "NOUN",
+    "PUNCT"
+   ],
+   "adjunciones": null,
+   "detalle": "PLL=-4.419 (umbral -5.410)",
+   "pll": -4.418571422549172
+  },
+  {
+   "id": "N3-76",
+   "acepta": true,
+   "upos": [
+    "PROPN",
+    "PRON",
+    "VERB",
+    "DET",
+    "NOUN",
+    "ADP",
+    "DET",
+    "NOUN",
+    "PUNCT"
+   ],
+   "adjunciones": null,
+   "detalle": "PLL=-3.169 (umbral -4.113)",
+   "pll": -3.168606775916285
+  }
+ ]
+}

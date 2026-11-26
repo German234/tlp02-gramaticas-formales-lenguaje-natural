@@ -1,0 +1,19 @@
+# Nivel 1
+El perro come .
+María compra una manzana .
+Yo escribiré una carta .
+La casa es grande .
+# Nivel 2
+La pequeña niña come una manzana roja en el jardín .
+Mis profesores no trabajaron ayer .
+Juan mira al hombre con el telescopio .
+Ana estará muy cansada hoy .
+Comimos el pan de Ana muy rápidamente .
+El perro muy grande corre muy lentamente .
+# Nivel 3 (deben rechazarse)
+Juan y María comen manzanas .
+El perro que vio Ana corre .
+¿Come Juan una manzana ?
+Juan la mira .
+# Concordancia (la CFG las acepta)
+Los perro roja come .

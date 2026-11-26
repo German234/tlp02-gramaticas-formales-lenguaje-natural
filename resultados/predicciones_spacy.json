@@ -1,0 +1,1769 @@
+{
+ "sistema": "spacy",
+ "info": {
+  "modelo": "es_core_news_md",
+  "spacy": "3.8.18",
+  "descripcion": "spaCy + reglas de concordancia sobre su análisis",
+  "segundos": 4.63,
+  "ms_por_oracion": 60.9
+ },
+ "predicciones": [
+  {
+   "id": "N1-01",
+   "acepta": true,
+   "upos": [
+    "DET",
+    "PROPN",
+    "VERB",
+    "PUNCT"
+   ],
+   "adjunciones": {},
+   "detalle": "sin problemas de concordancia",
+   "dependencias": [
+    "El/det->perro",
+    "perro/nsubj->come",
+    "come/ROOT->come",
+    "./punct->come"
+   ]
+  },
+  {
+   "id": "N1-02",
+   "acepta": true,
+   "upos": [
+    "PROPN",
+    "VERB",
+    "DET",
+    "NOUN",
+    "PUNCT"
+   ],
+   "adjunciones": {},
+   "detalle": "sin problemas de concordancia",
+   "dependencias": [
+    "María/nsubj->compra",
+    "compra/ROOT->compra",
+    "una/det->manzana",
+    "manzana/obj->compra",
+    "./punct->compra"
+   ]
+  },
+  {
+   "id": "N1-03",
+   "acepta": true,
+   "upos": [
+    "DET",
+    "NOUN",
+    "VERB",
+    "PUNCT"
+   ],
+   "adjunciones": {},
+   "detalle": "sin problemas de concordancia",
+   "dependencias": [
+    "Los/det->niños",
+    "niños/nsubj->corren",
+    "corren/ROOT->corren",
+    "./punct->corren"
+   ]
+  },
+  {
+   "id": "N1-04",
+   "acepta": true,
+   "upos": [
+    "PRON",
+    "VERB",
+    "DET",
+    "NOUN",
+    "PUNCT"
+   ],
+   "adjunciones": {},
+   "detalle": "sin problemas de concordancia",
+   "dependencias": [
+    "Yo/nsubj->escribiré",
+    "escribiré/ROOT->escribiré",
+    "una/det->carta",
+    "carta/obj->escribiré",
+    "./punct->escribiré"
+   ]
+  },
+  {
+   "id": "N1-05",
+   "acepta": true,
+   "upos": [
+    "DET",
+    "NOUN",
+    "AUX",
+    "ADJ",
+    "PUNCT"
+   ],
+   "adjunciones": {},
+   "detalle": "sin problemas de concordancia",
+   "dependencias": [
+    "La/det->casa",
+    "casa/nsubj->grande",
+    "es/cop->grande",
+    "grande/ROOT->grande",
+    "./punct->grande"
+   ]
+  },
+  {
+   "id": "N1-06",
+   "acepta": true,
+   "upos": [
+    "PROPN",
+    "VERB",
+    "PUNCT"
+   ],
+   "adjunciones": {},
+   "detalle": "sin problemas de concordancia",
+   "dependencias": [
+    "Ana/nsubj->canta",
+    "canta/ROOT->canta",
+    "./punct->canta"
+   ]
+  },
+  {
+   "id": "N1-07",
+   "acepta": true,
+   "upos": [
+    "PRON",
+    "VERB",
+    "PUNCT"
+   ],
+   "adjunciones": {},
+   "detalle": "sin problemas de concordancia",
+   "dependencias": [
+    "Nosotros/nsubj->estudiamos",
+    "estudiamos/ROOT->estudiamos",
+    "./punct->estudiamos"
+   ]
+  },
+  {
+   "id": "N1-08",
+   "acepta": false,
+   "upos": [
+    "DET",
+    "NOUN",
+    "VERB",
+    "DET",
+    "NOUN",
+    "PUNCT"
+   ],
+   "adjunciones": {},
+   "detalle": "nsubj: 'gato' y 'mira' difieren en Person",
+   "dependencias": [
+    "El/det->gato",
+    "gato/nsubj->mira",
+    "mira/ROOT->mira",
+    "el/det->árbol",
+    "árbol/obj->mira",
+    "./punct->mira"
+   ]
+  },
+  {
+   "id": "N1-09",
+   "acepta": true,
+   "upos": [
+    "PRON",
+    "VERB",
+    "ADV",
+    "PUNCT"
+   ],
+   "adjunciones": {},
+   "detalle": "sin problemas de concordancia",
+   "dependencias": [
+    "Tú/nsubj->vives",
+    "vives/ROOT->vives",
+    "aquí/advmod->vives",
+    "./punct->vives"
+   ]
+  },
+  {
+   "id": "N1-10",
+   "acepta": true,
+   "upos": [
+    "DET",
+    "NOUN",
+    "VERB",
+    "PUNCT"
+   ],
+   "adjunciones": {},
+   "detalle": "sin problemas de concordancia",
+   "dependencias": [
+    "Las/det->niñas",
+    "niñas/nsubj->bailaron",
+    "bailaron/ROOT->bailaron",
+    "./punct->bailaron"
+   ]
+  },
+  {
+   "id": "N1-11",
+   "acepta": true,
+   "upos": [
+    "PROPN",
+    "AUX",
+    "ADJ",
+    "PUNCT"
+   ],
+   "adjunciones": {},
+   "detalle": "sin problemas de concordancia",
+   "dependencias": [
+    "Pedro/nsubj->inteligente",
+    "es/cop->inteligente",
+    "inteligente/ROOT->inteligente",
+    "./punct->inteligente"
+   ]
+  },
+  {
+   "id": "N1-12",
+   "acepta": true,
+   "upos": [
+    "DET",
+    "NOUN",
+    "VERB",
+    "PUNCT"
+   ],
+   "adjunciones": {},
+   "detalle": "sin problemas de concordancia",
+   "dependencias": [
+    "Mi/det->profesora",
+    "profesora/nsubj->trabaja",
+    "trabaja/ROOT->trabaja",
+    "./punct->trabaja"
+   ]
+  },
+  {
+   "id": "N1-13",
+   "acepta": true,
+   "upos": [
+    "PRON",
+    "VERB",
+    "DET",
+    "NOUN",
+    "PUNCT"
+   ],
+   "adjunciones": {},
+   "detalle": "sin problemas de concordancia",
+   "dependencias": [
+    "Ellos/nsubj->abrirán",
+    "abrirán/ROOT->abrirán",
+    "la/det->ventana",
+    "ventana/obj->abrirán",
+    "./punct->abrirán"
+   ]
+  },
+  {
+   "id": "N1-14",
+   "acepta": true,
+   "upos": [
+    "PROPN",
+    "AUX",
+    "ADJ",
+    "PUNCT"
+   ],
+   "adjunciones": {},
+   "detalle": "sin problemas de concordancia",
+   "dependencias": [
+    "Luis/nsubj->cansado",
+    "está/cop->cansado",
+    "cansado/ROOT->cansado",
+    "./punct->cansado"
+   ]
+  },
+  {
+   "id": "N1-15",
+   "acepta": true,
+   "upos": [
+    "DET",
+    "NOUN",
+    "VERB",
+    "PUNCT"
+   ],
+   "adjunciones": {},
+   "detalle": "sin problemas de concordancia",
+   "dependencias": [
+    "Un/det->hombre",
+    "hombre/nsubj->caminó",
+    "caminó/ROOT->caminó",
+    "./punct->caminó"
+   ]
+  },
+  {
+   "id": "N1-16",
+   "acepta": false,
+   "upos": [
+    "PRON",
+    "VERB",
+    "DET",
+    "NOUN",
+    "PUNCT"
+   ],
+   "adjunciones": {},
+   "detalle": "nsubj: 'Usted' y 'cocina' difieren en Person",
+   "dependencias": [
+    "Usted/nsubj->cocina",
+    "cocina/ROOT->cocina",
+    "el/det->pan",
+    "pan/obj->cocina",
+    "./punct->cocina"
+   ]
+  },
+  {
+   "id": "N1-17",
+   "acepta": true,
+   "upos": [
+    "DET",
+    "PROPN",
+    "VERB",
+    "PUNCT"
+   ],
+   "adjunciones": {},
+   "detalle": "sin problemas de concordancia",
+   "dependencias": [
+    "Los/det->perro",
+    "perro/nsubj->come",
+    "come/ROOT->come",
+    "./punct->come"
+   ]
+  },
+  {
+   "id": "N1-18",
+   "acepta": false,
+   "upos": [
+    "DET",
+    "NOUN",
+    "VERB",
+    "PUNCT"
+   ],
+   "adjunciones": {},
+   "detalle": "det: 'El' y 'niños' difieren en Number; nsubj: 'niños' y 'corre' difieren en Number",
+   "dependencias": [
+    "El/det->niños",
+    "niños/nsubj->corre",
+    "corre/ROOT->corre",
+    "./punct->corre"
+   ]
+  },
+  {
+   "id": "N1-19",
+   "acepta": true,
+   "upos": [
+    "PROPN",
+    "AUX",
+    "ADJ",
+    "PUNCT"
+   ],
+   "adjunciones": {},
+   "detalle": "sin problemas de concordancia",
+   "dependencias": [
+    "María/nsubj->alto",
+    "es/cop->alto",
+    "alto/ROOT->alto",
+    "./punct->alto"
+   ]
+  },
+  {
+   "id": "N1-20",
+   "acepta": true,
+   "upos": [
+    "PRON",
+    "VERB",
+    "DET",
+    "NOUN",
+    "PUNCT"
+   ],
+   "adjunciones": {},
+   "detalle": "sin problemas de concordancia",
+   "dependencias": [
+    "Yo/nsubj->come",
+    "come/ROOT->come",
+    "una/det->manzana",
+    "manzana/obj->come",
+    "./punct->come"
+   ]
+  },
+  {
+   "id": "N1-21",
+   "acepta": true,
+   "upos": [
+    "PROPN",
+    "DET",
+    "NOUN",
+    "PUNCT"
+   ],
+   "adjunciones": {},
+   "detalle": "sin problemas de concordancia",
+   "dependencias": [
+    "Perro/nsubj->come",
+    "el/det->come",
+    "come/ROOT->come",
+    "./punct->come"
+   ]
+  },
+  {
+   "id": "N1-22",
+   "acepta": false,
+   "upos": [
+    "DET",
+    "NOUN",
+    "AUX",
+    "ADJ",
+    "PUNCT"
+   ],
+   "adjunciones": {},
+   "detalle": "nsubj: 'flores' y 'es' difieren en Number",
+   "dependencias": [
+    "Las/det->flores",
+    "flores/nsubj->bonitas",
+    "es/cop->bonitas",
+    "bonitas/ROOT->bonitas",
+    "./punct->bonitas"
+   ]
+  },
+  {
+   "id": "N2-23",
+   "acepta": true,
+   "upos": [
+    "DET",
+    "ADJ",
+    "NOUN",
+    "VERB",
+    "DET",
+    "NOUN",
+    "ADJ",
+    "PUNCT"
+   ],
+   "adjunciones": {},
+   "detalle": "sin problemas de concordancia",
+   "dependencias": [
+    "La/det->niña",
+    "pequeña/amod->niña",
+    "niña/nsubj->come",
+    "come/ROOT->come",
+    "una/det->manzana",
+    "manzana/obj->come",
+    "roja/amod->manzana",
+    "./punct->come"
+   ]
+  },
+  {
+   "id": "N2-24",
+   "acepta": true,
+   "upos": [
+    "DET",
+    "NOUN",
+    "ADV",
+    "VERB",
+    "ADV",
+    "PUNCT"
+   ],
+   "adjunciones": {},
+   "detalle": "sin problemas de concordancia",
+   "dependencias": [
+    "Mis/det->profesores",
+    "profesores/nsubj->trabajaron",
+    "no/advmod->trabajaron",
+    "trabajaron/ROOT->trabajaron",
+    "ayer/advmod->trabajaron",
+    "./punct->trabajaron"
+   ]
+  },
+  {
+   "id": "N2-25",
+   "acepta": false,
+   "upos": [
+    "PROPN",
+    "VERB",
+    "ADP",
+    "NOUN",
+    "ADP",
+    "DET",
+    "NOUN",
+    "PUNCT"
+   ],
+   "adjunciones": {},
+   "detalle": "nsubj: 'Juan' y 'mira' difieren en Person",
+   "dependencias": [
+    "Juan/nsubj->mira",
+    "mira/ROOT->mira",
+    "al/case->hombre",
+    "hombre/obj->mira",
+    "con/case->telescopio",
+    "el/det->telescopio",
+    "telescopio/obl->mira",
+    "./punct->mira"
+   ]
+  },
+  {
+   "id": "N2-26",
+   "acepta": true,
+   "upos": [
+    "PROPN",
+    "AUX",
+    "ADV",
+    "ADJ",
+    "ADV",
+    "PUNCT"
+   ],
+   "adjunciones": {},
+   "detalle": "sin problemas de concordancia",
+   "dependencias": [
+    "Ana/nsubj->cansada",
+    "estará/cop->cansada",
+    "muy/advmod->cansada",
+    "cansada/ROOT->cansada",
+    "hoy/advmod->cansada",
+    "./punct->cansada"
+   ]
+  },
+  {
+   "id": "N2-27",
+   "acepta": true,
+   "upos": [
+    "VERB",
+    "DET",
+    "NOUN",
+    "ADP",
+    "PROPN",
+    "ADV",
+    "ADV",
+    "PUNCT"
+   ],
+   "adjunciones": {
+    "3": 2
+   },
+   "detalle": "sin problemas de concordancia",
+   "dependencias": [
+    "Comimos/ROOT->Comimos",
+    "el/det->pan",
+    "pan/obj->Comimos",
+    "de/case->Ana",
+    "Ana/nmod->pan",
+    "muy/advmod->rápidamente",
+    "rápidamente/advmod->Comimos",
+    "./punct->Comimos"
+   ]
+  },
+  {
+   "id": "N2-28",
+   "acepta": true,
+   "upos": [
+    "DET",
+    "PROPN",
+    "ADV",
+    "ADJ",
+    "VERB",
+    "ADV",
+    "ADV",
+    "PUNCT"
+   ],
+   "adjunciones": {},
+   "detalle": "sin problemas de concordancia",
+   "dependencias": [
+    "El/det->perro",
+    "perro/nsubj->corre",
+    "muy/advmod->grande",
+    "grande/amod->perro",
+    "corre/ROOT->corre",
+    "muy/advmod->lentamente",
+    "lentamente/advmod->corre",
+    "./punct->corre"
+   ]
+  },
+  {
+   "id": "N2-29",
+   "acepta": true,
+   "upos": [
+    "PROPN",
+    "VERB",
+    "DET",
+    "NOUN",
+    "ADP",
+    "DET",
+    "NOUN",
+    "PUNCT"
+   ],
+   "adjunciones": {
+    "4": 1
+   },
+   "detalle": "sin problemas de concordancia",
+   "dependencias": [
+    "Ana/nsubj->come",
+    "come/ROOT->come",
+    "el/det->pan",
+    "pan/obj->come",
+    "con/case->cuchara",
+    "la/det->cuchara",
+    "cuchara/obl->come",
+    "./punct->come"
+   ]
+  },
+  {
+   "id": "N2-30",
+   "acepta": true,
+   "upos": [
+    "PROPN",
+    "VERB",
+    "DET",
+    "NOUN",
+    "ADP",
+    "DET",
+    "NOUN",
+    "PUNCT"
+   ],
+   "adjunciones": {
+    "4": 1
+   },
+   "detalle": "sin problemas de concordancia",
+   "dependencias": [
+    "Pedro/nsubj->escribió",
+    "escribió/ROOT->escribió",
+    "una/det->carta",
+    "carta/obj->escribió",
+    "en/case->mesa",
+    "la/det->mesa",
+    "mesa/obl->escribió",
+    "./punct->escribió"
+   ]
+  },
+  {
+   "id": "N2-31",
+   "acepta": true,
+   "upos": [
+    "DET",
+    "NOUN",
+    "ADP",
+    "NOUN",
+    "VERB",
+    "ADV",
+    "PUNCT"
+   ],
+   "adjunciones": {
+    "2": 1
+   },
+   "detalle": "sin problemas de concordancia",
+   "dependencias": [
+    "Los/det->niños",
+    "niños/nsubj->cantaron",
+    "del/case->parque",
+    "parque/nmod->niños",
+    "cantaron/ROOT->cantaron",
+    "bien/advmod->cantaron",
+    "./punct->cantaron"
+   ]
+  },
+  {
+   "id": "N2-32",
+   "acepta": true,
+   "upos": [
+    "DET",
+    "NOUN",
+    "VERB",
+    "DET",
+    "NOUN",
+    "ADP",
+    "DET",
+    "NOUN",
+    "PUNCT"
+   ],
+   "adjunciones": {
+    "5": 4
+   },
+   "detalle": "sin problemas de concordancia",
+   "dependencias": [
+    "La/det->niña",
+    "niña/nsubj->abrió",
+    "abrió/ROOT->abrió",
+    "la/det->ventana",
+    "ventana/obj->abrió",
+    "de/case->casa",
+    "la/det->casa",
+    "casa/nmod->ventana",
+    "./punct->abrió"
+   ]
+  },
+  {
+   "id": "N2-33",
+   "acepta": true,
+   "upos": [
+    "DET",
+    "NOUN",
+    "ADJ",
+    "VERB",
+    "ADP",
+    "DET",
+    "NOUN",
+    "PUNCT"
+   ],
+   "adjunciones": {
+    "4": 3
+   },
+   "detalle": "sin problemas de concordancia",
+   "dependencias": [
+    "Mi/det->gato",
+    "gato/nsubj->corre",
+    "blanco/amod->gato",
+    "corre/ROOT->corre",
+    "en/case->jardín",
+    "el/det->jardín",
+    "jardín/obl->corre",
+    "./punct->corre"
+   ]
+  },
+  {
+   "id": "N2-34",
+   "acepta": true,
+   "upos": [
+    "DET",
+    "NOUN",
+    "ADJ",
+    "VERB",
+    "ADP",
+    "DET",
+    "NOUN",
+    "PUNCT"
+   ],
+   "adjunciones": {
+    "4": 3
+   },
+   "detalle": "sin problemas de concordancia",
+   "dependencias": [
+    "Las/det->estudiantes",
+    "estudiantes/nsubj->estudiaron",
+    "inteligentes/amod->estudiantes",
+    "estudiaron/ROOT->estudiaron",
+    "en/case->escuela",
+    "la/det->escuela",
+    "escuela/obl->estudiaron",
+    "./punct->estudiaron"
+   ]
+  },
+  {
+   "id": "N2-35",
+   "acepta": true,
+   "upos": [
+    "DET",
+    "ADJ",
+    "NOUN",
+    "ADV",
+    "AUX",
+    "ADJ",
+    "PUNCT"
+   ],
+   "adjunciones": {},
+   "detalle": "sin problemas de concordancia",
+   "dependencias": [
+    "El/det->profesor",
+    "viejo/amod->profesor",
+    "profesor/nsubj->feliz",
+    "no/advmod->feliz",
+    "es/cop->feliz",
+    "feliz/ROOT->feliz",
+    "./punct->feliz"
+   ]
+  },
+  {
+   "id": "N2-36",
+   "acepta": true,
+   "upos": [
+    "PROPN",
+    "VERB",
+    "DET",
+    "NOUN",
+    "ADP",
+    "PROPN",
+    "PUNCT"
+   ],
+   "adjunciones": {
+    "4": 1
+   },
+   "detalle": "sin problemas de concordancia",
+   "dependencias": [
+    "Sofía/nsubj->cocinó",
+    "cocinó/ROOT->cocinó",
+    "el/det->pan",
+    "pan/obj->cocinó",
+    "para/case->Luis",
+    "Luis/obl->cocinó",
+    "./punct->cocinó"
+   ]
+  },
+  {
+   "id": "N2-37",
+   "acepta": true,
+   "upos": [
+    "PRON",
+    "VERB",
+    "ADP",
+    "DET",
+    "NOUN",
+    "ADV",
+    "ADJ",
+    "PUNCT"
+   ],
+   "adjunciones": {
+    "2": 1
+   },
+   "detalle": "sin problemas de concordancia",
+   "dependencias": [
+    "Ellas/nsubj->vivirán",
+    "vivirán/ROOT->vivirán",
+    "en/case->ciudad",
+    "una/det->ciudad",
+    "ciudad/obl->vivirán",
+    "muy/advmod->grande",
+    "grande/amod->ciudad",
+    "./punct->vivirán"
+   ]
+  },
+  {
+   "id": "N2-38",
+   "acepta": true,
+   "upos": [
+    "DET",
+    "NOUN",
+    "ADP",
+    "NOUN",
+    "VERB",
+    "ADP",
+    "DET",
+    "NOUN",
+    "PUNCT"
+   ],
+   "adjunciones": {
+    "2": 1,
+    "5": 4
+   },
+   "detalle": "sin problemas de concordancia",
+   "dependencias": [
+    "La/det->casa",
+    "casa/nsubj->está",
+    "del/case->profesor",
+    "profesor/nmod->casa",
+    "está/ROOT->está",
+    "en/case->parque",
+    "el/det->parque",
+    "parque/obl->está",
+    "./punct->está"
+   ]
+  },
+  {
+   "id": "N2-39",
+   "acepta": true,
+   "upos": [
+    "ADV",
+    "VERB",
+    "ADP",
+    "NOUN",
+    "ADJ",
+    "PUNCT"
+   ],
+   "adjunciones": {
+    "2": 1
+   },
+   "detalle": "sin problemas de concordancia",
+   "dependencias": [
+    "Siempre/advmod->caminamos",
+    "caminamos/ROOT->caminamos",
+    "al/case->parque",
+    "parque/obl->caminamos",
+    "temprano/amod->parque",
+    "./punct->caminamos"
+   ]
+  },
+  {
+   "id": "N2-40",
+   "acepta": true,
+   "upos": [
+    "DET",
+    "NOUN",
+    "ADJ",
+    "VERB",
+    "DET",
+    "NOUN",
+    "ADJ",
+    "ADP",
+    "DET",
+    "NOUN",
+    "PUNCT"
+   ],
+   "adjunciones": {
+    "7": 3
+   },
+   "detalle": "sin problemas de concordancia",
+   "dependencias": [
+    "El/det->hombre",
+    "hombre/nsubj->miró",
+    "alto/amod->hombre",
+    "miró/ROOT->miró",
+    "la/det->flor",
+    "flor/obj->miró",
+    "roja/amod->flor",
+    "con/case->telescopio",
+    "el/det->telescopio",
+    "telescopio/obl->miró",
+    "./punct->miró"
+   ]
+  },
+  {
+   "id": "N2-41",
+   "acepta": true,
+   "upos": [
+    "PROPN",
+    "AUX",
+    "DET",
+    "NOUN",
+    "ADV",
+    "ADJ",
+    "PUNCT"
+   ],
+   "adjunciones": {},
+   "detalle": "sin problemas de concordancia",
+   "dependencias": [
+    "Juan/nsubj->profesor",
+    "es/cop->profesor",
+    "un/det->profesor",
+    "profesor/ROOT->profesor",
+    "bastante/advmod->inteligente",
+    "inteligente/amod->profesor",
+    "./punct->profesor"
+   ]
+  },
+  {
+   "id": "N2-42",
+   "acepta": true,
+   "upos": [
+    "DET",
+    "NOUN",
+    "ADJ",
+    "ADV",
+    "VERB",
+    "ADV",
+    "PUNCT"
+   ],
+   "adjunciones": {},
+   "detalle": "sin problemas de concordancia",
+   "dependencias": [
+    "Los/det->gatos",
+    "gatos/nsubj->beben",
+    "pequeños/amod->gatos",
+    "no/advmod->beben",
+    "beben/ROOT->beben",
+    "rápidamente/advmod->beben",
+    "./punct->beben"
+   ]
+  },
+  {
+   "id": "N2-43",
+   "acepta": true,
+   "upos": [
+    "PRON",
+    "VERB",
+    "ADP",
+    "DET",
+    "NOUN",
+    "ADP",
+    "PROPN",
+    "PUNCT"
+   ],
+   "adjunciones": {
+    "2": 1,
+    "5": 4
+   },
+   "detalle": "sin problemas de concordancia",
+   "dependencias": [
+    "Yo/nsubj->cantaré",
+    "cantaré/ROOT->cantaré",
+    "en/case->casa",
+    "la/det->casa",
+    "casa/obl->cantaré",
+    "de/case->María",
+    "María/nmod->casa",
+    "./punct->cantaré"
+   ]
+  },
+  {
+   "id": "N2-44",
+   "acepta": false,
+   "upos": [
+    "PROPN",
+    "VERB",
+    "ADP",
+    "DET",
+    "NOUN",
+    "ADV",
+    "PUNCT"
+   ],
+   "adjunciones": {
+    "2": 1
+   },
+   "detalle": "nsubj: 'Nosotras' y 'estuvimos' difieren en Person",
+   "dependencias": [
+    "Nosotras/nsubj->estuvimos",
+    "estuvimos/ROOT->estuvimos",
+    "en/case->jardín",
+    "el/det->jardín",
+    "jardín/obl->estuvimos",
+    "ayer/advmod->jardín",
+    "./punct->estuvimos"
+   ]
+  },
+  {
+   "id": "N2-45",
+   "acepta": false,
+   "upos": [
+    "PRON",
+    "VERB",
+    "DET",
+    "NOUN",
+    "ADV",
+    "ADJ",
+    "PUNCT"
+   ],
+   "adjunciones": {},
+   "detalle": "nsubj: 'Tú' y 'escribiste' difieren en Person",
+   "dependencias": [
+    "Tú/nsubj->escribiste",
+    "escribiste/ROOT->escribiste",
+    "una/det->carta",
+    "carta/obj->escribiste",
+    "muy/advmod->bonita",
+    "bonita/amod->carta",
+    "./punct->escribiste"
+   ]
+  },
+  {
+   "id": "N2-46",
+   "acepta": true,
+   "upos": [
+    "PROPN",
+    "VERB",
+    "ADP",
+    "NOUN",
+    "PUNCT"
+   ],
+   "adjunciones": {},
+   "detalle": "sin problemas de concordancia",
+   "dependencias": [
+    "Ana/nsubj->camina",
+    "camina/ROOT->camina",
+    "al/case->escuela",
+    "escuela/obl->camina",
+    "./punct->camina"
+   ]
+  },
+  {
+   "id": "N2-47",
+   "acepta": true,
+   "upos": [
+    "PROPN",
+    "VERB",
+    "DET",
+    "NOUN",
+    "PUNCT"
+   ],
+   "adjunciones": {},
+   "detalle": "sin problemas de concordancia",
+   "dependencias": [
+    "Pedro/nsubj->camina",
+    "camina/ROOT->camina",
+    "el/det->parque",
+    "parque/obj->camina",
+    "./punct->camina"
+   ]
+  },
+  {
+   "id": "N2-48",
+   "acepta": false,
+   "upos": [
+    "PROPN",
+    "VERB",
+    "ADP",
+    "DET",
+    "NOUN",
+    "PUNCT"
+   ],
+   "adjunciones": {},
+   "detalle": "det: 'las' y 'ciudad' difieren en Number",
+   "dependencias": [
+    "Ana/nsubj->vive",
+    "vive/ROOT->vive",
+    "en/case->ciudad",
+    "las/det->ciudad",
+    "ciudad/obl->vive",
+    "./punct->vive"
+   ]
+  },
+  {
+   "id": "N2-49",
+   "acepta": true,
+   "upos": [
+    "DET",
+    "PROPN",
+    "ADJ",
+    "VERB",
+    "ADV",
+    "PUNCT"
+   ],
+   "adjunciones": {},
+   "detalle": "sin problemas de concordancia",
+   "dependencias": [
+    "El/det->gato",
+    "gato/nsubj->corre",
+    "blanca/amod->gato",
+    "corre/ROOT->corre",
+    "rápidamente/advmod->corre",
+    "./punct->corre"
+   ]
+  },
+  {
+   "id": "N2-50",
+   "acepta": true,
+   "upos": [
+    "DET",
+    "NOUN",
+    "ADJ",
+    "VERB",
+    "ADV",
+    "PUNCT"
+   ],
+   "adjunciones": {},
+   "detalle": "sin problemas de concordancia",
+   "dependencias": [
+    "La/det->estudiante",
+    "estudiante/nsubj->canta",
+    "alto/amod->estudiante",
+    "canta/ROOT->canta",
+    "bien/advmod->canta",
+    "./punct->canta"
+   ]
+  },
+  {
+   "id": "N2-51",
+   "acepta": false,
+   "upos": [
+    "DET",
+    "NOUN",
+    "ADP",
+    "DET",
+    "NOUN",
+    "VERB",
+    "PUNCT"
+   ],
+   "adjunciones": {},
+   "detalle": "nsubj: 'niños' y 'corre' difieren en Number",
+   "dependencias": [
+    "Los/det->niños",
+    "niños/nsubj->corre",
+    "de/case->profesora",
+    "la/det->profesora",
+    "profesora/nmod->niños",
+    "corre/ROOT->corre",
+    "./punct->corre"
+   ]
+  },
+  {
+   "id": "N3-52",
+   "acepta": true,
+   "upos": [
+    "PROPN",
+    "CCONJ",
+    "PROPN",
+    "VERB",
+    "NOUN",
+    "PUNCT"
+   ],
+   "adjunciones": {},
+   "detalle": "sin problemas de concordancia",
+   "dependencias": [
+    "Juan/nsubj->comen",
+    "y/cc->María",
+    "María/conj->Juan",
+    "comen/ROOT->comen",
+    "manzanas/obj->comen",
+    "./punct->comen"
+   ]
+  },
+  {
+   "id": "N3-53",
+   "acepta": true,
+   "upos": [
+    "DET",
+    "NOUN",
+    "PRON",
+    "VERB",
+    "PROPN",
+    "VERB",
+    "PUNCT"
+   ],
+   "adjunciones": {},
+   "detalle": "sin problemas de concordancia",
+   "dependencias": [
+    "El/det->perro",
+    "perro/nsubj->corre",
+    "que/obj->miró",
+    "miró/acl->perro",
+    "Ana/nsubj->miró",
+    "corre/ROOT->corre",
+    "./punct->corre"
+   ]
+  },
+  {
+   "id": "N3-54",
+   "acepta": true,
+   "upos": [
+    "PUNCT",
+    "PROPN",
+    "PROPN",
+    "DET",
+    "NOUN",
+    "PUNCT"
+   ],
+   "adjunciones": {},
+   "detalle": "sin problemas de concordancia",
+   "dependencias": [
+    "¿/punct->Come",
+    "Come/ROOT->Come",
+    "Juan/flat->Come",
+    "una/det->manzana",
+    "manzana/appos->Come",
+    "?/punct->Come"
+   ]
+  },
+  {
+   "id": "N3-55",
+   "acepta": true,
+   "upos": [
+    "PROPN",
+    "DET",
+    "NOUN",
+    "PUNCT"
+   ],
+   "adjunciones": {},
+   "detalle": "sin problemas de concordancia",
+   "dependencias": [
+    "Juan/nsubj->mira",
+    "la/obj->mira",
+    "mira/ROOT->mira",
+    "./punct->mira"
+   ]
+  },
+  {
+   "id": "N3-56",
+   "acepta": true,
+   "upos": [
+    "DET",
+    "NOUN",
+    "AUX",
+    "VERB",
+    "ADP",
+    "PROPN",
+    "PUNCT"
+   ],
+   "adjunciones": {
+    "4": 3
+   },
+   "detalle": "sin problemas de concordancia",
+   "dependencias": [
+    "La/det->carta",
+    "carta/nsubj->escrita",
+    "fue/aux->escrita",
+    "escrita/ROOT->escrita",
+    "por/case->Ana",
+    "Ana/obj->escrita",
+    "./punct->escrita"
+   ]
+  },
+  {
+   "id": "N3-57",
+   "acepta": true,
+   "upos": [
+    "PROPN",
+    "AUX",
+    "VERB",
+    "DET",
+    "NOUN",
+    "PUNCT"
+   ],
+   "adjunciones": {},
+   "detalle": "sin problemas de concordancia",
+   "dependencias": [
+    "Ana/nsubj->comido",
+    "ha/aux->comido",
+    "comido/ROOT->comido",
+    "el/det->pan",
+    "pan/obj->comido",
+    "./punct->comido"
+   ]
+  },
+  {
+   "id": "N3-58",
+   "acepta": true,
+   "upos": [
+    "PROPN",
+    "VERB",
+    "SCONJ",
+    "DET",
+    "NOUN",
+    "AUX",
+    "ADJ",
+    "PUNCT"
+   ],
+   "adjunciones": {},
+   "detalle": "sin problemas de concordancia",
+   "dependencias": [
+    "Luis/nsubj->estudia",
+    "estudia/ROOT->estudia",
+    "porque/mark->inteligente",
+    "el/det->profesor",
+    "profesor/nsubj->inteligente",
+    "es/cop->inteligente",
+    "inteligente/advcl->estudia",
+    "./punct->estudia"
+   ]
+  },
+  {
+   "id": "N3-59",
+   "acepta": true,
+   "upos": [
+    "SCONJ",
+    "PROPN",
+    "PROPN",
+    "PUNCT",
+    "DET",
+    "NOUN",
+    "VERB",
+    "PUNCT"
+   ],
+   "adjunciones": {},
+   "detalle": "sin problemas de concordancia",
+   "dependencias": [
+    "Cuando/mark->bailan",
+    "Ana/nsubj->bailan",
+    "canta/flat->Ana",
+    ",/punct->Ana",
+    "los/det->niños",
+    "niños/nsubj->bailan",
+    "bailan/ROOT->bailan",
+    "./punct->bailan"
+   ]
+  },
+  {
+   "id": "N3-60",
+   "acepta": true,
+   "upos": [
+    "DET",
+    "NOUN",
+    "VERB",
+    "NOUN",
+    "PUNCT"
+   ],
+   "adjunciones": {},
+   "detalle": "sin problemas de concordancia",
+   "dependencias": [
+    "Los/det->niños",
+    "niños/nsubj->comen",
+    "comen/ROOT->comen",
+    "manzanas/obj->comen",
+    "./punct->comen"
+   ]
+  },
+  {
+   "id": "N3-61",
+   "acepta": true,
+   "upos": [
+    "PROPN",
+    "PRON",
+    "VERB",
+    "DET",
+    "NOUN",
+    "ADP",
+    "PROPN",
+    "PUNCT"
+   ],
+   "adjunciones": {
+    "5": 2
+   },
+   "detalle": "sin problemas de concordancia",
+   "dependencias": [
+    "Ana/nsubj->escribió",
+    "le/obj->escribió",
+    "escribió/ROOT->escribió",
+    "una/det->carta",
+    "carta/obj->escribió",
+    "a/case->Pedro",
+    "Pedro/obj->escribió",
+    "./punct->escribió"
+   ]
+  },
+  {
+   "id": "N3-62",
+   "acepta": false,
+   "upos": [
+    "PROPN",
+    "CCONJ",
+    "PROPN",
+    "VERB",
+    "DET",
+    "NOUN",
+    "PUNCT"
+   ],
+   "adjunciones": {},
+   "detalle": "nsubj: 'Juan' y 'cocinará' difieren en Number",
+   "dependencias": [
+    "Juan/nsubj->cocinará",
+    "o/cc->Pedro",
+    "Pedro/conj->Juan",
+    "cocinará/ROOT->cocinará",
+    "el/det->pan",
+    "pan/obj->cocinará",
+    "./punct->cocinará"
+   ]
+  },
+  {
+   "id": "N3-63",
+   "acepta": false,
+   "upos": [
+    "PROPN",
+    "VERB",
+    "ADP",
+    "NOUN",
+    "CCONJ",
+    "DET",
+    "NOUN",
+    "ADV",
+    "VERB",
+    "ADP",
+    "PROPN",
+    "PUNCT"
+   ],
+   "adjunciones": {},
+   "detalle": "nsubj: 'Ana' y 'mira' difieren en Person; nsubj: 'gato' y 'mira' difieren en Person",
+   "dependencias": [
+    "Ana/nsubj->mira",
+    "mira/ROOT->mira",
+    "al/case->gato",
+    "gato/obj->mira",
+    "pero/cc->mira",
+    "el/det->gato",
+    "gato/nsubj->mira",
+    "no/advmod->mira",
+    "mira/conj->mira",
+    "a/case->Ana",
+    "Ana/obj->mira",
+    "./punct->mira"
+   ]
+  },
+  {
+   "id": "N3-64",
+   "acepta": true,
+   "upos": [
+    "DET",
+    "NOUN",
+    "PRON",
+    "DET",
+    "NOUN",
+    "VERB",
+    "VERB",
+    "PUNCT"
+   ],
+   "adjunciones": {},
+   "detalle": "sin problemas de concordancia",
+   "dependencias": [
+    "Los/det->perros",
+    "perros/nsubj->corren",
+    "que/obj->miró",
+    "el/det->niño",
+    "niño/nsubj->miró",
+    "miró/acl->perros",
+    "corren/ROOT->corren",
+    "./punct->corren"
+   ]
+  },
+  {
+   "id": "N3-65",
+   "acepta": true,
+   "upos": [
+    "PROPN",
+    "AUX",
+    "ADV",
+    "ADJ",
+    "SCONJ",
+    "PROPN",
+    "PUNCT"
+   ],
+   "adjunciones": {},
+   "detalle": "sin problemas de concordancia",
+   "dependencias": [
+    "María/nsubj->alta",
+    "es/cop->alta",
+    "más/advmod->alta",
+    "alta/ROOT->alta",
+    "que/mark->Ana",
+    "Ana/obl->alta",
+    "./punct->alta"
+   ]
+  },
+  {
+   "id": "N3-66",
+   "acepta": true,
+   "upos": [
+    "PRON",
+    "VERB",
+    "ADV",
+    "ADP",
+    "DET",
+    "NOUN",
+    "ADP",
+    "PROPN",
+    "PUNCT"
+   ],
+   "adjunciones": {
+    "3": 1,
+    "6": 5
+   },
+   "detalle": "sin problemas de concordancia",
+   "dependencias": [
+    "Se/expl:impers->come",
+    "come/ROOT->come",
+    "bien/advmod->come",
+    "en/case->casa",
+    "la/det->casa",
+    "casa/obl->come",
+    "de/case->Ana",
+    "Ana/nmod->casa",
+    "./punct->come"
+   ]
+  },
+  {
+   "id": "N3-67",
+   "acepta": true,
+   "upos": [
+    "PROPN",
+    "PROPN",
+    "DET",
+    "NOUN",
+    "PUNCT"
+   ],
+   "adjunciones": {},
+   "detalle": "sin problemas de concordancia",
+   "dependencias": [
+    "Comió/ROOT->Comió",
+    "Juan/flat->Comió",
+    "el/det->pan",
+    "pan/flat->Comió",
+    "./punct->Comió"
+   ]
+  },
+  {
+   "id": "N3-68",
+   "acepta": true,
+   "upos": [
+    "PUNCT",
+    "PROPN",
+    "VERB",
+    "PROPN",
+    "PUNCT"
+   ],
+   "adjunciones": {},
+   "detalle": "sin problemas de concordancia",
+   "dependencias": [
+    "¿/punct->vive",
+    "Dónde/obl->vive",
+    "vive/ROOT->vive",
+    "Ana/nsubj->vive",
+    "?/punct->vive"
+   ]
+  },
+  {
+   "id": "N3-69",
+   "acepta": true,
+   "upos": [
+    "DET",
+    "NOUN",
+    "ADJ",
+    "CCONJ",
+    "ADJ",
+    "VERB",
+    "PUNCT"
+   ],
+   "adjunciones": {},
+   "detalle": "sin problemas de concordancia",
+   "dependencias": [
+    "La/det->niña",
+    "niña/nsubj->canta",
+    "cansada/amod->niña",
+    "y/cc->feliz",
+    "feliz/conj->cansada",
+    "canta/ROOT->canta",
+    "./punct->canta"
+   ]
+  },
+  {
+   "id": "N3-70",
+   "acepta": true,
+   "upos": [
+    "PROPN",
+    "VERB",
+    "ADJ",
+    "PUNCT"
+   ],
+   "adjunciones": {},
+   "detalle": "sin problemas de concordancia",
+   "dependencias": [
+    "Ana/nsubj->corre",
+    "corre/ROOT->corre",
+    "rápido/advmod->corre",
+    "./punct->corre"
+   ]
+  },
+  {
+   "id": "N3-71",
+   "acepta": false,
+   "upos": [
+    "ADP",
+    "PROPN",
+    "DET",
+    "NOUN",
+    "DET",
+    "NOUN",
+    "PUNCT"
+   ],
+   "adjunciones": {},
+   "detalle": "det: 'la' y 'miran' difieren en Number",
+   "dependencias": [
+    "A/case->Ana",
+    "Ana/ROOT->Ana",
+    "la/det->miran",
+    "miran/flat->Ana",
+    "los/det->niños",
+    "niños/flat->Ana",
+    "./punct->Ana"
+   ]
+  },
+  {
+   "id": "N3-72",
+   "acepta": false,
+   "upos": [
+    "DET",
+    "NOUN",
+    "PRON",
+    "VERB",
+    "PROPN",
+    "VERB",
+    "PUNCT"
+   ],
+   "adjunciones": {},
+   "detalle": "nsubj: 'perros' y 'corre' difieren en Number",
+   "dependencias": [
+    "Los/det->perros",
+    "perros/nsubj->corre",
+    "que/obj->miró",
+    "miró/acl->perros",
+    "Ana/nsubj->miró",
+    "corre/ROOT->corre",
+    "./punct->corre"
+   ]
+  },
+  {
+   "id": "N3-73",
+   "acepta": false,
+   "upos": [
+    "PROPN",
+    "CCONJ",
+    "PROPN",
+    "VERB",
+    "NOUN",
+    "PUNCT"
+   ],
+   "adjunciones": {},
+   "detalle": "nsubj: 'Juan' y 'come' difieren en Number",
+   "dependencias": [
+    "Juan/nsubj->come",
+    "y/cc->María",
+    "María/conj->Juan",
+    "come/ROOT->come",
+    "manzanas/obj->come",
+    "./punct->come"
+   ]
+  },
+  {
+   "id": "N3-74",
+   "acepta": false,
+   "upos": [
+    "DET",
+    "NOUN",
+    "AUX",
+    "VERB",
+    "ADP",
+    "PROPN",
+    "PUNCT"
+   ],
+   "adjunciones": {},
+   "detalle": "nsubj: 'carta' y 'fueron' difieren en Number",
+   "dependencias": [
+    "La/det->carta",
+    "carta/nsubj->escrita",
+    "fueron/aux->escrita",
+    "escrita/ROOT->escrita",
+    "por/case->Ana",
+    "Ana/obj->escrita",
+    "./punct->escrita"
+   ]
+  },
+  {
+   "id": "N3-75",
+   "acepta": false,
+   "upos": [
+    "DET",
+    "NOUN",
+    "PRON",
+    "VERB",
+    "ADV",
+    "VERB",
+    "DET",
+    "NOUN",
+    "PUNCT"
+   ],
+   "adjunciones": {},
+   "detalle": "det: 'la' y 'manzanas' difieren en Number",
+   "dependencias": [
+    "El/det->perro",
+    "perro/nsubj->come",
+    "que/nsubj->corre",
+    "corre/acl->perro",
+    "rápidamente/advmod->corre",
+    "come/ROOT->come",
+    "la/det->manzanas",
+    "manzanas/obj->come",
+    "./punct->come"
+   ]
+  },
+  {
+   "id": "N3-76",
+   "acepta": false,
+   "upos": [
+    "PROPN",
+    "PRON",
+    "VERB",
+    "DET",
+    "NOUN",
+    "ADP",
+    "DET",
+    "NOUN",
+    "PUNCT"
+   ],
+   "adjunciones": {},
+   "detalle": "det: 'los' y 'niño' difieren en Number",
+   "dependencias": [
+    "Ana/nsubj->escribió",
+    "le/obj->escribió",
+    "escribió/ROOT->escribió",
+    "una/det->carta",
+    "carta/obj->escribió",
+    "a/case->niño",
+    "los/det->niño",
+    "niño/obj->escribió",
+    "./punct->escribió"
+   ]
+  }
+ ]
+}
